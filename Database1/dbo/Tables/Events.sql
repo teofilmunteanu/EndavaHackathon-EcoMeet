@@ -7,6 +7,6 @@
     [Section ] NVARCHAR(30) NOT NULL, 
     [MaxParticipats ] INT NOT NULL, 
     [CurrentNumberOfParticipants ] INT NOT NULL, 
-    [DateTime] DATETIME2 NOT NULL, 
+    [DateTime] DATETIME2 NOT NULL
 
 )
