@@ -12,5 +12,8 @@ namespace WebAPI.Models
         public string Password { get; set; }
         public string City { get; set; }
         public Administrator Administrator { get; set; }
+        public List<Event> Events { get; set; }
+        public List<String> Sponsors { get; set; }
+
     }
 }
