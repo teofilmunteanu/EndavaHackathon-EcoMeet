@@ -15,5 +15,6 @@ namespace WebAPI.Models
         public List<Event> Events { get; set; }
         public List<String> Sponsors { get; set; }
 
+
     }
 }
