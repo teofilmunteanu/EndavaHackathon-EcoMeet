@@ -6,7 +6,7 @@
     <Name>Database1</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{829c8c88-fea9-459e-9d30-33d7dbd3f993}</ProjectGuid>
+    <ProjectGuid>{2944d8c1-592c-4387-bcd1-92b43c235846}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
@@ -16,12 +16,13 @@
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,16 +57,16 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="schema" />
-    <Folder Include="schema\Tables" />
-    <Folder Include="schema\Views" />
-    <Folder Include="schema\Stored Procedures" />
-    <Folder Include="Published" />
+    <Folder Include="dbo" />
+    <Folder Include="published" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Views" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Published\Database1.publish.xml" />
+    <None Include="published\Database1.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="schema\Tables\Volunteer.sql" />
+    <Build Include="dbo\Tables\Volunteers.sql" />
   </ItemGroup>
 </Project>
