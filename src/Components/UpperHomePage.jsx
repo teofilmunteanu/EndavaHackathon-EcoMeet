@@ -17,7 +17,7 @@ import React from "react";
 function UpperHomePage() {
   return (
     <Flex h="100%" direction={{ base: "column", md: "row" }}>
-      <Box w="70%" boxShadow="md">
+      <Box w={["100%", null,"70%"]} boxShadow="md">
         <Image src="./Park2.jpg" alt="cover" blur="1px" />
         <Text
           as="h1"
@@ -58,15 +58,15 @@ function UpperHomePage() {
       </Box>
       <Box w="0.3%" color="white"></Box>
       <Box
-        w="29.7%"
+        w={["100%", null, "29.7%"]}
         background="linear-gradient(180deg, rgba(255, 203, 48, 0.2) 0%, rgba(31, 222, 199, 0) 100%), linear-gradient(180deg, #FFCB30 0%, #2CAA6E 52.6%, #56D02B 100%)"
         boxShadow="md"
         alignItems="center"
       >
         <Flex
-          alignItems={"center"}
+          alignItems="center"
           direction="column"
-          w="70%"
+          w={["50%", null, "70%"]}
           h="75%"
           bg="#1C6F47"
           ml="4vw"
