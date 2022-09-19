@@ -1,10 +1,22 @@
-import { Flex, Box, Image, Text, Button, Heading } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Image,
+  Text,
+  Button,
+  Heading,
+  Stack,
+  FormControl,
+  FormLabel,
+  Input,
+  Divider,
+} from "@chakra-ui/react";
 
 import React from "react";
 
 function UpperHomePage() {
   return (
-    <Flex h="100%">
+    <Flex h="100%" direction={{ base: "column", md: "row" }}>
       <Box w="70%" boxShadow="md">
         <Image src="./Park2.jpg" alt="cover" blur="1px" />
         <Text
