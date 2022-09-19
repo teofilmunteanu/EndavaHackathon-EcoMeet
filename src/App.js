@@ -21,8 +21,8 @@ function App() {
           path="/"
           element={
             <>
-              <UpperHomePage></UpperHomePage>
-              <Description></Description>
+              <UpperHomePage/>
+              <Description/>
             </>
           }
         />
