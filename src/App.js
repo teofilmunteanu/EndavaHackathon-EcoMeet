@@ -7,6 +7,8 @@ import UpperHomePage from "./Components/UpperHomePage";
 import OSignUp from "./Components/OSignUp";
 import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
+import VFeed from "./Components/VFeed";
+
 
 import { ChakraProvider } from "@chakra-ui/react";
 import {mainTheme} from "./styles/theme";
@@ -21,6 +23,7 @@ function App() {
           <Route path="/OSignUp" element={<><OSignUp/></>}/>
           <Route path="/VSignUp" element={<><VSignUp/></>}/>
           <Route path="/Login" element={<><Login/></>}/>
+          <Route path="/VFeed" element={<><VFeed/></>}/>
         </Routes>
     </ChakraProvider>
   );
