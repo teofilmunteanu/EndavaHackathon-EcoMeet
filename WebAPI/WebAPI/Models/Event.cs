@@ -13,8 +13,10 @@ namespace WebAPI.Models
 		public string Location { get; set; }
 		public string Description { get; set; }
 		public string Section { get; set; }
-		public int MaxParticipats { get; set; }
+		public int MaxParticipants { get; set; }
 		public int CurrentNumberOfParticipants { get; set; }
 		public DateTime DateTime { get; set; }
+
+		public List<Volunteer> Volunteers { get; set; }
 	}
 }

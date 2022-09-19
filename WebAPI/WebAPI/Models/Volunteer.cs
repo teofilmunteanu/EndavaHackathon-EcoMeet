@@ -15,5 +15,6 @@ namespace WebAPI.Models
         public string City { get; set; }
         public int Level { get; set; }
         public int Point { get; set; }
+        public List<Event> Events { get; set; }
     }
 }

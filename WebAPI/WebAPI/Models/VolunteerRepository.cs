@@ -8,7 +8,7 @@ namespace WebAPI.Models
     public class VolunteerRepository : IVolunteerRepository
     {
         private List<Volunteer> Volunteers = new List<Volunteer>();
-        private int _nextId = 1;
+       
 
         public VolunteerRepository()
         {
