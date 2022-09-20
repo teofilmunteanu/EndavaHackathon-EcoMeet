@@ -9,10 +9,15 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Fonts,
   Divider,
 } from "@chakra-ui/react";
 
 import React from "react";
+import "@fontsource/neuton";
+import "@fontsource/inter";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { CheckCircleIcon } from "@chakra-ui/icons";
 
 function UpperHomePage() {
   return (
@@ -27,6 +32,8 @@ function UpperHomePage() {
           left="8vw"
           color="white"
           textShadow="0px 4px 4px rgba(0, 0, 0, 0.3)"
+          fontFamily="neuton"
+          fontStyle="normal"
         >
           Welcome to
         </Text>
@@ -40,6 +47,8 @@ function UpperHomePage() {
           textShadow=""
           bgGradient="linear(266.01deg, #FFBF00 18.2%, #FF9900 58.72%, #FFE600 65.82%, #8AEE67 98.4%)"
           bgClip="text"
+          fontFamily="neuton"
+          fontStyle="normal"
         >
           EcoMeet
         </Text>
@@ -49,9 +58,12 @@ function UpperHomePage() {
           position="absolute"
           top="43vw"
           left="6vw"
-          textShadow="0px 4px 4px rgba(0, 0, 0, 0.3)"
+          //textShadow="0px 4px 4px rgba(0, 0, 0, 0.3)"
           color="white"
-          ml="26vw"
+          ml="22vw"
+          fontFamily="neuton"
+          fontStyle="normal"
+          textShadow="md"
         >
           !
         </Text>
@@ -68,7 +80,7 @@ function UpperHomePage() {
         w={["100%", null, "29.7%"]}
         h={{ base: "auto", xs: "100%" }}
         //alignItems="center"
-        background="linear-gradient(180deg, rgba(255, 203, 48, 0.2) 0%, rgba(31, 222, 199, 0) 100%), linear-gradient(180deg, #FFCB30 0%, #2CAA6E 52.6%, #56D02B 100%)"
+        background="linear-gradient(180deg, #FFCB30 -10.16%, rgba(255, 203, 48, 0) 100%), rgba(85, 252, 172, 0.67)"
         boxShadow="md"
       >
         <Flex
@@ -88,13 +100,16 @@ function UpperHomePage() {
           lineHeight="1vw"
         >
           <Heading
-            fontSize="1.5vw"
-            textShadow="xs"
+            fontSize="2vw"
             fontWeight="semibold"
             mt="5vw"
-            mr="4vw"
+            mr="2vw"
             color="white"
             textAlign="left"
+            fontFamily="neuton"
+            fontStyle="normal"
+            letterSpacing="0.065em"
+            textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
           >
             Get Started as:
           </Heading>
@@ -107,13 +122,15 @@ function UpperHomePage() {
             h="10%"
             mt="3.5vw"
           >
-            <Image
-              src="./RightArrow.png"
-              alt="Check mark"
-              width="15%"
-              heigt="auto"
-            />
-            <Text fontSize="1.5vw" color="black" ml="1vw">
+            <ArrowForwardIcon color="white" />
+            <Text
+              fontSize="1.5vw"
+              color="black"
+              ml="1vw"
+              fontFamily="inter"
+              fontWeight={"200"}
+              textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
+            >
               Volunteer
             </Text>
           </Button>
@@ -126,32 +143,36 @@ function UpperHomePage() {
             h="10%"
             mt="3.5vw"
           >
-            <Image
-              src="./RightArrow.png"
-              alt="Check mark"
-              width="15%"
-              heigt="auto"
-            />
-            <Text fontSize="1.5vw" color="black" ml="1vw">
+            <ArrowForwardIcon color="white" />
+            <Text
+              fontSize="1.5vw"
+              color="black"
+              ml="1vw"
+              fontFamily="inter"
+              fontWeight={"200"}
+              textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
+            >
               Organizer
             </Text>
           </Button>
           <Flex alignItems="baseline" ml="3vw" line-height="1" spacing="24px">
-            <Image
+            <CheckCircleIcon
               src="./Check.png"
               alt="Check mark"
-              width="6%"
-              heigt="auto"
-              boxShadow="md"
+              boxSize={"3"}
+              color="white"
+              textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
             />
             <Text
               fontSize="1.5vw"
-              textShadow="xs"
               mt="3vw"
               pl="1vw"
               color="white"
-              fontWeight="thin"
               lineHeight="2vw"
+              fontFamily="Neuton"
+              fontWeight="200"
+              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+              mr="4vw"
             >
               Already have an account?
             </Text>
@@ -166,7 +187,14 @@ function UpperHomePage() {
             bg="rgba(0,0,0,0.2)"
             mb="3vw"
           >
-            <Text fontSize="1vw" color="black">
+            <Text
+              textAlign="center"
+              fontSize="1vw"
+              color="black"
+              fontFamily={"inter"}
+              fontWeight="bold"
+              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+            >
               Log in
             </Text>
           </Button>
