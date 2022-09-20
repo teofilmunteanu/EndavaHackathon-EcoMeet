@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
+<<<<<<< HEAD
+=======
     "@chakra-ui/icon": "^3.0.9",
+>>>>>>> ND-VH1
     "@chakra-ui/icons": "^2.0.9",
     "@chakra-ui/react": "^2.3.2",
     "@emotion/react": "^11.10.4",

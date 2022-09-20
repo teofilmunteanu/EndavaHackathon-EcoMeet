@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 
+<<<<<<< HEAD
 
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -8,6 +9,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import UpperHomePage from "./Components/UpperHomePage";
 
 import NavBar from "./Components/NavBar";
+=======
+>>>>>>> ND-VH1
 import Description from "./Components/description";
 import NavBar from "./Components/NavBar";
 import UpperHomePage from "./Components/UpperHomePage";
@@ -16,8 +19,11 @@ import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
 import BottomBar from "./Components/BottomBar";
 
+<<<<<<< HEAD
+=======
 import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
+>>>>>>> ND-VH1
 
 import {Route, withRouter, Routes} from "react-router-dom"
 
@@ -38,6 +44,7 @@ function App() {
         </Routes>
       </React.Fragment>
 
+=======
     <ChakraProvider resetCSS theme={mainTheme}>
       <NavBar />
       <Routes>
@@ -76,6 +83,7 @@ function App() {
         />
       </Routes>
       <BottomBar></BottomBar>
+>>>>>>> ND-VH1
     </ChakraProvider>
   );
 }
