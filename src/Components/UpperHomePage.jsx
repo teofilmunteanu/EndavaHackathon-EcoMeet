@@ -17,7 +17,7 @@ import React from "react";
 function UpperHomePage() {
   return (
     <Flex h="100%" direction={{ base: "column", md: "row" }}>
-      <Box w={["100%", null,"70%"]} boxShadow="md">
+      <Box w={["100%", null, "70%"]} boxShadow="md">
         <Image src="./Park2.jpg" alt="cover" blur="1px" />
         <Text
           as="h1"
@@ -56,21 +56,30 @@ function UpperHomePage() {
           !
         </Text>
       </Box>
-      <Box w="0.3%" color="white"></Box>
+      <Box
+        w={["100%", null, "0.3%"]}
+        h={["0.3%", null, "100%"]}
+        bgColor="white"
+        border={"1px"}
+        borderColor="white"
+        boxShadow="md"
+      ></Box>
       <Box
         w={["100%", null, "29.7%"]}
+        h={{ base: "auto", xs: "100%" }}
+        //alignItems="center"
         background="linear-gradient(180deg, rgba(255, 203, 48, 0.2) 0%, rgba(31, 222, 199, 0) 100%), linear-gradient(180deg, #FFCB30 0%, #2CAA6E 52.6%, #56D02B 100%)"
         boxShadow="md"
-        alignItems="center"
       >
         <Flex
+          ml={["32vw", null, "4vw"]}
           alignItems="center"
           direction="column"
-          w={["50%", null, "70%"]}
+          w={["35%", null, "70%"]}
           h="75%"
           bg="#1C6F47"
-          ml="4vw"
           mt="5vw"
+          mb="5vw"
           borderWidth="1px"
           borderRadius="lg"
           overflow="hidden"
@@ -155,6 +164,7 @@ function UpperHomePage() {
             varient="link"
             boxShadow="md"
             bg="rgba(0,0,0,0.2)"
+            mb="3vw"
           >
             <Text fontSize="1vw" color="black">
               Log in
