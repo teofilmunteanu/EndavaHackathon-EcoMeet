@@ -75,7 +75,15 @@ function OSignUp() {
               <ArrowBackIcon />
               Back
             </Button>
-            <Button variant="auth">Sign up</Button>
+            <Button
+              variant="auth"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "#";
+              }}
+            >
+              Sign up
+            </Button>
           </Stack>
         </Stack>
       </Flex>

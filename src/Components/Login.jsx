@@ -42,7 +42,15 @@ function Login() {
               <ArrowBackIcon />
               Back
             </Button>
-            <Button variant="auth">Log In</Button>
+            <Button
+              variant="auth"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "#";
+              }}
+            >
+              Log In
+            </Button>
           </Stack>
         </Stack>
       </Flex>
