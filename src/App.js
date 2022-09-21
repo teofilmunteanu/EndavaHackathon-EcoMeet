@@ -1,5 +1,3 @@
-import "./App.css";
-
 import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 
@@ -7,6 +5,9 @@ import Description from "./Components/description";
 import NavBar from "./Components/NavBar";
 import UpperHomePage from "./Components/UpperHomePage";
 import BottomBar from "./Components/BottomBar";
+import OSignUp from "./Components/OSignUp";
+import VSignUp from "./Components/VSignUp";
+import Login from "./Components/Login";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
@@ -22,6 +23,32 @@ function App() {
             <>
               <UpperHomePage />
               <Description />
+              <UpperHomePage/>
+              <Description/>
+            </>
+          }
+        />
+        <Route
+          path="/OSignUp"
+          element={
+            <>
+              <OSignUp />
+            </>
+          }
+        />
+        <Route
+          path="/VSignUp"
+          element={
+            <>
+              <VSignUp />
+            </>
+          }
+        />
+        <Route
+          path="/Login"
+          element={
+            <>
+              <Login />
             </>
           }
         />
