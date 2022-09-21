@@ -1,4 +1,4 @@
-import { Image, Text, Box, Flex, Heading, Stack } from "@chakra-ui/react";
+import { Image, Text, Box, Flex, Heading } from "@chakra-ui/react";
 import React from "react";
 
 function Description() {
@@ -25,7 +25,13 @@ function Description() {
             </Text>
           </Flex>
         </Heading>
-        <Box h="5px" w="70%" bg="gray.200" mt="2vw"></Box>
+        <Box
+          h="3px"
+          w="70%"
+          bg="gray.200"
+          mt="2vw"
+          boxShadow={"0px 4px 4px rgba(0,0,0,0.05)"}
+        ></Box>
 
         <Text
           fontSize="2vw"
@@ -35,10 +41,7 @@ function Description() {
           fontWeight="100"
         >
           EcoMeet is the best platform you can use to engage in eco-friendly
-          activities that help the enviroment around the world! With a few
-          clicks, you can find a large diversity of events that bring an
-          enviromental impact on the world from which you can choose. It has
-          never been that easy to save the planet you live in!
+          activities that help the enviroment around the world!
         </Text>
         <Text
           fontSize="2vw"

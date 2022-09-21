@@ -8,7 +8,6 @@ import {
   Stack,
   Image,
   Divider,
-  Link,
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
@@ -17,36 +16,14 @@ function Login() {
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={4} w={"full"} maxW={"md"}>
-          <Heading
-            fontSize={["6vw", "4vw", "2.5vw"]}
-            color="#072C06"
-            textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-            fontFamily={"neuton"}
-            fontWeight="light"
-          >
-            Welcome back!
-          </Heading>
+          <Heading variant="authEffect">Welcome back!</Heading>
           <Divider orientation="horizontal" />
           <FormControl id="Username">
-            <FormLabel
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
-              Username:
-            </FormLabel>
+            <FormLabel variant="authEffect">Username:</FormLabel>
             <Input type="text" />
           </FormControl>
           <FormControl id="password">
-            <FormLabel
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
-              Password:
-            </FormLabel>
+            <FormLabel variant="authEffect">Password:</FormLabel>
             <Input type="password" />
           </FormControl>
           <Stack
@@ -55,26 +32,17 @@ function Login() {
             justify={"space-between"}
           >
             <Button
-              colorScheme={"rgba(0,0,0,0)"}
-              variant={"ghost"}
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
+              variant="auth"
+              bg="white"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "http://localhost:3000/";
+              }}
             >
               <ArrowBackIcon />
               Back
             </Button>
-            <Button
-              colorScheme={"gray"}
-              variant={"outline"}
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
-              Log In
-            </Button>
+            <Button variant="auth">Log In</Button>
           </Stack>
         </Stack>
       </Flex>

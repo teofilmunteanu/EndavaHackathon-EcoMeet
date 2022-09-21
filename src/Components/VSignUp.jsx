@@ -16,36 +16,16 @@ function VSignUp() {
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={4} w={"full"} maxW={"md"}>
-          <Heading
-            fontSize={["6vw", "4vw", "2.5vw"]}
-            color="#072C06"
-            textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-            fontFamily={"neuton"}
-            fontWeight="light"
-          >
+          <Heading fontSize={["6vw", "4vw", "2.5vw"]} variant="authEffect">
             Hello, Volunteer!
           </Heading>
           <Divider orientation="horizontal" />
           <FormControl id="username">
-            <FormLabel
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
-              Username:
-            </FormLabel>
+            <FormLabel variant="authEffect">Username:</FormLabel>
             <Input type="text" />
           </FormControl>
           <FormControl id="email">
-            <FormLabel
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
-              Email:
-            </FormLabel>
+            <FormLabel variant="authEffect">Email:</FormLabel>
             <Input type="email" />
           </FormControl>
           <Stack
@@ -54,37 +34,16 @@ function VSignUp() {
             justify={"space-between"}
           >
             <FormControl id="password">
-              <FormLabel
-                color="#072C06"
-                textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-                fontFamily={"neuton"}
-                fontWeight="light"
-              >
-                Set Password:
-              </FormLabel>
+              <FormLabel variant="authEffect">Set Password:</FormLabel>
               <Input type="password" />
             </FormControl>
             <FormControl id="password">
-              <FormLabel
-                color="#072C06"
-                textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-                fontFamily={"neuton"}
-                fontWeight="light"
-              >
-                Confirm Password:
-              </FormLabel>
+              <FormLabel variant="authEffect">Confirm Password:</FormLabel>
               <Input type="password" />
             </FormControl>
           </Stack>
           <FormControl id="town">
-            <FormLabel
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
-              Town/City:
-            </FormLabel>
+            <FormLabel variant="authEffect">Town/City:</FormLabel>
             <Input type="text" />
           </FormControl>
           <Stack
@@ -92,27 +51,15 @@ function VSignUp() {
             align={"start"}
             justify={"space-between"}
           >
-            <Button
-              colorScheme={"rgba(0,0,0,0)"}
-              variant={"ghost"}
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
+            <Button variant="auth" bg="white"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "http://localhost:3000/";
+            }}>
               <ArrowBackIcon />
               Back
             </Button>
-            <Button
-              colorScheme={"gray"}
-              variant={"outline"}
-              color="#072C06"
-              textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="light"
-            >
-              Sign up
-            </Button>
+            <Button variant="auth">Sign up</Button>
           </Stack>
         </Stack>
       </Flex>

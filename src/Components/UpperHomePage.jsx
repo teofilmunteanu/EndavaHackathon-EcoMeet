@@ -1,17 +1,4 @@
-import {
-  Flex,
-  Box,
-  Image,
-  Text,
-  Button,
-  Heading,
-  Stack,
-  FormControl,
-  FormLabel,
-  Input,
-  Fonts,
-  Divider,
-} from "@chakra-ui/react";
+import { Flex, Box, Image, Text, Button, Heading } from "@chakra-ui/react";
 
 import React from "react";
 import "@fontsource/neuton";
@@ -25,45 +12,43 @@ function UpperHomePage() {
       <Box w={["100%", null, "70%"]} boxShadow="md">
         <Image src="./Park2.jpg" alt="cover" blur="1px" />
         <Text
-          as="h1"
-          fontSize="6vw"
+          fontSize={["12vw", "8vw", "6vw"]}
           position="absolute"
-          top="35vw"
+          top={["64vw", "55vw", "40vw"]}
           left="8vw"
           color="white"
-          textShadow="0px 4px 4px rgba(0, 0, 0, 0.3)"
+          textShadow="0px 4px 4px rgba(0, 0, 0, 0.5)"
           fontFamily="neuton"
           fontStyle="normal"
         >
           Welcome to
         </Text>
         <Text
-          as="p"
-          fontSize="6vw"
+          fontSize={["12vw", "8vw", "6vw"]}
           position="absolute"
-          top="43vw"
+          top={["73vw", "62vw", "46vw"]}
           left="8vw"
-          color="#FFCB30"
-          textShadow=""
-          bgGradient="linear(266.01deg, #FFBF00 18.2%, #FF9900 58.72%, #FFE600 65.82%, #8AEE67 98.4%)"
+          color="white"
+          bgGradient="linear(266.01deg, yellow.200 18.2%, yellow.300 58.72%, yellow.400 65.82%, green.300 98.4%)"
           bgClip="text"
+          //textShadow="0px 4px 4px rgba(0, 0, 0, 0.5)"
           fontFamily="neuton"
           fontStyle="normal"
         >
           EcoMeet
         </Text>
+
         <Text
           as="p"
-          fontSize="6vw"
+          fontSize={["12vw", "8vw", "6vw"]}
           position="absolute"
-          top="43vw"
-          left="6vw"
-          //textShadow="0px 4px 4px rgba(0, 0, 0, 0.3)"
+          top={["73vw", "62vw", "46vw"]}
+          left={["26vw", "13vw", "6vw"]}
           color="white"
           ml="22vw"
           fontFamily="neuton"
           fontStyle="normal"
-          textShadow="md"
+          textShadow="0px 4px 4px rgba(0, 0, 0, 0.5)"
         >
           !
         </Text>
@@ -114,18 +99,16 @@ function UpperHomePage() {
             Get Started as:
           </Heading>
           <Button
-            variant="outline"
-            color="#1C6F47"
-            bgGradient="linear(92.04deg, rgba(255, 191, 0, 0.2) 0%, rgba(29, 255, 214, 0.2) 100%, rgba(255, 255, 255, 0.2) 100%)"
-            boxShadow="2xl"
-            w="70%"
-            h="10%"
-            mt="3.5vw"
+            variant="homebutton"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "http://localhost:3000/VSignUp";
+            }}
           >
             <ArrowForwardIcon color="white" />
             <Text
               fontSize="1.5vw"
-              color="black"
+              color="white"
               ml="1vw"
               fontFamily="inter"
               fontWeight={"200"}
@@ -135,18 +118,16 @@ function UpperHomePage() {
             </Text>
           </Button>
           <Button
-            variant="outline"
-            color="#1C6F47"
-            bgGradient="linear(92.04deg, rgba(255, 191, 0, 0.2) 0%, rgba(29, 255, 214, 0.2) 100%, rgba(255, 255, 255, 0.2) 100%)"
-            boxShadow="2xl"
-            w="70%"
-            h="10%"
-            mt="3.5vw"
+            variant="homebutton"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "http://localhost:3000/OSignUp";
+            }}
           >
             <ArrowForwardIcon color="white" />
             <Text
               fontSize="1.5vw"
-              color="black"
+              color="white"
               ml="1vw"
               fontFamily="inter"
               fontWeight={"200"}
@@ -178,19 +159,25 @@ function UpperHomePage() {
             </Text>
           </Flex>
           <Button
+            variant="homebutton"
+            boxShadow="0px 0px 0px rgba(0,0,0,0)"
             size="sm"
             w="30%"
             h="8%"
             mt="2vw"
-            varient="link"
-            boxShadow="md"
             bg="rgba(0,0,0,0.2)"
             mb="3vw"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "http://localhost:3000/Login";
+            }}
+            bgColor="rgba(0,0,0,0)"
           >
             <Text
               textAlign="center"
-              fontSize="1vw"
-              color="black"
+              letterSpacing={"0.05em"}
+              fontSize="1.2vw"
+              //color="white"
               fontFamily={"inter"}
               fontWeight="bold"
               textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
