@@ -1,18 +1,6 @@
-import {
-    Button,
-    Flex,
-    FormControl,
-    FormLabel,
-    Heading,
-    Input,
-    Stack,
-    Image,
-    Divider,
-    Link
-  } from '@chakra-ui/react';
-  import {ArrowBackIcon} from '@chakra-ui/icons'
-  
-  
+import {Button, Flex, FormControl, FormLabel, Heading, Input, Stack, Image, Divider} from '@chakra-ui/react';
+import {ArrowBackIcon} from '@chakra-ui/icons'
+
   function Login() {
     return (
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>

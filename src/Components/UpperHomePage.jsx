@@ -1,13 +1,4 @@
-import {
-  Flex,
-  Box,
-  Image,
-  Badge,
-  Text,
-  Button,
-  ButtonGroup,
-} from "@chakra-ui/react";
-
+import {Flex, Box, Text} from "@chakra-ui/react";
 import React from "react";
 
 function UpperHomePage() {

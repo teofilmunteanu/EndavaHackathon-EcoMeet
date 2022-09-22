@@ -1,5 +1,8 @@
 import * as React from "react";
 import {Route, Routes} from "react-router-dom"
+import {ChakraProvider} from "@chakra-ui/react";
+import {mainTheme} from "./styles/theme";
+
 
 import Description from "./Components/description";
 import NavBar from "./Components/NavBar";
@@ -8,11 +11,9 @@ import OSignUp from "./Components/OSignUp";
 import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
 import VFeed from "./Components/VFeed";
+import OFeed from "./Components/OFeed";
 import { VFeedData } from "./Components/VFeedData";
-
-
-import { Accordion, ChakraProvider, Box } from "@chakra-ui/react";
-import {mainTheme} from "./styles/theme";
+import { OFeedData } from "./Components/OFeedData";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/VSignUp" element={<><VSignUp/></>}/>
           <Route path="/Login" element={<><Login/></>}/>
           <Route path="/VFeed" element={<><VFeed feed={VFeedData}/></>}/>
+          <Route path="/OFeed" element={<><OFeed ofeed={OFeedData}/></>}/>
           
         </Routes>
     </ChakraProvider>
