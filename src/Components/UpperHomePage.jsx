@@ -64,7 +64,6 @@ function UpperHomePage() {
       <Box
         w={["100%", null, "29.7%"]}
         h={{ base: "auto", xs: "100%" }}
-        //alignItems="center"
         background="linear-gradient(180deg, #FFCB30 -10.16%, rgba(255, 203, 48, 0) 100%), rgba(85, 252, 172, 0.67)"
         boxShadow="md"
       >

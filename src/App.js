@@ -8,9 +8,12 @@ import UpperHomePage from "./Components/UpperHomePage";
 import OSignUp from "./Components/OSignUp";
 import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
+import NavBarProfile from "./Components/NavBarProfile";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
+import "@fontsource/inter";
+import "@fontsource/neuton";
 
 function App() {
   return (
