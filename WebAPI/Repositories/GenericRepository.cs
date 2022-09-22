@@ -18,7 +18,7 @@ namespace WebAPI.Repositories
 
         public IQueryable<T> GetAll()
         {
-            return DBContext.Set<T>();
+            return _entities;
         }
         
         public T GetById(object id)
