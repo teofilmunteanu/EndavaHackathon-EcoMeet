@@ -3,51 +3,54 @@ import {CalendarIcon, Search2Icon, DeleteIcon} from '@chakra-ui/icons'
 import { CUIAutoComplete } from 'chakra-ui-autocomplete'
 import React from 'react';
 import {useState} from 'react';
+import {ImageSlider} from './ImageSlider';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 
 
-function VFeed() {
+const VFeed = ({ slides }) =>{
   const [buttonText, setButtonText] = useState("Join");
   const changeText = (text) => setButtonText(text);
 
   return (
     
     <Tabs isFitted variant='enclosed' colorScheme='green'>
-    <TabList mb='1em'>
-      <Tab><Search2Icon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Events In Your Area</span></Tab> 
-      <Tab> <CalendarIcon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Your Events</span></Tab>
-    </TabList>
-    <TabPanels>
-      <TabPanel>
-      <Stack
-        direction={{ base: 'column', sm: 'row' }}
-        align={'center'}
-        justify={'space-between'}>  
-      <Accordion defaultIndex={[0]}>
-  <AccordionItem>
-  <Stack
-        direction={{ base: 'line', sm: 'row' }}
-        align={'start'}
-        justify={'space-between'}>
+      <TabList mb='1em'>
+        <Tab><Search2Icon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Events In Your Area</span></Tab> 
+        <Tab> <CalendarIcon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Your Events</span></Tab>
+      </TabList>
+        <TabPanels>
+          <TabPanel>
+            <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              align={'center'}
+              justify={'space-between'}>  
+            {/* <Accordion defaultIndex={[0]}>
+              <AccordionItem>
+              <Stack
+                    direction={{ base: 'line', sm: 'row' }}
+                    align={'start'}
+                    justify={'space-between'}>
     
-      <AccordionButton>
-      <Image
-          boxSize='100px'
-          alt={'1 Image'}
-          src={"./1.jpg"}
-        />&nbsp;&nbsp;&nbsp;&nbsp;
-        <Box flex='1' textAlign='left'>
-        <span style={{fontWeight: 'bold'}}>Planting trees in Palas Mall!</span><br></br>
-        Endava<br></br><br></br>
-        <span style={{fontWeight: 'bold'}}>Date: 28/09/2022</span>
-        </Box>
-        <div>
-        <Button colorScheme='green' variant='outline'> Join</Button>
-        &nbsp;<br></br><br></br>
-        <p> <span style={{fontWeight: 'bold'}}>5/20 <DeleteIcon/> &nbsp;&nbsp;&nbsp; 10 pts </span></p>
-        </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <AccordionIcon />
+                <AccordionButton>
+                <Image
+                    boxSize='100px'
+                    alt={'1 Image'}
+                  src={"./1.jpg"}
+                />&nbsp;&nbsp;&nbsp;&nbsp;
+                  <Box flex='1' textAlign='left'>
+                  <span style={{fontWeight: 'bold'}}>Planting trees in Palas Mall!</span><br></br>
+                  Endava<br></br><br></br>
+                  <span style={{fontWeight: 'bold'}}>Date: 28/09/2022</span>
+                  </Box>
+                <div>
+                  <Button colorScheme='green' variant='outline'> Join</Button>
+                &nbsp;<br></br><br></br>
+                <p> <span style={{fontWeight: 'bold'}}>5/20 <DeleteIcon/> &nbsp;&nbsp;&nbsp; 10 pts </span></p>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <AccordionIcon />
       </AccordionButton>
       </Stack>
     <AccordionPanel pb={4}>
@@ -117,7 +120,14 @@ function VFeed() {
       Text 3
     </AccordionPanel>
   </AccordionItem>
-</Accordion>
+</Accordion> */}
+<div>
+<Carousel infiniteLoop>
+      {slides.map((slide) => {
+        return <Box color= 'red'>{slide.text}</Box>;
+      })}
+    </Carousel>
+</div>
 <div>
 <FormControl>
   <Select placeholder='Select Another City:'>

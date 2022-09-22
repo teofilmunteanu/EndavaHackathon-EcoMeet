@@ -25,12 +25,12 @@ function App() {
           <Route path="/OSignUp" element={<><OSignUp/></>}/>
           <Route path="/VSignUp" element={<><VSignUp/></>}/>
           <Route path="/Login" element={<><Login/></>}/>
-          <Route path="/VFeed" element={<><VFeed/></>}/>
-
+          <Route path="/VFeed" slides={SlideData} element={<><VFeed/></>}/>
+          
         </Routes>
-        <Box w="100%" p={4} color="white">
-      <ImageSlider slides={SlideData} />
-    </Box>
+        {/* <Box w="100%" p={4} color="white">
+      <ImageSlider  />
+    </Box> */}
     </ChakraProvider>
     
   );
