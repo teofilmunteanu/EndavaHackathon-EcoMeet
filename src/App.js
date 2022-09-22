@@ -25,7 +25,7 @@ function App() {
           <Route path="/OSignUp" element={<><OSignUp/></>}/>
           <Route path="/VSignUp" element={<><VSignUp/></>}/>
           <Route path="/Login" element={<><Login/></>}/>
-          <Route path="/VFeed" slides={SlideData} element={<><VFeed/></>}/>
+          <Route path="/VFeed" element={<><VFeed slides={SlideData}/></>}/>
           
         </Routes>
         {/* <Box w="100%" p={4} color="white">

@@ -1,31 +1,31 @@
-import {Button, Flex, Center, Select, Text, FormControl, FormLabel, Heading, Input, Stack, Image, Divider, Box, Tabs, TabList, TabPanels, Tab, TabPanel, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon} from '@chakra-ui/react';
-import {CalendarIcon, Search2Icon, DeleteIcon} from '@chakra-ui/icons'
+import { Button, Flex, Center, Select, Text, FormControl, FormLabel, Heading, Input, Stack, Image, Divider, Box, Tabs, TabList, TabPanels, Tab, TabPanel, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
+import { CalendarIcon, Search2Icon, DeleteIcon } from '@chakra-ui/icons'
 import { CUIAutoComplete } from 'chakra-ui-autocomplete'
 import React from 'react';
-import {useState} from 'react';
-import {ImageSlider} from './ImageSlider';
+import { useState } from 'react';
+import { ImageSlider } from './ImageSlider';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 
 
-const VFeed = ({ slides }) =>{
+const VFeed = ({ slides }) => {
   const [buttonText, setButtonText] = useState("Join");
   const changeText = (text) => setButtonText(text);
 
   return (
-    
+
     <Tabs isFitted variant='enclosed' colorScheme='green'>
       <TabList mb='1em'>
-        <Tab><Search2Icon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Events In Your Area</span></Tab> 
-        <Tab> <CalendarIcon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Your Events</span></Tab>
+        <Tab><Search2Icon /> &nbsp;&nbsp; <span style={{ fontWeight: 'bold' }}>Events In Your Area</span></Tab>
+        <Tab> <CalendarIcon /> &nbsp;&nbsp; <span style={{ fontWeight: 'bold' }}>Your Events</span></Tab>
       </TabList>
-        <TabPanels>
-          <TabPanel>
-            <Stack
-              direction={{ base: 'column', sm: 'row' }}
-              align={'center'}
-              justify={'space-between'}>  
+      <TabPanels>
+        <TabPanel>
+          <Stack
+            direction={{ base: 'column', sm: 'row' }}
+            align={'center'}
+            justify={'space-between'}>
             {/* <Accordion defaultIndex={[0]}>
               <AccordionItem>
               <Stack
@@ -121,39 +121,69 @@ const VFeed = ({ slides }) =>{
     </AccordionPanel>
   </AccordionItem>
 </Accordion> */}
-<div>
-<Carousel infiniteLoop>
-      {slides.map((slide) => {
-        return <Box color= 'red'>{slide.text}</Box>;
-      })}
-    </Carousel>
-</div>
-<div>
-<FormControl>
-  <Select placeholder='Select Another City:'>
-    <option>Iasi</option>
-    <option>Botosani</option>
-    <option>Galati</option>
-    <option>Timisoara</option>
-  </Select>
-  
-</FormControl>
-<iframe
-    src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro'
-    alt='demo'
-    width="700px" 
-    height="500px"/>
-    <p align="center">Current City:<br></br>
-    <span style={{fontWeight: 'bold',  color: 'green' }}>Iasi, Romania</span>
-    </p> 
-  </div> 
-</Stack>
-      </TabPanel>
-      <TabPanel>
-        <p>two!</p>
-      </TabPanel>
-    </TabPanels>
-  </Tabs> 
+            <div>
+            <Accordion allowToggle>
+                {slides.map((slide) => {
+                  return (
+                      <AccordionItem w='50vw'>
+                        <Stack
+                          direction={{ base: 'line', sm: 'row' }}
+                          align={'start'}
+                          justify={'space-between'}>
+                          <AccordionButton>
+                            <Image
+                              boxSize='100px'
+                              src={slide.image}
+                            />&nbsp;&nbsp;&nbsp;&nbsp;
+                            <Box flex='1' textAlign='left'>
+                              <span style={{ fontWeight: 'bold' }}>{slide.titlu_activitate}</span><br></br>
+                                {slide.nume_firma}<br></br><br></br>
+                              <span style={{ fontWeight: 'bold' }}>Date: {slide.date}</span>
+                            </Box>
+                            <div>
+                              <Button colorScheme='green' variant='outline'> {slide.join ?"Join":"Joined"}</Button>
+                              &nbsp;<br></br><br></br>
+                              <p> <span style={{ fontWeight: 'bold' }}>{slide.participanti} <DeleteIcon /> &nbsp;&nbsp;&nbsp; {slide.puncte} pts </span></p>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <AccordionIcon />
+                          </AccordionButton>
+                        </Stack>
+                        <AccordionPanel pb={4}>
+                            {slide.descriere_activitate}
+                        </AccordionPanel>
+                      </AccordionItem>
+                    
+                  );
+                })}
+              </Accordion>
+            </div>
+            <div>
+              <FormControl>
+                <Select placeholder='Select Another City:'>
+                  <option>Iasi</option>
+                  <option>Botosani</option>
+                  <option>Galati</option>
+                  <option>Timisoara</option>
+                </Select>
+
+              </FormControl>
+              <iframe
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro'
+                alt='demo'
+                width="700px"
+                height="500px" />
+              <p align="center">Current City:<br></br>
+                <span style={{ fontWeight: 'bold', color: 'green' }}>Iasi, Romania</span>
+              </p>
+            </div>
+          </Stack>
+        </TabPanel>
+        <TabPanel>
+          <p>two!</p>
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
   );
 }
 export default VFeed;
