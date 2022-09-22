@@ -49,8 +49,7 @@ function NavBarProfile() {
       </GridItem>
       <GridItem
         colSpan={"3"}
-        color="#FFCB30"
-        bgGradient="linear(180deg, rgba(255, 254, 254, 1) -10%, rgba(255, 245, 0, 1) 100%)"
+        bgGradient="linear(180deg, rgba(255, 254, 254, 0.5) -20%, #FFCB30 100%)"
       >
         <Grid
           h="128px"
