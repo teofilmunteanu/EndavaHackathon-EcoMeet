@@ -21,7 +21,7 @@ const VFeed = ({ feed }) => {
             <Accordion allowToggle backgroundColor="#F1FFF4">
                 {feed.map((feed) => {
                   return (
-                    <AccordionItem w='50vw'>
+                    <AccordionItem w='50vw' overflowX="auto">
                       <Stack alignItems={"center"}
                         direction={{ base: 'line', sm: 'row' }}
                         align={'start'}
