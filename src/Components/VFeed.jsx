@@ -9,7 +9,7 @@ import { Carousel } from "react-responsive-carousel";
 
 
 
-const VFeed = ({ slides }) => {
+const VFeed = ({ feed }) => {
   const [buttonText, setButtonText] = useState("Join");
   const changeText = (text) => setButtonText(text);
 
@@ -123,7 +123,7 @@ const VFeed = ({ slides }) => {
 </Accordion> */}
             <div>
             <Accordion allowToggle>
-                {slides.map((slide) => {
+                {feed.map((feed) => {
                   return (
                       <AccordionItem w='50vw'>
                         <Stack
@@ -133,24 +133,24 @@ const VFeed = ({ slides }) => {
                           <AccordionButton>
                             <Image
                               boxSize='100px'
-                              src={slide.image}
+                              src={feed.image}
                             />&nbsp;&nbsp;&nbsp;&nbsp;
                             <Box flex='1' textAlign='left'>
-                              <span style={{ fontWeight: 'bold' }}>{slide.titlu_activitate}</span><br></br>
-                                {slide.nume_firma}<br></br><br></br>
-                              <span style={{ fontWeight: 'bold' }}>Date: {slide.date}</span>
+                              <span style={{ fontWeight: 'bold' }}>{feed.titlu_activitate}</span><br></br>
+                                {feed.nume_firma}<br></br><br></br>
+                              <span style={{ fontWeight: 'bold' }}>Date: {feed.date}</span>
                             </Box>
                             <div>
-                              <Button colorScheme='green' variant='outline'> {slide.join ?"Join":"Joined"}</Button>
+                              <Button colorScheme='green' variant='outline'> {feed.join ?"Join":"Joined"}</Button>
                               &nbsp;<br></br><br></br>
-                              <p> <span style={{ fontWeight: 'bold' }}>{slide.participanti} <DeleteIcon /> &nbsp;&nbsp;&nbsp; {slide.puncte} pts </span></p>
+                              <p> <span style={{ fontWeight: 'bold' }}> <DeleteIcon /> &nbsp;&nbsp;&nbsp; {feed.puncte} pts </span></p>
                             </div>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <AccordionIcon />
                           </AccordionButton>
                         </Stack>
                         <AccordionPanel pb={4}>
-                            {slide.descriere_activitate}
+                            {feed.descriere_activitate}
                         </AccordionPanel>
                       </AccordionItem>
                     

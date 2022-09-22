@@ -1,4 +1,4 @@
-export const SlideData = [
+export const VFeedData = [
     {
         titlu_activitate:
         "Planting trees in Palas Mall!" , 
