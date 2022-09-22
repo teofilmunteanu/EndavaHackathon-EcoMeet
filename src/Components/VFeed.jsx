@@ -1,11 +1,14 @@
 import { Button, Grid, GridItem, Text, Select, Spacer, Flex, FormControl, Stack, Image, Box, Tabs, TabList, TabPanels, Tab, TabPanel, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
 import { CalendarIcon, Search2Icon, DeleteIcon } from '@chakra-ui/icons'
 import React from 'react';
+import {RemoveScrollBar} from 'react-remove-scroll-bar';
 
 
 
 const VFeed = ({ feed }) => {
   return (
+    <div>
+      <RemoveScrollBar />
     <Tabs isFitted variant='enclosed' colorScheme='green'>
       <TabList mb='1em'>
         <Tab><Search2Icon /> &nbsp;&nbsp; <span style={{ fontWeight: 'bold' }}>Events In Your Area</span></Tab>
@@ -18,10 +21,10 @@ const VFeed = ({ feed }) => {
             align={'center'}
             justify={'space-between'}>
             <div>
-            <Accordion allowToggle backgroundColor="#F1FFF4">
+            <Accordion allowToggle backgroundColor="#F1FFF4" style={{ overflowY: "scroll", height: "66vh" }}>
                 {feed.map((feed) => {
                   return (
-                    <AccordionItem w='50vw' overflowX="auto">
+                    <AccordionItem w='50vw'>
                       <Stack alignItems={"center"}
                         direction={{ base: 'line', sm: 'row' }}
                         align={'start'}
@@ -58,7 +61,7 @@ const VFeed = ({ feed }) => {
                 })}
               </Accordion>
             </div>
-            <div>
+            <div position='sticky'>
               <FormControl>
                 <Select placeholder='Select Another City:'>
                   <option>Iasi</option>
@@ -69,7 +72,9 @@ const VFeed = ({ feed }) => {
 
               </FormControl>
               <iframe title="Maps"
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro' width="700px" height="500px" />
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro' 
+                width="670px" 
+                height="370px" />
               <p align="center">Current City:<br></br>
                 <span style={{ fontWeight: 'bold', color: 'green' }}>Iasi, Romania</span>
               </p>
@@ -82,7 +87,7 @@ const VFeed = ({ feed }) => {
             align={'center'}
             justify={'space-between'}>
             <div>
-              <Accordion allowToggle backgroundColor="#FFFDF1">
+              <Accordion allowToggle backgroundColor="#FFFDF1" style={{ overflowY: "scroll", height: "66vh" }}>
                 {feed.map((feed) => {
                   return (
                     <AccordionItem w='50vw'>
@@ -145,7 +150,9 @@ const VFeed = ({ feed }) => {
 
               </FormControl>
               <iframe title="Maps"
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro' width="700px" height="500px" />
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro'
+                width="670px" 
+                height="370px" />
               <p align="center">Current City:<br></br>
                 <span style={{ fontWeight: 'bold', color: 'green' }}>Iasi, Romania</span>
               </p>
@@ -154,6 +161,7 @@ const VFeed = ({ feed }) => {
         </TabPanel>
       </TabPanels>
     </Tabs>
+    </div>
   );
 }
 export default VFeed;
