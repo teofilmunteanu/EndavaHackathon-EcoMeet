@@ -5,7 +5,7 @@ import {
   Grid,
   GridItem,
   Box,
-  Stack,
+  Avatar,
   VStack,
   HStack,
   Progress,
@@ -60,9 +60,10 @@ function NavBarProfile() {
         >
           <GridItem colSpan={"3"}>
             <Box>
-              <Image
+              <Avatar
+                name="Charles Ludwigen"
                 src="./Charles.jpg"
-                borderRadius={"50%"}
+                //borderRadius={"50%"}
                 boxSize={"4vw"}
                 ml="2vw"
                 boxShadow="0px 4px 4px rgba(0,0,0,0.3)"
@@ -72,47 +73,54 @@ function NavBarProfile() {
             </Box>
           </GridItem>
           <GridItem colSpan={"11"} m={"5"}>
-            <Grid templateRows="repeat(2,1fr)">
+            <Grid templateRows="repeat(2,1fr)" gap="2">
               <GridItem colRow={1}>
                 <HStack spacing="12">
                   <Box>
                     <Text
                       color="black"
                       fontFamily={"neuton"}
-                      fontWeight="200"
+                      fontWeight="300"
                       fontSize={"1.5vw"}
+                      letterSpacing="0.005em"
                     >
-                      Charles
+                      Charles Ludwigen
                     </Text>
                   </Box>
-                  <Box
+                  <Avatar
+                    alignItems={"center"}
                     bg="white"
                     boxSize={"2.5vw"}
-                    borderRadius={"50"}
+                    borderRadius={"50%"}
                     boxShadow="0px 4px 4px rgba(0,0,0,0.25)"
                   >
                     <Text
                       color="black"
                       align={"center"}
                       fontSize="1.3vw"
-                      mt="0.3vw"
+                      m="0.5vw"
                     >
                       10
                     </Text>
-                  </Box>
+                  </Avatar>
                 </HStack>
               </GridItem>
               <GridItem colRow={1}>
                 <Progress
                   value={"30"}
-                  bg="red.100"
+                  colorScheme="red"
                   boxShadow={"0px 4px 4px rgba(0,0,0,0.25)"}
                 ></Progress>
               </GridItem>
             </Grid>
           </GridItem>
           <GridItem colSpan={"3"}>
-            <TriangleDownIcon boxSize={"3vw"} m={"1"} color="green.400" />
+            <TriangleDownIcon
+              boxSize={"3vw"}
+              m={"1"}
+              color="green.100"
+              textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
+            />
           </GridItem>
         </Grid>
       </GridItem>
