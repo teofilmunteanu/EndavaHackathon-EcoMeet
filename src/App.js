@@ -14,6 +14,7 @@ import Login from "./Components/Login";
 import UProfile from "./Components/UProfile";
 
 import { mainTheme } from "./styles/theme";
+import { VFeedData } from "./Components/VFeedData";
 
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
           path="/UProfile"
           element={
             <>
-              <UProfile />
+              <UProfile feed={VFeedData} />
             </>
           }
         />
