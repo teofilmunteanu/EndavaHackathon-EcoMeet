@@ -8,9 +8,11 @@ import OSignUp from "./Components/OSignUp";
 import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
 import VFeed from "./Components/VFeed";
+import ImageSlider from "./Components/ImageSlider";
+import { SlideData } from "./Components/SlideData";
 
 
-import { ChakraProvider } from "@chakra-ui/react";
+import { Accordion, ChakraProvider, Box } from "@chakra-ui/react";
 import {mainTheme} from "./styles/theme";
 
 
@@ -24,8 +26,13 @@ function App() {
           <Route path="/VSignUp" element={<><VSignUp/></>}/>
           <Route path="/Login" element={<><Login/></>}/>
           <Route path="/VFeed" element={<><VFeed/></>}/>
+
         </Routes>
+        <Box w="100%" p={4} color="white">
+      <ImageSlider slides={SlideData} />
+    </Box>
     </ChakraProvider>
+    
   );
 }
 

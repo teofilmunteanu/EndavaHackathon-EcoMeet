@@ -2,11 +2,17 @@ import {Button, Flex, Center, Select, Text, FormControl, FormLabel, Heading, Inp
 import {CalendarIcon, Search2Icon, DeleteIcon} from '@chakra-ui/icons'
 import { CUIAutoComplete } from 'chakra-ui-autocomplete'
 import React from 'react';
+import {useState} from 'react';
+
+
 
 function VFeed() {
+  const [buttonText, setButtonText] = useState("Join");
+  const changeText = (text) => setButtonText(text);
+
   return (
     
-    <Tabs isFitted variant='enclosed'>
+    <Tabs isFitted variant='enclosed' colorScheme='green'>
     <TabList mb='1em'>
       <Tab><Search2Icon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Events In Your Area</span></Tab> 
       <Tab> <CalendarIcon/> &nbsp;&nbsp; <span style={{fontWeight: 'bold'}}>Your Events</span></Tab>
@@ -25,15 +31,19 @@ function VFeed() {
         justify={'space-between'}>
     
       <AccordionButton>
+      <Image
+          boxSize='100px'
+          alt={'1 Image'}
+          src={"./1.jpg"}
+        />&nbsp;&nbsp;&nbsp;&nbsp;
         <Box flex='1' textAlign='left'>
         <span style={{fontWeight: 'bold'}}>Planting trees in Palas Mall!</span><br></br>
         Endava<br></br><br></br>
         <span style={{fontWeight: 'bold'}}>Date: 28/09/2022</span>
         </Box>
         <div>
-        <Button colorScheme='green' variant='outline'>
-         Join
-        </Button>&nbsp;<br></br><br></br>
+        <Button colorScheme='green' variant='outline'> Join</Button>
+        &nbsp;<br></br><br></br>
         <p> <span style={{fontWeight: 'bold'}}>5/20 <DeleteIcon/> &nbsp;&nbsp;&nbsp; 10 pts </span></p>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -53,15 +63,19 @@ function VFeed() {
         justify={'space-between'}>
     
       <AccordionButton>
+      <Image
+          boxSize='100px'
+          alt={'2 Image'}
+          src={"./2.jpg"}
+        />&nbsp;&nbsp;&nbsp;&nbsp;
         <Box flex='1' textAlign='left'>
         <span style={{fontWeight: 'bold'}}>Cleaning The Ciric Forest!</span><br></br>
         Endava<br></br><br></br>
         <span style={{fontWeight: 'bold'}}>Date: 28/09/2022</span>
         </Box>
         <div>
-        <Button colorScheme='green' variant='outline'>
-         Join
-        </Button>&nbsp;<br></br><br></br>
+        <Button colorScheme='green' variant='outline'> Join</Button>
+        &nbsp;<br></br><br></br>
         <p> <span style={{fontWeight: 'bold'}}>5/20 <DeleteIcon/> &nbsp;&nbsp;&nbsp; 10 pts </span></p>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -80,15 +94,19 @@ function VFeed() {
         justify={'space-between'}>
     
       <AccordionButton>
+      <Image
+          boxSize='100px'
+          alt={'3 Image'}
+          src={"./3.jpg"}
+        />&nbsp;&nbsp;&nbsp;&nbsp;
         <Box flex='1' textAlign='left'>
         <span style={{fontWeight: 'bold'}}>Doing something ECO in Iasi!</span><br></br>
         Endava<br></br><br></br>
         <span style={{fontWeight: 'bold'}}>Date: 28/09/2022</span>
         </Box>
         <div>
-        <Button colorScheme='green' variant='outline'>
-         Join
-        </Button>&nbsp;<br></br><br></br>
+        <Button colorScheme='green' variant='outline'> Join</Button>
+        &nbsp;<br></br><br></br>
         <p> <span style={{fontWeight: 'bold'}}>5/20 <DeleteIcon/> &nbsp;&nbsp;&nbsp; 10 pts </span></p>
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
