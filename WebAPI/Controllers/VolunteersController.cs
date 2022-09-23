@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         
         [HttpGet("GetAllVolunteers")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         public ActionResult<IEnumerable<Volunteer>> Get()
         {
             var list = _unitOfWork.Volunteers.GetAll().ToList();
@@ -36,8 +36,7 @@ namespace WebAPI.Controllers
 
             return list;
         }
-
-        
+ 
         [HttpGet("GetVolunteerByEmail")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -77,8 +76,6 @@ namespace WebAPI.Controllers
             {
                 return BadRequest();
             }
-            //posibil tb modificat?
-
 
             //In this code path, the Volunteer object is provided in the response body. A Location response header containing the newly created product's URL is provided.
             return CreatedAtAction(nameof(GetVolunteerByEmail), new { Email = entity.Email }, entity);

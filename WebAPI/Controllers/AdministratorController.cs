@@ -37,7 +37,6 @@ namespace WebAPI.Controllers
             return list;
         }
 
-
         [HttpGet("GetAdministratorByEmail")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -52,7 +51,6 @@ namespace WebAPI.Controllers
 
             return entity;
         }
-
 
         [HttpPost("CreateAdministrator")]
         [ProducesResponseType(201)]
@@ -76,48 +74,46 @@ namespace WebAPI.Controllers
             {
                 return BadRequest();
             }
-            //posibil tb modificat?
-
 
             //In this code path, the Volunteer object is provided in the response body. A Location response header containing the newly created product's URL is provided.
             return CreatedAtAction(nameof(GetAdministratorByEmail), new { Email = entity.Email }, entity);
         }
 
-
-        //de retusat
-        [HttpPut("UpdateUserInfo")]
+        [HttpPut("UpdateAdministrator")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public ActionResult UpdateUser(Administrator Administrator)
+        public ActionResult UpdateAdministrator(Administrator Administrator)
         {
             var entity = _unitOfWork.Administrators.GetById(Administrator.Email);
+
             entity.Email = Administrator.Email;
             entity.FirstName = Administrator.FirstName;
             entity.LastName = Administrator.LastName;
             entity.PhoneNumber = Administrator.PhoneNumber;
+
             _unitOfWork.Administrators.Update(entity);
             _unitOfWork.Save();
 
             return Ok();
         }
 
-        [HttpDelete("DeleteVolunteer")]
+        [HttpDelete("DeleteAdministrator")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(204)]
         [ProducesResponseType(404)]
         public ActionResult DeleteAdministrator(string email)
         {
             var entity = _unitOfWork.Administrators.GetById(email);
+
             if (entity == null)
             {
                 return NotFound();
             }
+
             _unitOfWork.Administrators.Delete(entity);
             _unitOfWork.Save();
 
             return Ok();
         }
-
     }
 }

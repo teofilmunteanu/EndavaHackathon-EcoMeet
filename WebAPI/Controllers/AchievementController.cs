@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
 
         [HttpGet("GetAllAchievements")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         public ActionResult<IEnumerable<Achievement>> Get()
         {
             var list = _unitOfWork.Achievements.GetAll().ToList();
@@ -29,6 +29,5 @@ namespace WebAPI.Controllers
 
             return list;
         }
-
     }
 }

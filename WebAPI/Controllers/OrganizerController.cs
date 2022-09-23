@@ -1,11 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using WebAPI.Data;
 using WebAPI.Models;
 using WebAPI.Repositories;
 
@@ -24,7 +17,7 @@ namespace WebAPI.Controllers
 
         [HttpGet("GetAllOrganizers")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         public ActionResult<IEnumerable<Organizer>> Get()
         {
             var list = _unitOfWork.Organizers.GetAll().ToList();
@@ -36,7 +29,6 @@ namespace WebAPI.Controllers
 
             return list;
         }
-
 
         [HttpGet("GetOrganizerByEmail")]
         [ProducesResponseType(200)]
@@ -52,7 +44,6 @@ namespace WebAPI.Controllers
 
             return entity;
         }
-
 
         [HttpPost("CreateOrganizer")]
         [ProducesResponseType(201)]
@@ -77,34 +68,32 @@ namespace WebAPI.Controllers
             {
                 return BadRequest();
             }
-            //posibil tb modificat?
-
 
             //In this code path, the Volunteer object is provided in the response body. A Location response header containing the newly created product's URL is provided.
             return CreatedAtAction(nameof(GetOrganizerByEmail), new { Email = entity.Email }, entity);
         }
 
-
-        //de retusat
-        [HttpPut("UpdateUserInfo")]
+        [HttpPut("UpdateOrganizer")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public ActionResult UpdateUser(Organizer Organizer)
+        public ActionResult UpdateOrganizer(Organizer Organizer)
         {
             var entity = _unitOfWork.Organizers.GetById(Organizer.Email);
+
             entity.Email = Organizer.Email;
             entity.Password = Organizer.Password;
             entity.OrganizationName = Organizer.OrganizationName;
             entity.City = Organizer.City;
             entity.AdministratorEmail = Organizer.AdministratorEmail;
+
             _unitOfWork.Organizers.Update(entity);
             _unitOfWork.Save();
 
             return Ok();
         }
 
-        [HttpDelete("DeleteVolunteer")]
+        [HttpDelete("DeleteOrganizer")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public ActionResult DeleteOrganizer(string email)
@@ -114,11 +103,11 @@ namespace WebAPI.Controllers
             {
                 return NotFound();
             }
+
             _unitOfWork.Organizers.Delete(entity);
             _unitOfWork.Save();
 
             return Ok();
         }
-
     }
 }
