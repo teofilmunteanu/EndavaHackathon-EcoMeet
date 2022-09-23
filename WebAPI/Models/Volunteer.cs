@@ -10,6 +10,8 @@ namespace WebAPI.Models
         {
             Achievements = new HashSet<Achievement>();
             Events = new HashSet<Event>();
+            Level = 1;
+            Points = 0;
         }
 
         public string Email { get; set; } = null!;

@@ -10,18 +10,5 @@ namespace WebAPI.Repositories
         {
             
         }
-
-        public void CreateVolunteer(Volunteer volunteer)
-        {
-            var entity = new Volunteer()
-            {
-                Email = volunteer.Email,
-                Password = volunteer.Password,
-                Username = volunteer.Username,
-                FirstName = volunteer.FirstName,
-                LastName = volunteer.LastName,
-                City = volunteer.City
-            };
-        }
     }
 }
