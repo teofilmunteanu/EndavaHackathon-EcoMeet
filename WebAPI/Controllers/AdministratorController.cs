@@ -13,21 +13,21 @@ namespace WebAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class VolunteerController : ControllerBase
+    public class AdministratorController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public VolunteerController(IUnitOfWork unitOfWork)
+        public AdministratorController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        
-        [HttpGet("GetAllVolunteers")]
+
+        [HttpGet("GetAllAdministrators")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public ActionResult<IEnumerable<Volunteer>> Get()
+        public ActionResult<IEnumerable<Administrator>> Get()
         {
-            var list = _unitOfWork.Volunteers.GetAll().ToList();
+            var list = _unitOfWork.Administrators.GetAll().ToList();
 
             if (list.Count == 0)
             {
@@ -37,13 +37,13 @@ namespace WebAPI.Controllers
             return list;
         }
 
-        
-        [HttpGet("GetVolunteerByEmail")]
+
+        [HttpGet("GetAdministratorByEmail")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public ActionResult<Volunteer> GetVolunteerByEmail(string email)
+        public ActionResult<Administrator> GetAdministratorByEmail(string email)
         {
-            var entity = _unitOfWork.Volunteers.GetById(email);
+            var entity = _unitOfWork.Administrators.GetById(email);
 
             if (entity == null)
             {
@@ -53,27 +53,26 @@ namespace WebAPI.Controllers
             return entity;
         }
 
-        [HttpPost("CreateVolunteer")]
+
+        [HttpPost("CreateAdministrator")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public ActionResult CreateVolunteer(Volunteer volunteer)
+        public ActionResult CreateAdministrator(Administrator administrator)
         {
-            var entity = new Volunteer()
+            var entity = new Administrator()
             {
-                Email = volunteer.Email,
-                Password = volunteer.Password,
-                Username = volunteer.Username,
-                FirstName = volunteer.FirstName,
-                LastName = volunteer.LastName,
-                City = volunteer.City,
+                Email = administrator.Email,
+                FirstName = administrator.FirstName,
+                LastName = administrator.LastName,
+                PhoneNumber = administrator.PhoneNumber,
             };
 
             try
             {
-                _unitOfWork.Volunteers.Create(entity);
+                _unitOfWork.Administrators.Create(entity);
                 _unitOfWork.Save();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest();
             }
@@ -81,27 +80,23 @@ namespace WebAPI.Controllers
 
 
             //In this code path, the Volunteer object is provided in the response body. A Location response header containing the newly created product's URL is provided.
-            return CreatedAtAction(nameof(GetVolunteerByEmail), new { Email = entity.Email }, entity);
+            return CreatedAtAction(nameof(GetAdministratorByEmail), new { Email = entity.Email }, entity);
         }
 
-        
+
         //de retusat
         [HttpPut("UpdateUserInfo")]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public ActionResult UpdateUser(Volunteer volunteer)
+        public ActionResult UpdateUser(Administrator Administrator)
         {
-            var entity = _unitOfWork.Volunteers.GetById(volunteer.Email);
-            entity.Password = volunteer.Password;
-            entity.Username = volunteer.Username;
-            entity.FirstName = volunteer.FirstName;
-            entity.LastName = volunteer.LastName;
-            entity.City = volunteer.City;
-            entity.Level = volunteer.Level;
-            entity.Points = volunteer.Points;
-
-            _unitOfWork.Volunteers.Update(entity);
+            var entity = _unitOfWork.Administrators.GetById(Administrator.Email);
+            entity.Email = Administrator.Email;
+            entity.FirstName = Administrator.FirstName;
+            entity.LastName = Administrator.LastName;
+            entity.PhoneNumber = Administrator.PhoneNumber;
+            _unitOfWork.Administrators.Update(entity);
             _unitOfWork.Save();
 
             return Ok();
@@ -111,18 +106,18 @@ namespace WebAPI.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public ActionResult DeleteVolunteer(string email)
+        public ActionResult DeleteAdministrator(string email)
         {
-            var entity = _unitOfWork.Volunteers.GetById(email);
+            var entity = _unitOfWork.Administrators.GetById(email);
             if (entity == null)
             {
                 return NotFound();
             }
-            _unitOfWork.Volunteers.Delete(entity);
+            _unitOfWork.Administrators.Delete(entity);
             _unitOfWork.Save();
 
             return Ok();
         }
-        
+
     }
 }
