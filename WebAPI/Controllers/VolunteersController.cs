@@ -84,15 +84,14 @@ namespace WebAPI.Controllers
             return CreatedAtAction(nameof(GetVolunteerByEmail), new { Email = entity.Email }, entity);
         }
 
-        
-        //de retusat
         [HttpPut("UpdateUserInfo")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         public ActionResult UpdateUser(Volunteer volunteer)
         {
             var entity = _unitOfWork.Volunteers.GetById(volunteer.Email);
+
             entity.Password = volunteer.Password;
             entity.Username = volunteer.Username;
             entity.FirstName = volunteer.FirstName;
@@ -109,15 +108,16 @@ namespace WebAPI.Controllers
 
         [HttpDelete("DeleteVolunteer")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(204)]
         [ProducesResponseType(404)]
         public ActionResult DeleteVolunteer(string email)
         {
             var entity = _unitOfWork.Volunteers.GetById(email);
+
             if (entity == null)
             {
                 return NotFound();
             }
+
             _unitOfWork.Volunteers.Delete(entity);
             _unitOfWork.Save();
 
