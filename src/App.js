@@ -14,6 +14,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
 import "@fontsource/inter";
 import "@fontsource/neuton";
+import VFeed from "./Components/VFeed";
+import OFeed from "./Components/OFeed";
+import { VFeedData } from "./Components/VFeedData";
+import { OFeedData } from "./Components/OFeedData";
 
 function App() {
   return (
@@ -55,6 +59,7 @@ function App() {
         />
       </Routes>
     </ChakraProvider>
+    
   );
 }
 

@@ -1,4 +1,5 @@
 import { Image, Text, Box, Flex, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 
 function Description() {
