@@ -21,11 +21,17 @@ import {
 } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import {  Spacer, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
-import { CalendarIcon, Search2Icon, DeleteIcon } from '@chakra-ui/icons'
+import {
+  Spacer,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
+import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
 
-
-const UProfile=({ feed }) => {
+const OProfile = ({ feed }) => {
   return (
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
@@ -96,7 +102,7 @@ const UProfile=({ feed }) => {
                     mt="10"
                   />
                 </GridItem>
-                <GridItem colSpan={2} rowspan={1} h="44">
+                <GridItem colSpan={2} rowSpan={1} h="44">
                   <Text
                     textAlign={["left"]}
                     mt="10"
@@ -106,14 +112,40 @@ const UProfile=({ feed }) => {
                     {" "}
                     Charles Ludwigsten
                   </Text>
-                  <Text fontSize="2xl">charles.ludwisgten2@gmail.com</Text>
+                  <Grid
+                    h="40px"
+                    templateRows="repeat(1, 1fr)"
+                    templateColumns="repeat(5, 1fr)"
+                    gap={0}
+                  >
+                    <GridItem rowSpan={1} colSpan={1}>
+                      <Text fontSize="2xl" fontWeight="bold">
+                        Personal:
+                      </Text>
+                    </GridItem>
+                    <GridItem colSpan={4}>
+                      <Text fontSize="2xl">charles.ludwisgten2@gmail.com</Text>
+                    </GridItem>
+                  </Grid>
+                  <Grid
+                    h="40px"
+                    templateRows="repeat(1, 1fr)"
+                    templateColumns="repeat(5, 1fr)"
+                    gap={0}
+                  >
+                    <GridItem rowSpan={1} colSpan={1}>
+                      <Text fontSize="2xl" fontWeight="bold">
+                        Organization:
+                      </Text>
+                    </GridItem>
+                    <GridItem colSpan={4}>
+                      <Text fontSize="2xl">charles.ludwisgten2@endava.com</Text>
+                    </GridItem>
+                  </Grid>
+
                   <Text fontSize="xl" fontWeight="bold">
                     Iasi, Romania
                   </Text>
-                  <Text fontSize="3xl" fontWeight="bold" mt="45">
-                    Level 10
-                  </Text>
-                  <Text fontSize="2xl">20/50 EXP</Text>
                 </GridItem>
               </Grid>
             </GridItem>
@@ -123,7 +155,6 @@ const UProfile=({ feed }) => {
               bg="#EEFFE7"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
-              
             >
               <Box
                 w="910"
@@ -132,11 +163,19 @@ const UProfile=({ feed }) => {
                 boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
                 borderRadius="3xl"
               >
-                <Text fontWeight="bold" fontSize="4xl" ml="38">
-                  Achievements:
+                <Text
+                  fontWeight="bold"
+                  fontSize="4xl"
+                  ml="38"
+                  textAlign="center"
+                >
+                  Organization Document:
                 </Text>
               </Box>
-              <Grid
+              <Box w="90%" h="50%" ml= "10" mr="100" bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)" boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)" borderRadius="5px">
+              <input  size="md" type="file" name="cv" id="files" placeholder="document.PDF" accept="application/pdf" required />
+              </Box>
+              {/* <Grid
                 h="200px"
                 templateRows="repeat(2, 1fr)"
                 templateColumns="repeat(2, 1fr)"
@@ -257,7 +296,7 @@ const UProfile=({ feed }) => {
                     </GridItem>
                   </Grid>
                 </GridItem>
-              </Grid>
+              </Grid> */}
             </GridItem>
             <GridItem
               colSpan={1}
@@ -270,10 +309,11 @@ const UProfile=({ feed }) => {
                 textAlign={["left", "center"]}
                 fontSize="3xl"
                 fontWeight="bold"
+                mt="5"
               >
-                Bio:
+                Information:
               </Text>
-              <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+              <Grid templateColumns="repeat(3, 1fr)" gap={6} mt="5">
                 <GridItem w="100%" h="10">
                   <Text fontWeight="bold" fontSize="xl" ml="15">
                     Gender: Male
@@ -290,7 +330,7 @@ const UProfile=({ feed }) => {
                   </Text>
                 </GridItem>
               </Grid>
-              <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+              <Grid templateColumns="repeat(5, 1fr)" gap={0} mt="2">
                 <GridItem colSpan={1} h="10" ml="15">
                   <Text fontWeight="bold" fontSize="xl">
                     Work:
@@ -308,10 +348,10 @@ const UProfile=({ feed }) => {
                   </Editable>
                 </GridItem>
               </Grid>
-              <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+              <Grid templateColumns="repeat(5, 1fr)" gap={0} mt="2">
                 <GridItem colSpan={1} h="10" ml="15">
                   <Text fontWeight="bold" fontSize="xl">
-                    Activity:
+                    Contact:
                   </Text>
                 </GridItem>
                 <GridItem colStart={7} colEnd={2} h="10">
@@ -320,25 +360,6 @@ const UProfile=({ feed }) => {
                     fontSize="xl"
                     fontWeight="bold"
                     mt="-1"
-                  >
-                    <EditablePreview />
-                    <EditableInput />
-                  </Editable>
-                </GridItem>
-              </Grid>
-              <Grid templateColumns="repeat(5, 1fr)" gap={0}>
-                <GridItem colSpan={1} h="10" ml="15">
-                  <Text fontWeight="bold" fontSize="xl" mt="9">
-                    Your description:
-                  </Text>
-                </GridItem>
-                <GridItem colStart={7} colEnd={2} h="10">
-                  <Editable
-                    defaultValue="type"
-                    fontSize="xl"
-                    fontWeight="bold"
-                    mt="9"
-                    ml="15"
                   >
                     <EditablePreview />
                     <EditableInput />
@@ -360,40 +381,50 @@ const UProfile=({ feed }) => {
                 boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
                 borderRadius="3xl"
               >
-                <Text fontSize="4xl" ml="38" fontWeight="bold">
+                <Text
+                  fontSize="4xl"
+                  ml="38"
+                  fontWeight="bold"
+                  textAlign="center"
+                >
                   Activity:
                 </Text>
               </Box>
-              <Accordion allowToggle backgroundColor="#F1FFF4" >
+              <Accordion allowToggle backgroundColor="#F1FFF4">
                 {feed.map((feed) => {
                   return (
-                    <AccordionItem w='50vw'>
-                      <Stack alignItems={"center"}
-                        direction={{ base: 'line', sm: 'row' }}
-                        align={'start'}
-                        justify={'space-between'}>
-                        <Image
-                          w="20%"
-                          boxSize='100px'
-                          src={feed.image}
-                        />
+                    <AccordionItem w="50vw">
+                      <Stack
+                        alignItems={"center"}
+                        direction={{ base: "line", sm: "row" }}
+                        align={"start"}
+                        justify={"space-between"}
+                      >
+                        <Image w="20%" boxSize="100px" src={feed.image} />
                         <AccordionButton w="65%">
-
-                          <Box flex='1' textAlign='left' alignItems={"center"}>
-                            <span style={{ fontWeight: 'bold' }}>{feed.titlu_activitate}</span>
+                          <Box flex="1" textAlign="left" alignItems={"center"}>
+                            <span style={{ fontWeight: "bold" }}>
+                              {feed.titlu_activitate}
+                            </span>
                             <p>{feed.nume_firma}</p>
-                            <span style={{ fontWeight: 'bold' }}>Date: {feed.date}</span>
+                            <span style={{ fontWeight: "bold" }}>
+                              Date: {feed.date}
+                            </span>
                           </Box>
                           <AccordionIcon />
                         </AccordionButton>
                         <Flex w="15%" direction={"column"}>
                           <Flex>
-                            <span style={{ fontWeight: 'bold' }}>{feed.participanti}<DeleteIcon /> </span>
+                            <span style={{ fontWeight: "bold" }}>
+                              {feed.participanti}
+                              <DeleteIcon />{" "}
+                            </span>
                             <Spacer />
                             <span>{feed.puncte} pts </span>
                           </Flex>
                         </Flex>
-                      </Stack><br></br>
+                      </Stack>
+                      <br></br>
                       <AccordionPanel pb={4}>
                         {feed.descriere_activitate}
                       </AccordionPanel>
@@ -468,6 +499,6 @@ const UProfile=({ feed }) => {
       </TabPanels>
     </Tabs>
   );
-}
+};
 
-export default UProfile;
+export default OProfile;
