@@ -13,9 +13,9 @@ namespace WebAPI.Models
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
         public string OrganizationName { get; set; } = null!;
-        public string AdministratorEmail { get; set; } = null!;
+        public int AdministratorId { get; set; }
 
-        public virtual Administrator AdministratorEmailNavigation { get; set; } = null!;
+        public virtual Administrator Administrator { get; set; } = null!;
         public virtual ICollection<Shopitem> Shopitems { get; set; }
     }
 }

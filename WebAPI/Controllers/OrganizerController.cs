@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
                 Password = Organizer.Password,
                 OrganizationName = Organizer.OrganizationName,
                 City = Organizer.City,
-                AdministratorEmail = Organizer.AdministratorEmail,
+                AdministratorId = Organizer.AdministratorId
             };
 
             try
@@ -85,7 +85,7 @@ namespace WebAPI.Controllers
             entity.Password = Organizer.Password;
             entity.OrganizationName = Organizer.OrganizationName;
             entity.City = Organizer.City;
-            entity.AdministratorEmail = Organizer.AdministratorEmail;
+            entity.AdministratorId = Organizer.AdministratorId;
 
             _unitOfWork.Organizers.Update(entity);
             _unitOfWork.Save();

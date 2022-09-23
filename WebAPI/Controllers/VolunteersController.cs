@@ -81,7 +81,7 @@ namespace WebAPI.Controllers
             return CreatedAtAction(nameof(GetVolunteerByEmail), new { Email = entity.Email }, entity);
         }
 
-        [HttpPut("UpdateUserInfo")]
+        [HttpPut("UpdateVolunteer")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

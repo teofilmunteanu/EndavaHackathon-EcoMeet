@@ -15,9 +15,9 @@ namespace WebAPI.Models
         public string OrganizationName { get; set; } = null!;
         public string City { get; set; } = null!;
         public string? Events { get; set; }
-        public string AdministratorEmail { get; set; } = null!;
+        public int AdministratorId { get; set; }
 
-        public virtual Administrator AdministratorEmailNavigation { get; set; } = null!;
+        public virtual Administrator Administrator { get; set; } = null!;
         public virtual ICollection<Event> EventsNavigation { get; set; }
     }
 }

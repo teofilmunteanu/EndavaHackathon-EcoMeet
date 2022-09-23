@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
 
         [HttpGet("GetAllAdministrators")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         public ActionResult<IEnumerable<Administrator>> Get()
         {
             var list = _unitOfWork.Administrators.GetAll().ToList();

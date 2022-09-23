@@ -27,7 +27,11 @@ namespace WebAPI.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=357159;database=webapi");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,7 +40,7 @@ namespace WebAPI.Data
             {
                 entity.ToTable("achievements");
 
-                entity.HasIndex(e => e.VolunteersEmail, "fk_achievements_volunteers_idx");
+                entity.HasIndex(e => e.VolunteerEmail, "fk_achievements_volunteers_idx");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -46,22 +50,17 @@ namespace WebAPI.Data
 
                 entity.Property(e => e.Title).HasMaxLength(45);
 
-                entity.Property(e => e.VolunteersEmail)
-                    .HasMaxLength(45)
-                    .HasColumnName("volunteers_Email");
+                entity.Property(e => e.VolunteerEmail).HasMaxLength(45);
 
-                entity.HasOne(d => d.VolunteersEmailNavigation)
+                entity.HasOne(d => d.VolunteerEmailNavigation)
                     .WithMany(p => p.Achievements)
-                    .HasForeignKey(d => d.VolunteersEmail)
+                    .HasForeignKey(d => d.VolunteerEmail)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_achievements_volunteers");
             });
 
             modelBuilder.Entity<Administrator>(entity =>
             {
-                entity.HasKey(e => e.Email)
-                    .HasName("PRIMARY");
-
                 entity.ToTable("administrators");
 
                 entity.Property(e => e.Email).HasMaxLength(45);
@@ -80,21 +79,19 @@ namespace WebAPI.Data
 
                 entity.ToTable("collaborators");
 
-                entity.HasIndex(e => e.AdministratorEmail, "fk_collaborators_administrators1_idx");
+                entity.HasIndex(e => e.AdministratorId, "fk_collaborators_administrators1_idx");
 
                 entity.Property(e => e.Email).HasMaxLength(45);
-
-                entity.Property(e => e.AdministratorEmail).HasMaxLength(45);
 
                 entity.Property(e => e.OrganizationName).HasMaxLength(45);
 
                 entity.Property(e => e.Password).HasMaxLength(45);
 
-                entity.HasOne(d => d.AdministratorEmailNavigation)
+                entity.HasOne(d => d.Administrator)
                     .WithMany(p => p.Collaborators)
-                    .HasForeignKey(d => d.AdministratorEmail)
+                    .HasForeignKey(d => d.AdministratorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_collaborators_administrators1");
+                    .HasConstraintName("fk_collaborators_administrators");
             });
 
             modelBuilder.Entity<Event>(entity =>
@@ -148,11 +145,9 @@ namespace WebAPI.Data
 
                 entity.ToTable("organizers");
 
-                entity.HasIndex(e => e.AdministratorEmail, "fk_organizers_administrators1_idx");
+                entity.HasIndex(e => e.AdministratorId, "fk_organizers_administrators_idx");
 
                 entity.Property(e => e.Email).HasMaxLength(45);
-
-                entity.Property(e => e.AdministratorEmail).HasMaxLength(45);
 
                 entity.Property(e => e.City).HasMaxLength(45);
 
@@ -162,11 +157,11 @@ namespace WebAPI.Data
 
                 entity.Property(e => e.Password).HasMaxLength(45);
 
-                entity.HasOne(d => d.AdministratorEmailNavigation)
+                entity.HasOne(d => d.Administrator)
                     .WithMany(p => p.Organizers)
-                    .HasForeignKey(d => d.AdministratorEmail)
+                    .HasForeignKey(d => d.AdministratorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_organizers_administrators1");
+                    .HasConstraintName("fk_organizers_administrators");
             });
 
             modelBuilder.Entity<Shopitem>(entity =>
@@ -202,6 +197,8 @@ namespace WebAPI.Data
                 entity.Property(e => e.FirstName).HasMaxLength(45);
 
                 entity.Property(e => e.LastName).HasMaxLength(45);
+
+                entity.Property(e => e.Level).HasDefaultValueSql("'1'");
 
                 entity.Property(e => e.Password).HasMaxLength(45);
 
