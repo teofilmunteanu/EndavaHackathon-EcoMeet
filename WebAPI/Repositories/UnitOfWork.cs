@@ -8,7 +8,7 @@ namespace WebAPI.Repositories
 
         private IVolunteerRepository volunteers;
         private IAchievementRepository achievements;
-
+        private IAdministratorRepository administrators;
         public UnitOfWork(webapiContext context)
         {
             DBContext = context;
@@ -41,6 +41,18 @@ namespace WebAPI.Repositories
             }
         }
 
+        public IAdministratorRepository Administrators
+        {
+            get
+            {
+                if (administrators == null)
+                {
+                    administrators = new AdministratorRepository(DBContext);
+                }
+
+                return administrators;
+            }
+        }
 
         public int Save()
         {
