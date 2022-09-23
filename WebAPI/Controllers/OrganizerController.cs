@@ -106,7 +106,6 @@ namespace WebAPI.Controllers
 
         [HttpDelete("DeleteVolunteer")]
         [ProducesResponseType(200)]
-        [ProducesResponseType(204)]
         [ProducesResponseType(404)]
         public ActionResult DeleteOrganizer(string email)
         {
