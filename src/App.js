@@ -69,18 +69,6 @@ function App() {
           }
         />
         <Route
-          path="/Login"
-          element={
-            <>
-              <Login />
-          path="/UProfile"
-          element={
-            <>
-              <UProfile feed={VFeedData} />
-            </>
-          }
-        />
-        <Route
           path="/VFeed"
           element={
             <>
@@ -91,8 +79,18 @@ function App() {
         <Route
           path="/OFeed"
           element={
-            <>
               <OFeed ofeed={OFeedData} />
+          }
+        />
+        <Route
+          path="/UProfile"
+          element={
+            <>
+              <UProfile feed={VFeedData} />
+            </>
+          }
+        />
+        <Route
           path="/OProfile"
           element={
             <>
