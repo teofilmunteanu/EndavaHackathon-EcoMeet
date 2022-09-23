@@ -57,6 +57,30 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/Login"
+          element={
+            <>
+              <Login />
+            </>
+          }
+        />
+        <Route
+          path="/VFeed"
+          element={
+            <>
+              <VFeed feed={VFeedData} />
+            </>
+          }
+        />
+        <Route
+          path="/OFeed"
+          element={
+            <>
+              <OFeed ofeed={OFeedData} />
+            </>
+          }
+        />
       </Routes>
     </ChakraProvider>
     
