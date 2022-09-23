@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using WebAPI.Data;
 
@@ -16,7 +17,7 @@ namespace WebAPI.Repositories
             _entities = context.Set<T>();
         }
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
             return _entities;
         }

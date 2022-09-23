@@ -4,7 +4,7 @@ namespace WebAPI.Repositories
 {
     public interface IGenericRepository<T> where T : class
     {
-        IQueryable<T> GetAll();
+        IEnumerable<T> GetAll();
         T GetById(object id);
         void Create(T entity);
         void Update(T entity);

@@ -22,40 +22,41 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
         
-        [HttpGet("GetAll")]
-        public IEnumerable<Volunteer> Get()
+        [HttpGet("GetAllVolunteers")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public ActionResult<IEnumerable<Volunteer>> Get()
         {
-            return _unitOfWork.Volunteers.GetAll();
-        }
+            var list = _unitOfWork.Volunteers.GetAll().ToList();
 
-        /*
-        [HttpGet("GetUserById")]
-        public async Task<ActionResult<Volunteer>> GetUserById(string email)
-        {
-            Volunteer User = await DBContext.Volunteers.Select(s => new Volunteer
-            {
-                Email = s.Email,
-                Password = s.Password,
-                Username = s.Username,
-                FirstName = s.FirstName,
-                LastName = s.LastName,
-                City = s.City,
-                Level = s.Level,
-                Points = s.Points
-
-            }).FirstOrDefaultAsync(s => s.Email == email);
-            if (User == null)
+            if (list.Count == 0)
             {
                 return NotFound();
             }
-            else
-            {
-                return User;
-            }
+
+            return list;
         }
 
-        [HttpPost("InsertVolunteer")]
-        public async Task<HttpStatusCode> InsertUser(Volunteer volunteer)
+        
+        [HttpGet("GetVolunteerByEmail")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public ActionResult<Volunteer> GetVolunteerByEmail(string email)
+        {
+            var entity = _unitOfWork.Volunteers.GetById(email);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            return entity;
+        }
+
+        [HttpPost("CreateVolunteer")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        public ActionResult CreateVolunteer(Volunteer volunteer)
         {
             var entity = new Volunteer()
             {
@@ -65,18 +66,33 @@ namespace WebAPI.Controllers
                 FirstName = volunteer.FirstName,
                 LastName = volunteer.LastName,
                 City = volunteer.City,
-                Level = volunteer.Level,
-                Points = volunteer.Points
             };
-            DBContext.Volunteers.Add(entity);
-            await DBContext.SaveChangesAsync();
-            return HttpStatusCode.Created;
+
+            try
+            {
+                _unitOfWork.Volunteers.Create(entity);
+                _unitOfWork.Save();
+            }
+            catch(Exception e)
+            {
+                return BadRequest();
+            }
+            //posibil tb modificat?
+
+
+            //In this code path, the Volunteer object is provided in the response body. A Location response header containing the newly created product's URL is provided.
+            return CreatedAtAction(nameof(GetVolunteerByEmail), new { Email = entity.Email }, entity);
         }
 
+        
+        //de retusat
         [HttpPut("UpdateUserInfo")]
-        public async Task<HttpStatusCode> UpdateUser(Volunteer volunteer)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public ActionResult UpdateUser(Volunteer volunteer)
         {
-            var entity = await DBContext.Volunteers.FirstOrDefaultAsync(s => s.Email == volunteer.Email);
+            var entity = _unitOfWork.Volunteers.GetById(volunteer.Email);
             entity.Password = volunteer.Password;
             entity.Username = volunteer.Username;
             entity.FirstName = volunteer.FirstName;
@@ -84,22 +100,26 @@ namespace WebAPI.Controllers
             entity.City = volunteer.City;
             entity.Level = volunteer.Level;
             entity.Points = volunteer.Points;
-            await DBContext.SaveChangesAsync();
-            return HttpStatusCode.OK;
+
+            _unitOfWork.Volunteers.Update(entity);
+            _unitOfWork.Save();
+
+            return Ok();
         }
 
-        [HttpDelete("DeleteUser/{Id}")]
-        public async Task<HttpStatusCode> DeleteUser(string email)
+        //nefunctional - posibil de la generic repo?
+        [HttpDelete("DeleteVolunteer/{Email}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public ActionResult DeleteVolunteer(string email)
         {
-            var entity = new Volunteer()
-            {
-                Email = email
-            };
-            DBContext.Volunteers.Attach(entity);
-            DBContext.Volunteers.Remove(entity);
-            await DBContext.SaveChangesAsync();
-            return HttpStatusCode.OK;
+            var entity = _unitOfWork.Volunteers.GetById(email);
+            _unitOfWork.Volunteers.Delete(entity);
+            _unitOfWork.Save();
+
+            return Ok();
         }
-        */
+        
     }
 }
