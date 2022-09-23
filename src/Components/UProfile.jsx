@@ -367,7 +367,7 @@ const UProfile=({ feed }) => {
               <Accordion allowToggle backgroundColor="#F1FFF4" >
                 {feed.map((feed) => {
                   return (
-                    <AccordionItem w='50vw'>
+                    <AccordionItem w='50vw' overflowX="auto">
                       <Stack alignItems={"center"}
                         direction={{ base: 'line', sm: 'row' }}
                         align={'start'}
@@ -401,67 +401,6 @@ const UProfile=({ feed }) => {
                   );
                 })}
               </Accordion>
-              {/* <Grid
-                h="200px"
-                templateRows="repeat(2, 1fr)"
-                templateColumns="repeat(1, 1fr)"
-                gap={5}
-                mt="5"
-                ml="10"
-                mr="10"
-                overflowX="scroll"
-              >
-                <GridItem
-                  rolSpan={1}
-                  colSpan={1}
-                  bg="#F1FFF4"
-                  border="1px solid #37B177"
-                  box-shadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(3, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={3} colSpan={1}>
-                      <Image src="Rectangle 47.png" w="162.4" h="88" ml="12" />
-                    </GridItem>
-                    <GridItem rowSpan={3} colSpan={3}>
-                      <Text fontSize="2xl">Planting trees in Palas Mall!</Text>
-                      <Text fontSize="xl">Endava</Text>
-                      <Text fontSize="xl" fontWeight="bold">
-                        Took place on: 29/09/22 Earned: 10 pts
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rolSpan={1}
-                  colSpan={1}
-                  bg="#F1FFF4"
-                  border="1px solid #37B177"
-                  box-shadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(3, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={3} colSpan={1}>
-                      <Image src="Rectangle 47.png" w="162.4" h="88" ml="12" />
-                    </GridItem>
-                    <GridItem rowSpan={3} colSpan={3}>
-                      <Text fontSize="2xl">Planting trees in Palas Mall!</Text>
-                      <Text fontSize="xl">Endava</Text>
-                      <Text fontSize="xl" fontWeight="bold">
-                        Took place on: 29/09/22 Earned: 10 pts
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-              </Grid> */}
             </GridItem>
           </Grid>
         </TabPanel>
