@@ -7,6 +7,7 @@ namespace WebAPI.Repositories
         protected readonly webapiContext DBContext;
 
         private IVolunteerRepository volunteers;
+        private IAchievementRepository achievements;
 
         public UnitOfWork(webapiContext context)
         {
@@ -26,6 +27,20 @@ namespace WebAPI.Repositories
                 return volunteers;
             }
         }
+
+        public IAchievementRepository Achievements
+        {
+            get
+            {
+                if (achievements == null)
+                {
+                    achievements = new AchievementRepository(DBContext);
+                }
+
+                return achievements;
+            }
+        }
+
 
         public int Save()
         {
