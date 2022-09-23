@@ -5,6 +5,7 @@ import "@fontsource/neuton";
 import "@fontsource/inter";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { CheckCircleIcon } from "@chakra-ui/icons";
+import {ButtonGroup } from '@chakra-ui/react'
 
 function UpperHomePage() {
   return (
@@ -82,6 +83,7 @@ function UpperHomePage() {
           borderColor="#1C6F47"
           boxShadow="xl"
           lineHeight="1vw"
+          justify="start"
         >
           <Heading
             fontSize="2vw"
@@ -135,6 +137,26 @@ function UpperHomePage() {
               Organizer
             </Text>
           </Button>
+          <Button
+            variant="homebutton"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "http://localhost:3000/CSignUp";
+            }}
+          >
+            <ArrowForwardIcon color="white" />
+            <Text
+              fontSize="1.5vw"
+              color="white"
+              ml="1vw"
+              fontFamily="inter"
+              fontWeight={"200"}
+              textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
+            >
+              Collaborator
+            </Text>
+          </Button>
+
           <Flex alignItems="baseline" ml="3vw" line-height="1" spacing="24px">
             <CheckCircleIcon
               src="./Check.png"
