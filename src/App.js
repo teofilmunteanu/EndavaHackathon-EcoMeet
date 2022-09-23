@@ -10,6 +10,8 @@ import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
 import NavBarProfile from "./Components/NavBarProfile";
 import CSignUp from "./Components/CSingUp"
+import UProfile from "./Components/UProfile";
+import OProfile from "./Components/OProfile"
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
@@ -71,6 +73,10 @@ function App() {
           element={
             <>
               <Login />
+          path="/UProfile"
+          element={
+            <>
+              <UProfile feed={VFeedData} />
             </>
           }
         />
@@ -87,6 +93,10 @@ function App() {
           element={
             <>
               <OFeed ofeed={OFeedData} />
+          path="/OProfile"
+          element={
+            <>
+              <OProfile feed={VFeedData} />
             </>
           }
         />
