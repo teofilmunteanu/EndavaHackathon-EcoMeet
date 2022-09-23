@@ -10,6 +10,7 @@ namespace WebAPI.Repositories
         private IAchievementRepository achievements;
         private IAdministratorRepository administrators;
         private IOrganizerRepository organizers;
+        private ICollaboratorRepository collaborators;
         public UnitOfWork(webapiContext context)
         {
             DBContext = context;
@@ -64,6 +65,18 @@ namespace WebAPI.Repositories
                 }
 
                 return organizers;
+            }
+        }
+        public ICollaboratorRepository Collaborators
+        {
+            get
+            {
+                if (collaborators == null)
+                {
+                    collaborators = new CollaboratorRepository(DBContext);
+                }
+
+                return collaborators;
             }
         }
 

@@ -6,6 +6,7 @@
         IVolunteerRepository Volunteers { get; }
         IAdministratorRepository Administrators { get; }
         IOrganizerRepository Organizers { get; }
+        ICollaboratorRepository Collaborators { get; }
         int Save();
     }
 }
