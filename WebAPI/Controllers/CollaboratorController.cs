@@ -55,7 +55,7 @@ namespace WebAPI.Controllers
                 Email = Collaborator.Email,
                 Password = Collaborator.Password,
                 OrganizationName = Collaborator.OrganizationName,
-                AdministratorEmail = Collaborator.AdministratorEmail,
+                AdministratorId = Collaborator.AdministratorId,
             };
 
             try
@@ -83,7 +83,7 @@ namespace WebAPI.Controllers
             entity.Email = Collaborator.Email;
             entity.Password = Collaborator.Password;
             entity.OrganizationName = Collaborator.OrganizationName;
-            entity.AdministratorEmail = Collaborator.AdministratorEmail;
+            entity.AdministratorId = Collaborator.AdministratorId;
 
             _unitOfWork.Collaborators.Update(entity);
             _unitOfWork.Save();
