@@ -22,7 +22,7 @@ namespace WebAPI.Data
         public virtual DbSet<Collaborator> Collaborators { get; set; } = null!;
         public virtual DbSet<Event> Events { get; set; } = null!;
         public virtual DbSet<Organizer> Organizers { get; set; } = null!;
-        public virtual DbSet<Shopitem> Shopitems { get; set; } = null!;
+        public virtual DbSet<Shop_item> ShopItems { get; set; } = null!;
         public virtual DbSet<Volunteer> Volunteers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -79,7 +79,7 @@ namespace WebAPI.Data
 
                 entity.ToTable("collaborators");
 
-                entity.HasIndex(e => e.AdministratorId, "fk_collaborators_administrators1_idx");
+                entity.HasIndex(e => e.AdministratorId, "fk_collaborators_administrators_idx");
 
                 entity.Property(e => e.Email).HasMaxLength(45);
 
@@ -118,23 +118,25 @@ namespace WebAPI.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_events_organizers1");
 
-                entity.HasMany(d => d.VolunteerEmails)
+                entity.HasMany(d => d.VolunteersEmails)
                     .WithMany(p => p.Events)
                     .UsingEntity<Dictionary<string, object>>(
-                        "EventsVolunteer",
-                        l => l.HasOne<Volunteer>().WithMany().HasForeignKey("VolunteerEmail").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("fk_events_has_volunteers_volunteers1"),
-                        r => r.HasOne<Event>().WithMany().HasForeignKey("EventId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("fk_events_has_volunteers_events1"),
+                        "EventsHasVolunteer",
+                        l => l.HasOne<Volunteer>().WithMany().HasForeignKey("VolunteersEmail").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("fk_events_has_volunteers_volunteers1"),
+                        r => r.HasOne<Event>().WithMany().HasForeignKey("EventsId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("fk_events_has_volunteers_events1"),
                         j =>
                         {
-                            j.HasKey("EventId", "VolunteerEmail").HasName("PRIMARY");
+                            j.HasKey("EventsId", "VolunteersEmail").HasName("PRIMARY");
 
-                            j.ToTable("events_volunteers");
+                            j.ToTable("events_has_volunteers");
 
-                            j.HasIndex(new[] { "EventId" }, "fk_events_has_volunteers_events1_idx");
+                            j.HasIndex(new[] { "EventsId" }, "fk_events_has_volunteers_events1_idx");
 
-                            j.HasIndex(new[] { "VolunteerEmail" }, "fk_events_has_volunteers_volunteers1_idx");
+                            j.HasIndex(new[] { "VolunteersEmail" }, "fk_events_has_volunteers_volunteers1_idx");
 
-                            j.IndexerProperty<string>("VolunteerEmail").HasMaxLength(45);
+                            j.IndexerProperty<int>("EventsId").HasColumnName("events_Id");
+
+                            j.IndexerProperty<string>("VolunteersEmail").HasMaxLength(45).HasColumnName("volunteers_Email");
                         });
             });
 
@@ -164,9 +166,9 @@ namespace WebAPI.Data
                     .HasConstraintName("fk_organizers_administrators");
             });
 
-            modelBuilder.Entity<Shopitem>(entity =>
+            modelBuilder.Entity<Shop_item>(entity =>
             {
-                entity.ToTable("shopitems");
+                entity.ToTable("shop_items");
 
                 entity.HasIndex(e => e.CollaboratorEmail, "fk_shopitems_collaborators1_idx");
 
@@ -177,7 +179,7 @@ namespace WebAPI.Data
                 entity.Property(e => e.Name).HasMaxLength(45);
 
                 entity.HasOne(d => d.CollaboratorEmailNavigation)
-                    .WithMany(p => p.Shopitems)
+                    .WithMany(p => p.Shop_items)
                     .HasForeignKey(d => d.CollaboratorEmail)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_shopitems_collaborators1");

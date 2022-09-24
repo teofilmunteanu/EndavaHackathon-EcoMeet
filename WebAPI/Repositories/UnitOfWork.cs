@@ -11,6 +11,9 @@ namespace WebAPI.Repositories
         private IAdministratorRepository administrators;
         private IOrganizerRepository organizers;
         private ICollaboratorRepository collaborators;
+        private IEventRepository events;
+        private IShop_itemRepository shop_items;
+
         public UnitOfWork(webapiContext context)
         {
             DBContext = context;
@@ -77,6 +80,32 @@ namespace WebAPI.Repositories
                 }
 
                 return collaborators;
+            }
+        }
+
+        public IEventRepository Events
+        {
+            get
+            {
+                if (events == null)
+                {
+                    events = new EventRepository(DBContext);
+                }
+
+                return events;
+            }
+        }
+
+        public IShop_itemRepository Shop_items
+        {
+            get
+            {
+                if (shop_items == null)
+                {
+                    shop_items = new Shop_itemRepository(DBContext);
+                }
+
+                return shop_items;
             }
         }
 

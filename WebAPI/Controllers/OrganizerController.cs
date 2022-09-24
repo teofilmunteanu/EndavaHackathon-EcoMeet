@@ -99,6 +99,7 @@ namespace WebAPI.Controllers
         public ActionResult DeleteOrganizer(string email)
         {
             var entity = _unitOfWork.Organizers.GetById(email);
+            
             if (entity == null)
             {
                 return NotFound();

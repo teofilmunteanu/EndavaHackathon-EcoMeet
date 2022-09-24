@@ -7,7 +7,7 @@ namespace WebAPI.Models
     {
         public Collaborator()
         {
-            Shopitems = new HashSet<Shopitem>();
+            Shop_items = new HashSet<Shop_item>();
         }
 
         public string Email { get; set; } = null!;
@@ -16,6 +16,6 @@ namespace WebAPI.Models
         public int AdministratorId { get; set; }
 
         public virtual Administrator Administrator { get; set; } = null!;
-        public virtual ICollection<Shopitem> Shopitems { get; set; }
+        public virtual ICollection<Shop_item> Shop_items { get; set; }
     }
 }

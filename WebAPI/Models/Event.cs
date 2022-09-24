@@ -7,7 +7,7 @@ namespace WebAPI.Models
     {
         public Event()
         {
-            VolunteerEmails = new HashSet<Volunteer>();
+            VolunteersEmails = new HashSet<Volunteer>();
         }
 
         public int Id { get; set; }
@@ -27,6 +27,6 @@ namespace WebAPI.Models
 
         public virtual Organizer OrganizerEmailNavigation { get; set; } = null!;
 
-        public virtual ICollection<Volunteer> VolunteerEmails { get; set; }
+        public virtual ICollection<Volunteer> VolunteersEmails { get; set; }
     }
 }
