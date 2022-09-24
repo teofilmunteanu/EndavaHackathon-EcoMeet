@@ -1,13 +1,17 @@
 import {Button, Flex, FormControl, FormLabel, Heading, Input, Stack, Image, Divider} from '@chakra-ui/react';
-import {ArrowBackIcon} from '@chakra-ui/icons'
+import {ArrowBackIcon} from '@chakra-ui/icons';
+import {RemoveScrollBar} from 'react-remove-scroll-bar';
+
 
 
 function OSignUp() {
   return (
+    <div>
+      
     <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
       <Flex p={8} flex={1} align={'center'} justify={'center'}>
         <Stack spacing={4} w={'full'} maxW={'md'}>
-          <Heading fontSize={'2xl'}>Hello, Organizer!</Heading>
+          <Heading fontSize={'2xl'}>Hello, Organizer! </Heading>
           <Divider orientation='horizontal'/>
           <FormControl  id="Oname">
             <FormLabel>Organization Name:</FormLabel>
@@ -34,6 +38,25 @@ function OSignUp() {
             <FormLabel>Town/City:</FormLabel>
             <Input type="text" />
           </FormControl>
+          <Heading fontSize={'2xl'} textAlign={'center'}>Representative </Heading>
+          <Divider orientation='horizontal'/>
+          <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              align={'start'}
+              justify={'space-between'}>
+                <FormControl id="Fname">
+            <FormLabel>First Name:</FormLabel>
+            <Input type="text" />
+          </FormControl>
+          <FormControl id="Lname">
+            <FormLabel>Last Name:</FormLabel>
+            <Input type="text" />
+          </FormControl>
+            </Stack>
+            <FormLabel>Email:</FormLabel>
+            <Input type="text" />
+            <FormLabel>Phone Number:</FormLabel>
+            <Input type="phone" />
           <Stack
               direction={{ base: 'line', sm: 'row' }}
               align={'start'}
@@ -56,6 +79,7 @@ function OSignUp() {
         />
       </Flex>
     </Stack>
+    </div>
   );
 }
 export default OSignUp;
