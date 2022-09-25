@@ -6,28 +6,6 @@ import {RemoveScrollBar} from 'react-remove-scroll-bar';
 
 function OSignUp() {
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-      <Flex p={8} flex={1} align={"center"} justify={"center"}>
-        <Stack spacing={4} w={"full"} maxW={"md"}>
-          <Heading
-            fontSize={["6vw", "4vw", "2.5vw"]}
-            color="#072C06"
-            textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
-            fontFamily={"neuton"}
-            fontWeight="light"
-          >
-            Hello, Organizer!
-          </Heading>
-          <Divider orientation="horizontal" />
-          <FormControl id="Oname">
-            <FormLabel
-              color="#072C06"
-              textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
-              fontFamily={"neuton"}
-              fontWeight="normal"
-            >
-              Organization Name:
-            </FormLabel>
     <div>
       
     <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
