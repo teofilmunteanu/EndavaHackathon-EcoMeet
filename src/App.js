@@ -9,9 +9,9 @@ import OSignUp from "./Components/OSignUp";
 import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
 import NavBarProfile from "./Components/NavBarProfile";
-import CSignUp from "./Components/CSingUp"
+import CSignUp from "./Components/CSignUp";
 import UProfile from "./Components/UProfile";
-import OProfile from "./Components/OProfile"
+import OProfile from "./Components/OProfile";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
@@ -76,12 +76,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/OFeed"
-          element={
-              <OFeed ofeed={OFeedData} />
-          }
-        />
+        <Route path="/OFeed" element={<OFeed ofeed={OFeedData} />} />
         <Route
           path="/UProfile"
           element={
@@ -100,7 +95,6 @@ function App() {
         />
       </Routes>
     </ChakraProvider>
-    
   );
 }
 

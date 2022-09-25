@@ -5,7 +5,6 @@ import "@fontsource/neuton";
 import "@fontsource/inter";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import {ButtonGroup } from '@chakra-ui/react'
 
 function UpperHomePage() {
   return (

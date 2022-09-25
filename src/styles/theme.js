@@ -7,19 +7,30 @@ const breakpoints = {
   "2xl": "96em",
 };
 
+//
+
 const activeLabelStyles = {
-  transform: "scale(0.85) translateY(-24px)"
+  transform: "scale(0.85) translateY(-24px)",
 };
 
 export const mainTheme = extendTheme({
   breakpoints,
   colors: {
-    yellow: { 100: "#FFCB30", 200: "#FFBF00", 300: "#FF9900", 400: "#FFE600" },
+    yellow: {
+      100: "#FFCB30",
+      200: "#FFBF00",
+      300: "#FF9900",
+      400: "#FFE600",
+      500: "#FFFDF1",
+      600: "#B18037",
+    },
     green: {
       100: "#2CAA6E",
       200: "#56D02B",
       300: "#8AEE67",
       400: "#6CB45B",
+      500: "#F1FFF4",
+      600: "#37B177",
     },
   },
   fontSizes: {
@@ -68,6 +79,21 @@ export const mainTheme = extendTheme({
             boxShadow: "0px 4px 4px rgba(0,0,0,0.25)",
           },
         },
+        golden: {
+          textAlign: "center",
+          fontFamily: "neuton",
+          fontWeight: "700",
+          letterSpacing: "0.2em",
+          color: "#B18037",
+          textShadow: "0px 2px 2px rgba(0,0,0,0.25)",
+          bg: "rgba(0,0,0,0)",
+          _hover: {
+            bgGradient:
+              "linear(to right top, #592222, #924429, #c27223, #e1ab0b, #ebea00)",
+            textColor: "white",
+            textShadow: "0px 2px 2px rgba(0,0,0,0.25)",
+          },
+        },
       },
     },
     Heading: {
@@ -78,15 +104,47 @@ export const mainTheme = extendTheme({
           fontFamily: "neuton",
           fontWeight: "light",
         },
+        golden: {
+          fontFamily: "neuton",
+          fontWeight: "400",
+          color: "#2C2806",
+          textShadow: "0px 2px 2px rgba(0,0,0,0.25)",
+          fontSize: "1.5vw",
+          letterSpacing: "0.03em",
+        },
       },
     },
-    FormLabel: {
+    P: {
       variants: {
         authEffect: {
           color: "#072C06",
           textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
           fontFamily: "neuton",
           fontWeight: "light",
+        },
+        golden: {
+          fontFamily: "neuton",
+          fontWeight: "400",
+          color: "#2C2806",
+          textShadow: "0px 2px 2px rgba(0,0,0,0.25)",
+          fontSize: "1.5vw",
+          letterSpacing: "0.03em",
+        },
+      },
+    },
+    Form: {
+      variants: {
+        authEffect: {
+          color: "#072C06",
+          textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
+          fontFamily: "neuton",
+          fontWeight: "light",
+        },
+        golden: {
+          fontFamily: "neuton",
+          fontWeight: "400",
+          color: "#2C2806",
+          textShadow: "0px 2px 2px rgba(0,0,0,0.25)",
         },
       },
     },
@@ -96,12 +154,13 @@ export const mainTheme = extendTheme({
           container: {
             _focusWithin: {
               label: {
-                ...activeLabelStyles
-              }
+                ...activeLabelStyles,
+              },
             },
-            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label": {
-              ...activeLabelStyles
-            },
+            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label":
+              {
+                ...activeLabelStyles,
+              },
             label: {
               top: 0,
               left: 0,
@@ -112,11 +171,11 @@ export const mainTheme = extendTheme({
               mx: 3,
               px: 1,
               my: 2,
-              transformOrigin: "left top"
-            }
-          }
-        }
-      }
-    }
-  }
+              transformOrigin: "left top",
+            },
+          },
+        },
+      },
+    },
+  },
 });

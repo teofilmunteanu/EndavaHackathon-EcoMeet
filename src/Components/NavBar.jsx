@@ -16,10 +16,10 @@ function NavBar() {
           src="./LeafLogo.svg"
           alt="leaf"
           pl="8vw"
-          w={["20%", "20%", "18%"]}
+          w={["14%", "13%", "12%"]}
         />
         <Text
-          fontSize={["12vw", "12vw", "8vw"]}
+          fontSize={["12vw", "12vw", "5vw"]}
           pl="2vw"
           color="white"
           textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
