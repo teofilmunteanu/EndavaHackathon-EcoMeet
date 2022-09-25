@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        // GET: <EventController>/GetEvents
+        // GET: <VolunteerController>/GetVolunteers
         [HttpGet("GetVolunteers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
             return list;
         }
 
-        // GET <EventController>/GetEvent/ex@email.com
+        // GET <VolunteerController>/GetVolunteer/ex@email.com
         [HttpGet("GetVolunteer/{email}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
             return entity;
         }
 
-        // POST <EventController>/CreateEvent
+        // POST <VolunteerController>/CreateVolunteer
         [HttpPost("CreateVolunteer")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -84,7 +84,7 @@ namespace WebAPI.Controllers
             return CreatedAtAction(nameof(GetVolunteerByEmail), new { Email = entity.Email }, entity);
         }
 
-        // PUT <EventController>/UpdateEvent
+        // PUT <VolunteerController>/UpdateVolunteer
         [HttpPut("UpdateVolunteer")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -107,7 +107,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        // DELETE <EventController>/DeleteEvent/ex @email.com
+        // DELETE <VolunteerController>/DeleteVolunteer/ex @email.com
         [HttpDelete("DeleteVolunteer/{email}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
