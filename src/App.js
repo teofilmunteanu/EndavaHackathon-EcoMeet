@@ -13,6 +13,7 @@ import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
 import UProfile from "./Components/UProfile";
 import OProfile from "./Components/OProfile"
+import Shop from "./Components/Shop";
 
 import { mainTheme } from "./styles/theme";
 import { VFeedData } from "./Components/VFeedData";
@@ -69,6 +70,14 @@ function App() {
           element={
             <>
               <OProfile feed={VFeedData} />
+            </>
+          }
+        />
+        <Route
+          path="/Shop"
+          element={
+            <>
+              <Shop/>
             </>
           }
         />
