@@ -86,7 +86,8 @@ export const mainTheme = extendTheme({
           letterSpacing: "0.2em",
           color: "#B18037",
           textShadow: "0px 2px 2px rgba(0,0,0,0.25)",
-          bg: "rgba(0,0,0,0)",
+          bgGradient:
+            "linear(to right top, rgba(89, 34, 34, 0.5) 0%, rgba(146, 68, 41, 0.5) 25%,rgba(194, 114, 35, 0.5) 50%,rgba(225, 171, 11, 0.5) 75%,rgba(235, 234, 0, 0.5) 100%)",
           _hover: {
             bgGradient:
               "linear(to right top, #592222, #924429, #c27223, #e1ab0b, #ebea00)",

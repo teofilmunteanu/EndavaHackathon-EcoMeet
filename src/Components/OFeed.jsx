@@ -72,7 +72,7 @@ const OFeed = ({ ofeed }) => {
           </Tab>
           <Tab
             bgGradient="linear(90deg, #2CAA6E 0%, yellow 100%)"
-            textcolor="white"
+            textColor="white"
             _focus={{ textColor: "white" }}
             _visited={{ textColor: "white" }}
           >
@@ -633,7 +633,7 @@ const OFeed = ({ ofeed }) => {
                   <Select
                     placeholder="Select Location"
                     fontSize="1.4vw"
-                    color="#072C06"
+                    color="yellow.600"
                     textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
                     fontFamily="neuton"
                     fontWeight="400"
@@ -661,7 +661,7 @@ const OFeed = ({ ofeed }) => {
                   <span
                     style={{
                       fontWeight: "bold",
-                      color: "#2CAA6E",
+                      color: "#B18037",
                       textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
                       fontFamily: "inter",
                       fontWeight: "400",
