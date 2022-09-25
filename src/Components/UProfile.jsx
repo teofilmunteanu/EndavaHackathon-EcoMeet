@@ -86,7 +86,7 @@ const UProfile = ({ feed }) => {
           >
             <GridItem
               colSpan={1}
-              rolSpan={2}
+              rowSpan={1}
               bg="#D0FEBF"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
@@ -107,7 +107,7 @@ const UProfile = ({ feed }) => {
                     mt="10"
                   />
                 </GridItem>
-                <GridItem colSpan={2} rowspan={1} h="44">
+                <GridItem colSpan={2} rowSpan={1} h="44">
                   <Heading
                     textAlign={["left"]}
                     mt="10"
@@ -139,7 +139,7 @@ const UProfile = ({ feed }) => {
                   </Text>
                   <Text
                     textAlign={["left"]}
-                    color="black"
+                    color="#072C06"
                     textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
                     fontFamily="neuton"
                     fontSize="1.6vw"
@@ -148,16 +148,24 @@ const UProfile = ({ feed }) => {
                   >
                     Level 10
                   </Text>
-                  <Text fontSize="2xl">20/50 EXP</Text>
+                  <Text
+                    textAlign={["left"]}
+                    color="#072C06"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontSize="1.7vw"
+                    fontWeight="600"
+                  >
+                    20/50 EXP
+                  </Text>
                 </GridItem>
               </Grid>
             </GridItem>
             <GridItem
-              colSpan={1}
-              rolSpan={2}
               bg="#EEFFE7"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
+              alignItems={"center"}
             >
               <Box
                 w="910"
@@ -165,10 +173,17 @@ const UProfile = ({ feed }) => {
                 bg="#D0FEBF"
                 boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
                 borderRadius="3xl"
+                alignItems="center"
               >
-                <Text fontWeight="bold" fontSize="4xl" ml="38">
+                <Heading
+                  variant="authEffect"
+                  textAlign={"left"}
+                  pt="1vw"
+                  pl="3vw"
+                  fontSize="2vw"
+                >
                   Achievements:
-                </Text>
+                </Heading>
               </Box>
               <Grid
                 h="200px"
@@ -182,29 +197,42 @@ const UProfile = ({ feed }) => {
                 overflowX="scroll"
               >
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#FFCB30"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
                   boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+                  borderWidth={"1px"}
+                  overflow="hidden"
+                  borderRadius={"2xl"}
                 >
                   <Grid
                     h="100%"
                     templateRows="repeat(1, 1fr)"
                     templateColumns="repeat(5, 1fr)"
                     gap={0}
+                    alignItems="center"
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Leaf.png" w="50%" mt="5" ml="7" />
+                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
-                      <Heading>Never Busy!</Heading>
-                      <Text fontSize="xl">Earned 2/07/22</Text>
+                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
+                        Tree-Boom!
+                      </Heading>
+                      <Text
+                        fontSize="1vw"
+                        fontFamily={"neuton"}
+                        letterSpacing="0.05em"
+                        fontWeight={"bold"}
+                      >
+                        Earned 2/07/22
+                      </Text>
                     </GridItem>
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#BD30FF"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(190, 1, 103, 0.304) 100%)"
@@ -217,7 +245,7 @@ const UProfile = ({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Health Calendar.png" w="50%" mt="5" ml="7" />
+                      <Image src="NeverBusy.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>Never Busy!</Heading>
@@ -226,7 +254,7 @@ const UProfile = ({ feed }) => {
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#64EA34"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(143, 255, 0, 0.304) 100%)"
@@ -239,7 +267,7 @@ const UProfile = ({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Trash.png" w="50%" mt="5" ml="7" />
+                      <Image src="TrashCan.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>TrashCAN!</Heading>
@@ -248,7 +276,7 @@ const UProfile = ({ feed }) => {
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#30FFF3"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
@@ -261,7 +289,7 @@ const UProfile = ({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Vectorda.png" w="50%" mt="5" ml="7" />
+                      <Image src="./Impactful.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>Impactful!</Heading>
@@ -270,7 +298,7 @@ const UProfile = ({ feed }) => {
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#30FFF3"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
@@ -283,7 +311,7 @@ const UProfile = ({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Vectorda.png" w="50%" mt="5" ml="7" />
+                      <Image src="Impactful.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>Impactful!</Heading>
@@ -295,7 +323,7 @@ const UProfile = ({ feed }) => {
             </GridItem>
             <GridItem
               colSpan={1}
-              rolSpan={2}
+              rowSpan={2}
               bg="#D0FEBF"
               boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
               borderRadius="3xl"
@@ -382,7 +410,7 @@ const UProfile = ({ feed }) => {
             </GridItem>
             <GridItem
               colSpan={1}
-              rolSpan={2}
+              rowSpan={2}
               bg="#EEFFE7"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
@@ -401,7 +429,7 @@ const UProfile = ({ feed }) => {
               <Accordion
                 allowToggle
                 backgroundColor="#F1FFF4"
-                style={{ overflowY: "scroll", height: "20vh" }}
+                style={{ overflowY: "scrowl", height: "20vh" }}
               >
                 {feed.map((feed) => {
                   return (
