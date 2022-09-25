@@ -3,11 +3,9 @@ using System.Xml.Linq;
 using WebAPI.Models;
 using WebAPI.Repositories;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace WebAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class Shop_itemController : ControllerBase
     {
@@ -18,8 +16,10 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        // GET: <Shop_itemController>/GetShopitem
+        // GET: <Shop_itemController>/GetShopitems
         [HttpGet("GetShopitems")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public ActionResult<IEnumerable<Shop_item>> Get()
         {
             var list = _unitOfWork.Shop_items.GetAll().ToList();
@@ -34,6 +34,8 @@ namespace WebAPI.Controllers
 
         // GET <Shop_itemController>/GetShopitem/5
         [HttpGet("GetShopitem/{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public ActionResult<Shop_item> GetShop_itemById(int id)
         {
             var entity = _unitOfWork.Shop_items.GetById(id);
@@ -48,6 +50,8 @@ namespace WebAPI.Controllers
 
         // POST <Shop_itemController>/CreateShopitem
         [HttpPost("CreateShopitem")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
         public ActionResult CreateShop_item([FromBody] Shop_item shop_item)
         {
             var entity = new Shop_item()
@@ -56,8 +60,7 @@ namespace WebAPI.Controllers
                 Name = shop_item.Name,
                 Price = shop_item.Price,
                 Description = shop_item.Description,
-                CollaboratorEmail = shop_item.CollaboratorEmail,
-                CollaboratorEmailNavigation = _unitOfWork.Collaborators.GetById("colab") //???
+                CollaboratorEmail = shop_item.CollaboratorEmail
             };
             
             try
@@ -77,9 +80,12 @@ namespace WebAPI.Controllers
 
         // PUT <Shop_itemController>/UpdateShopitem
         [HttpPut("UpdateShopitem")]
-        public ActionResult UpdateShop_item(int id, [FromBody] Shop_item shop_item)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public ActionResult UpdateShop_item([FromBody] Shop_item shop_item)
         {
-            var entity = _unitOfWork.Shop_items.GetById(id);
+            var entity = _unitOfWork.Shop_items.GetById(shop_item.Id);
 
             entity.Name = shop_item.Name;
             entity.Price = shop_item.Price;
@@ -93,6 +99,8 @@ namespace WebAPI.Controllers
 
         // DELETE <Shop_itemController>/DeleteShopitem/5
         [HttpDelete("DeleteShopitem/{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public ActionResult Delete(int id)
         {
             var entity = _unitOfWork.Shop_items.GetById(id);

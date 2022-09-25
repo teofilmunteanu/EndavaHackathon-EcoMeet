@@ -11,7 +11,7 @@ using WebAPI.Repositories;
 
 namespace WebAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AdministratorController : ControllerBase
     {
@@ -22,7 +22,8 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [HttpGet("GetAllAdministrators")]
+        // GET: <AdministratorController>/GetAdministrators
+        [HttpGet("GetAdministrators")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public ActionResult<IEnumerable<Administrator>> Get()
@@ -37,6 +38,7 @@ namespace WebAPI.Controllers
             return list;
         }
 
+        // GET <AdministratorController>/GetAdministrator/5
         [HttpGet("GetAdministratorById")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -64,6 +66,7 @@ namespace WebAPI.Controllers
             return entity;
         }
 
+        // POST <AdministratorController>/CreateAdministrator
         [HttpPost("CreateAdministrator")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -77,20 +80,21 @@ namespace WebAPI.Controllers
                 PhoneNumber = administrator.PhoneNumber,
             };
 
-            //try
-            //{
+            try
+            {
                 _unitOfWork.Administrators.Create(entity);
                 _unitOfWork.Save();
-            //}
-            //catch (Exception e)
-            //{
-                //return BadRequest();
-            //}
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
 
             //In this code path, the Volunteer object is provided in the response body. A Location response header containing the newly created product's URL is provided.
             return CreatedAtAction(nameof(GetAdministratorById), new { Email = entity.Email }, entity);
         }
 
+        // PUT <AdministratorController>/UpdateAdministrator
         [HttpPut("UpdateAdministrator")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -115,6 +119,7 @@ namespace WebAPI.Controllers
             return Ok(entity);
         }
 
+        // DELETE <AdministratorController>/DeleteAdministrator/5
         [HttpDelete("DeleteAdministrator")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]

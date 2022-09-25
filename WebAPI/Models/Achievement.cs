@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models
 {
@@ -9,8 +10,9 @@ namespace WebAPI.Models
         public string Title { get; set; } = null!;
         public string Date { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public string VolunteerEmail { get; set; } = null!;
+        [Required]
+        public string? VolunteerEmail { get; set; }
 
-        public virtual Volunteer VolunteerEmailNavigation { get; set; } = null!;
+        public virtual Volunteer? VolunteerEmailNavigation { get; set; }
     }
 }

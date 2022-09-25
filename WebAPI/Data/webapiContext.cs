@@ -55,7 +55,6 @@ namespace WebAPI.Data
                 entity.HasOne(d => d.VolunteerEmailNavigation)
                     .WithMany(p => p.Achievements)
                     .HasForeignKey(d => d.VolunteerEmail)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_achievements_volunteers");
             });
 
@@ -90,7 +89,6 @@ namespace WebAPI.Data
                 entity.HasOne(d => d.Administrator)
                     .WithMany(p => p.Collaborators)
                     .HasForeignKey(d => d.AdministratorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_collaborators_administrators");
             });
 
@@ -115,7 +113,6 @@ namespace WebAPI.Data
                 entity.HasOne(d => d.OrganizerEmailNavigation)
                     .WithMany(p => p.EventsNavigation)
                     .HasForeignKey(d => d.OrganizerEmail)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_events_organizers1");
 
                 entity.HasMany(d => d.VolunteersEmails)
@@ -162,7 +159,6 @@ namespace WebAPI.Data
                 entity.HasOne(d => d.Administrator)
                     .WithMany(p => p.Organizers)
                     .HasForeignKey(d => d.AdministratorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_organizers_administrators");
             });
 

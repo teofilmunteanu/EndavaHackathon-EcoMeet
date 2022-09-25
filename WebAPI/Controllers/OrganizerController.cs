@@ -4,7 +4,7 @@ using WebAPI.Repositories;
 
 namespace WebAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class OrganizerController : ControllerBase
     {
@@ -15,6 +15,7 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        // GET: <OrganizerController>/GetOrganizers
         [HttpGet("GetAllOrganizers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -30,6 +31,7 @@ namespace WebAPI.Controllers
             return list;
         }
 
+        // GET <OrganizerController>/GetOrganizer/ex@email.com
         [HttpGet("GetOrganizerByEmail")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -45,18 +47,19 @@ namespace WebAPI.Controllers
             return entity;
         }
 
+        // POST <OrganizerController>/CreateOrganizer
         [HttpPost("CreateOrganizer")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public ActionResult CreateOrganizer(Organizer Organizer)
+        public ActionResult CreateOrganizer(Organizer organizer)
         {
             var entity = new Organizer()
             {
-                Email = Organizer.Email,
-                Password = Organizer.Password,
-                OrganizationName = Organizer.OrganizationName,
-                City = Organizer.City,
-                AdministratorId = Organizer.AdministratorId
+                Email = organizer.Email,
+                Password = organizer.Password,
+                OrganizationName = organizer.OrganizationName,
+                City = organizer.City,
+                AdministratorId = organizer.AdministratorId
             };
 
             try
@@ -73,19 +76,20 @@ namespace WebAPI.Controllers
             return CreatedAtAction(nameof(GetOrganizerByEmail), new { Email = entity.Email }, entity);
         }
 
+        // PUT <OrganizerController>/UpdateOrganizer
         [HttpPut("UpdateOrganizer")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public ActionResult UpdateOrganizer(Organizer Organizer)
+        public ActionResult UpdateOrganizer(Organizer organizer)
         {
-            var entity = _unitOfWork.Organizers.GetById(Organizer.Email);
+            var entity = _unitOfWork.Organizers.GetById(organizer.Email);
 
-            entity.Email = Organizer.Email;
-            entity.Password = Organizer.Password;
-            entity.OrganizationName = Organizer.OrganizationName;
-            entity.City = Organizer.City;
-            entity.AdministratorId = Organizer.AdministratorId;
+            entity.Email = organizer.Email;
+            entity.Password = organizer.Password;
+            entity.OrganizationName = organizer.OrganizationName;
+            entity.City = organizer.City;
+            entity.AdministratorId = organizer.AdministratorId;
 
             _unitOfWork.Organizers.Update(entity);
             _unitOfWork.Save();
@@ -93,6 +97,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        // DELETE <OrganizerController>/DeleteOrganizer/ex@email.com
         [HttpDelete("DeleteOrganizer")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]

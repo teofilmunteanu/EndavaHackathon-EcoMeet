@@ -4,7 +4,7 @@ using WebAPI.Repositories;
 
 namespace WebAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CollaboratorController : ControllerBase
     {
@@ -15,6 +15,7 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        // GET: <CollaboratorController>/GetCollaborators
         [HttpGet("GetAllCollaborators")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -30,6 +31,7 @@ namespace WebAPI.Controllers
             return list;
         }
 
+        // GET <CollaboratorController>/GetCollaborator/ex@email.com
         [HttpGet("GetCollaboratorByEmail")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
@@ -45,17 +47,18 @@ namespace WebAPI.Controllers
             return entity;
         }
 
+        // POST <CollaboratorController>/CreateCollaborator
         [HttpPost("CreateCollaborator")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
-        public ActionResult CreateCollaborator(Collaborator Collaborator)
+        public ActionResult CreateCollaborator(Collaborator collaborator)
         {
             var entity = new Collaborator()
             {
-                Email = Collaborator.Email,
-                Password = Collaborator.Password,
-                OrganizationName = Collaborator.OrganizationName,
-                AdministratorId = Collaborator.AdministratorId,
+                Email = collaborator.Email,
+                Password = collaborator.Password,
+                OrganizationName = collaborator.OrganizationName,
+                AdministratorId = collaborator.AdministratorId,
             };
 
             try
@@ -72,18 +75,19 @@ namespace WebAPI.Controllers
             return CreatedAtAction(nameof(GetCollaboratorByEmail), new { Email = entity.Email }, entity);
         }
 
+        // PUT <CollaboratorController>/UpdateCollaborator
         [HttpPut("UpdateCollaborator")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public ActionResult UpdateCollaborator(Collaborator Collaborator)
+        public ActionResult UpdateCollaborator(Collaborator collaborator)
         {
-            var entity = _unitOfWork.Collaborators.GetById(Collaborator.Email);
+            var entity = _unitOfWork.Collaborators.GetById(collaborator.Email);
 
-            entity.Email = Collaborator.Email;
-            entity.Password = Collaborator.Password;
-            entity.OrganizationName = Collaborator.OrganizationName;
-            entity.AdministratorId = Collaborator.AdministratorId;
+            entity.Email = collaborator.Email;
+            entity.Password = collaborator.Password;
+            entity.OrganizationName = collaborator.OrganizationName;
+            entity.AdministratorId = collaborator.AdministratorId;
 
             _unitOfWork.Collaborators.Update(entity);
             _unitOfWork.Save();
@@ -91,6 +95,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        // DELETE <CollaboratorController>/DeleteCollaborator/ex@email.com
         [HttpDelete("DeleteCollaborator")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]

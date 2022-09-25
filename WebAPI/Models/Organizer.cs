@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models
 {
@@ -15,9 +16,10 @@ namespace WebAPI.Models
         public string OrganizationName { get; set; } = null!;
         public string City { get; set; } = null!;
         public string? Events { get; set; }
-        public int AdministratorId { get; set; }
+        [Required]
+        public int? AdministratorId { get; set; }
 
-        public virtual Administrator Administrator { get; set; } = null!;
+        public virtual Administrator? Administrator { get; set; }
         public virtual ICollection<Event> EventsNavigation { get; set; }
     }
 }
