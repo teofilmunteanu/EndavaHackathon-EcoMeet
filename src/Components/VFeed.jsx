@@ -22,7 +22,6 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
-import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
 import React from "react";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import "@fontsource/inter";
@@ -36,13 +35,14 @@ const VFeed = ({ feed }) => {
           <Tab
             bgGradient="linear(270deg, #2CAA6E 0%, #56D02B 100%)"
             _focus={{ textColor: "white" }}
+            _selected={{ textColor: "white" }}
           >
-            <Search2Icon /> &nbsp;&nbsp;{" "}
+            <Image src="./Area.svg" w="4%" /> &nbsp;&nbsp;{" "}
             <span
               style={{
                 fontWeight: "400",
                 fontFamily: "inter",
-                textShadow: "0px 2px 2px rgba(0,0,0,0.1)",
+                textShadow: "0px 2px 2px rgba(0,0,0,0.5)",
               }}
             >
               Events In Your Area
@@ -53,14 +53,15 @@ const VFeed = ({ feed }) => {
             textColor="white"
             _focus={{ textColor: "white" }}
             _visited={{ textColor: "white" }}
+            _selected={{ textColor: "white" }}
           >
             {" "}
-            <CalendarIcon /> &nbsp;&nbsp;{" "}
+            <Image src="./Calendar.svg" w="4%" mr="0.5vw" /> &nbsp;&nbsp;{" "}
             <span
               style={{
                 fontWeight: "400",
                 fontFamily: "inter",
-                textShadow: "0px 2px 2px rgba(0,0,0,0.1)",
+                textShadow: "0px 2px 2px rgba(0,0,0,0.5)",
               }}
             >
               Your Events

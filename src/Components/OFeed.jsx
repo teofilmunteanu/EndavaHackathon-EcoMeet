@@ -18,8 +18,6 @@ import {
   Flex,
   FormControl,
   Stack,
-  VStack,
-  HStack,
   Image,
   Box,
   Tabs,
@@ -34,14 +32,9 @@ import {
   AccordionIcon,
   Heading,
 } from "@chakra-ui/react";
-import {
-  CalendarIcon,
-  Search2Icon,
-  DeleteIcon,
-  AddIcon,
-} from "@chakra-ui/icons";
-import React from "react";
+import { CalendarIcon, AddIcon } from "@chakra-ui/icons";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
+import React from "react";
 import "@fontsource/inter";
 import "@fontsource/neuton";
 
@@ -58,13 +51,14 @@ const OFeed = ({ ofeed }) => {
           <Tab
             bgGradient="linear(270deg, #2CAA6E 0%, #56D02B 100%)"
             _focus={{ textColor: "white" }}
+            _selected={{ textColor: "white" }}
           >
-            <Search2Icon /> &nbsp;&nbsp;{" "}
+            <Image src="./Area.svg" w="4%" /> &nbsp;&nbsp;{" "}
             <span
               style={{
                 fontWeight: "400",
                 fontFamily: "inter",
-                textShadow: "0px 2px 2px rgba(0,0,0,0.1)",
+                textShadow: "0px 2px 2px rgba(0,0,0,0.5)",
               }}
             >
               Events In Your Area
@@ -72,17 +66,16 @@ const OFeed = ({ ofeed }) => {
           </Tab>
           <Tab
             bgGradient="linear(90deg, #2CAA6E 0%, yellow 100%)"
-            textColor="white"
             _focus={{ textColor: "white" }}
-            _visited={{ textColor: "white" }}
+            _selected={{ textColor: "white" }}
           >
             {" "}
-            <CalendarIcon /> &nbsp;&nbsp;{" "}
+            <Image src="./Calendar.svg" w="4%" mr="0.5vw" />
             <span
               style={{
                 fontWeight: "400",
                 fontFamily: "inter",
-                textShadow: "0px 2px 2px rgba(0,0,0,0.1)",
+                textShadow: "0px 2px 2px rgba(0,0,0,0.5)",
               }}
             >
               Your Events

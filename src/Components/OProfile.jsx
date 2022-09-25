@@ -35,34 +35,32 @@ const OProfile = ({ feed }) => {
   return (
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
-       
         <Tab
           w="236.5"
           h="100 "
           bgGradient="linear(90deg, #47C244 0%, #3AB758 100%)"
         >
-          <Image src="./Vector.png"></Image>
+          <Image src="./Area.svg" w="4%" />
         </Tab>
         <Tab
           w="236.5"
           h="100 "
           bgGradient="linear(90deg, #3AB758 0%, #32B064 100%)"
         >
-          <Image src="./Calendar.png"></Image>
+          <Image src="./Calendar.svg" w="4%" />
         </Tab>
         <Tab
           w="2198.5"
           h="100"
           bgGradient="linear(270deg,#FFCB30  0%,#32B064  98.27%)"
         >
-          <Image src="./profile.png" />
+          <Image src="./Profile.svg" w="4%" />
           <Text color="white" fontSize="3xl">
             Your Profile
           </Text>
         </Tab>
       </TabList>
       <TabPanels>
-       
         <TabPanel />
         <TabPanel />
         <TabPanel>
@@ -168,12 +166,15 @@ const OProfile = ({ feed }) => {
                   Organization Document:
                 </Text>
               </Box>
-              <Box w="90%" h="50%" ml= "10" mr="100" bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)" boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)" borderRadius="5px">
-              </Box>
-<<<<<<< HEAD
-              
-=======
->>>>>>> ed0128946a2cd6c33d676e2acd3d26996a08dbf1
+              <Box
+                w="90%"
+                h="50%"
+                ml="10"
+                mr="100"
+                bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
+                boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+                borderRadius="5px"
+              ></Box>
             </GridItem>
             <GridItem
               colSpan={1}
@@ -267,51 +268,46 @@ const OProfile = ({ feed }) => {
                   Activity:
                 </Text>
               </Box>
-<<<<<<< HEAD
-              <Accordion allowToggle backgroundColor="#F1FFF4" style={{ overflowY: "scroll", height: "20vh" }}>
-=======
->>>>>>> ed0128946a2cd6c33d676e2acd3d26996a08dbf1
-                {feed.map((feed) => {
-                  return (
-                    <AccordionItem w="50vw">
-                      <Stack
-                        alignItems={"center"}
-                        direction={{ base: "line", sm: "row" }}
-                        align={"start"}
-                        justify={"space-between"}
-                      >
-                        <Image w="20%" boxSize="100px" src={feed.image} />
-                        <AccordionButton w="65%">
-                          <Box flex="1" textAlign="left" alignItems={"center"}>
-                            <span style={{ fontWeight: "bold" }}>
-                              {feed.titlu_activitate}
-                            </span>
-                            <p>{feed.nume_firma}</p>
-                            <span style={{ fontWeight: "bold" }}>
-                              Date: {feed.date}
-                            </span>
-                          </Box>
-                          <AccordionIcon />
-                        </AccordionButton>
-                        <Flex w="15%" direction={"column"}>
-                          <Flex>
-                            <span style={{ fontWeight: "bold" }}>
-                              {feed.participanti}
-                              <DeleteIcon />{" "}
-                            </span>
-                            <Spacer />
-                            <span>{feed.puncte} pts </span>
-                          </Flex>
+              {feed.map((feed) => {
+                return (
+                  <AccordionItem w="50vw">
+                    <Stack
+                      alignItems={"center"}
+                      direction={{ base: "line", sm: "row" }}
+                      align={"start"}
+                      justify={"space-between"}
+                    >
+                      <Image w="20%" boxSize="100px" src={feed.image} />
+                      <AccordionButton w="65%">
+                        <Box flex="1" textAlign="left" alignItems={"center"}>
+                          <span style={{ fontWeight: "bold" }}>
+                            {feed.titlu_activitate}
+                          </span>
+                          <p>{feed.nume_firma}</p>
+                          <span style={{ fontWeight: "bold" }}>
+                            Date: {feed.date}
+                          </span>
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                      <Flex w="15%" direction={"column"}>
+                        <Flex>
+                          <span style={{ fontWeight: "bold" }}>
+                            {feed.participanti}
+                            <DeleteIcon />{" "}
+                          </span>
+                          <Spacer />
+                          <span>{feed.puncte} pts </span>
                         </Flex>
-                      </Stack>
-                      <br></br>
-                      <AccordionPanel pb={4}>
-                        {feed.descriere_activitate}
-                      </AccordionPanel>
-                    </AccordionItem>
-                  );
-                })}
-              </Accordion>
+                      </Flex>
+                    </Stack>
+                    <br></br>
+                    <AccordionPanel pb={4}>
+                      {feed.descriere_activitate}
+                    </AccordionPanel>
+                  </AccordionItem>
+                );
+              })}
             </GridItem>
           </Grid>
         </TabPanel>

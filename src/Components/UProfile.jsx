@@ -10,6 +10,7 @@ import { Select } from "@chakra-ui/react";
 import {
   Button,
   Flex,
+  Avatar,
   FormControl,
   FormLabel,
   Heading,
@@ -21,35 +22,51 @@ import {
 } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import {  Spacer, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
-import { CalendarIcon, Search2Icon, DeleteIcon } from '@chakra-ui/icons'
+import {
+  Spacer,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
+import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
+import "@fontsource/inter";
+import "@fontsource/neuton";
 
-
-const UProfile=({ feed }) => {
+const UProfile = ({ feed }) => {
   return (
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
         <Tab
           w="236.5"
-          h="100 "
           bgGradient="linear(90deg, #47C244 0%, #3AB758 100%)"
+          _focus={{ textColor: "white" }}
+          _selected={{ textColor: "white" }}
         >
-          <Image src="./Vector.png"></Image>
+          <Image src="./Area.svg" w="7%"></Image>
         </Tab>
         <Tab
           w="236.5"
-          h="100 "
           bgGradient="linear(90deg, #3AB758 0%, #32B064 100%)"
+          _focus={{ textColor: "white" }}
+          _selected={{ textColor: "white" }}
         >
-          <Image src="./Calendar.png"></Image>
+          <Image src="./Calendar.svg" w="7%"></Image>
         </Tab>
         <Tab
           w="2198.5"
           h="100"
-          bgGradient="linear(270deg,#FFCB30  0%,#32B064  98.27%)"
+          bgGradient="linear(270deg, yellow  0%,#32B064  98.27%)"
         >
-          <Image src="./profile.png" />
-          <Text color="white" fontSize="3xl">
+          <Image src="./Profile.svg" w="7%" mr="1vw" />
+          <Text
+            color="white"
+            fontSize="3xl"
+            fontWeight="400"
+            fontFamily="inter"
+            textShadow="0px 2px 2px rgba(0,0,0,0.5)"
+          >
             Your Profile
           </Text>
         </Tab>
@@ -81,30 +98,54 @@ const UProfile=({ feed }) => {
                 gap={0}
               >
                 <GridItem rowSpan={2} colSpan={1}>
-                  <Image
+                  <Avatar
                     borderRadius="full"
                     boxSize="150px"
-                    src="https://bit.ly/dan-abramov"
+                    src="./Charles.jpg"
                     alt="Dan Abramov"
                     ml="50"
                     mt="10"
                   />
                 </GridItem>
                 <GridItem colSpan={2} rowspan={1} h="44">
-                  <Text
+                  <Heading
                     textAlign={["left"]}
                     mt="10"
-                    fontSize="4xl"
-                    fontWeight="extrabold"
+                    variant="authEffect"
+                    fontWeight="1000"
+                    letterSpacing="0.05em"
                   >
-                    {" "}
                     Charles Ludwigsten
+                  </Heading>
+                  <Text
+                    textAlign={["left"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="inter"
+                    fontWeight="light"
+                    fontSize={"1vw"}
+                  >
+                    charles.ludwisgten2@gmail.com
                   </Text>
-                  <Text fontSize="2xl">charles.ludwisgten2@gmail.com</Text>
-                  <Text fontSize="xl" fontWeight="bold">
+                  <Text
+                    textAlign={["left"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontSize="1.2vw"
+                    fontWeight="500"
+                  >
                     Iasi, Romania
                   </Text>
-                  <Text fontSize="3xl" fontWeight="bold" mt="45">
+                  <Text
+                    textAlign={["left"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontSize="1.6vw"
+                    fontWeight="500"
+                    mt="45"
+                  >
                     Level 10
                   </Text>
                   <Text fontSize="2xl">20/50 EXP</Text>
@@ -117,7 +158,6 @@ const UProfile=({ feed }) => {
               bg="#EEFFE7"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
-              
             >
               <Box
                 w="910"
@@ -358,36 +398,45 @@ const UProfile=({ feed }) => {
                   Activity:
                 </Text>
               </Box>
-              <Accordion allowToggle backgroundColor="#F1FFF4" style={{ overflowY: "scroll", height: "20vh" }} >
+              <Accordion
+                allowToggle
+                backgroundColor="#F1FFF4"
+                style={{ overflowY: "scroll", height: "20vh" }}
+              >
                 {feed.map((feed) => {
                   return (
-                    <AccordionItem w='50vw' overflowX="auto">
-                      <Stack alignItems={"center"}
-                        direction={{ base: 'line', sm: 'row' }}
-                        align={'start'}
-                        justify={'space-between'}>
-                        <Image
-                          w="20%"
-                          boxSize='100px'
-                          src={feed.image}
-                        />
+                    <AccordionItem w="50vw" overflowX="auto">
+                      <Stack
+                        alignItems={"center"}
+                        direction={{ base: "line", sm: "row" }}
+                        align={"start"}
+                        justify={"space-between"}
+                      >
+                        <Image w="20%" boxSize="100px" src={feed.image} />
                         <AccordionButton w="65%">
-
-                          <Box flex='1' textAlign='left' alignItems={"center"}>
-                            <span style={{ fontWeight: 'bold' }}>{feed.titlu_activitate}</span>
+                          <Box flex="1" textAlign="left" alignItems={"center"}>
+                            <span style={{ fontWeight: "bold" }}>
+                              {feed.titlu_activitate}
+                            </span>
                             <p>{feed.nume_firma}</p>
-                            <span style={{ fontWeight: 'bold' }}>Date: {feed.date}</span>
+                            <span style={{ fontWeight: "bold" }}>
+                              Date: {feed.date}
+                            </span>
                           </Box>
                           <AccordionIcon />
                         </AccordionButton>
                         <Flex w="15%" direction={"column"}>
                           <Flex>
-                            <span style={{ fontWeight: 'bold' }}>{feed.participanti}<DeleteIcon /> </span>
+                            <span style={{ fontWeight: "bold" }}>
+                              {feed.participanti}
+                              <DeleteIcon />{" "}
+                            </span>
                             <Spacer />
                             <span>{feed.puncte} pts </span>
                           </Flex>
                         </Flex>
-                      </Stack><br></br>
+                      </Stack>
+                      <br></br>
                       <AccordionPanel pb={4}>
                         {feed.descriere_activitate}
                       </AccordionPanel>
@@ -401,6 +450,6 @@ const UProfile=({ feed }) => {
       </TabPanels>
     </Tabs>
   );
-}
+};
 
 export default UProfile;
