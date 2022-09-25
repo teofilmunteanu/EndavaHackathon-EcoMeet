@@ -169,9 +169,11 @@ const OProfile = ({ feed }) => {
                 </Text>
               </Box>
               <Box w="90%" h="50%" ml= "10" mr="100" bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)" boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)" borderRadius="5px">
-              <input  size="md" type="file" name="cv" id="files" placeholder="document.PDF" accept="application/pdf" required />
               </Box>
+<<<<<<< HEAD
               
+=======
+>>>>>>> ed0128946a2cd6c33d676e2acd3d26996a08dbf1
             </GridItem>
             <GridItem
               colSpan={1}
@@ -265,7 +267,10 @@ const OProfile = ({ feed }) => {
                   Activity:
                 </Text>
               </Box>
+<<<<<<< HEAD
               <Accordion allowToggle backgroundColor="#F1FFF4" style={{ overflowY: "scroll", height: "20vh" }}>
+=======
+>>>>>>> ed0128946a2cd6c33d676e2acd3d26996a08dbf1
                 {feed.map((feed) => {
                   return (
                     <AccordionItem w="50vw">
@@ -307,67 +312,6 @@ const OProfile = ({ feed }) => {
                   );
                 })}
               </Accordion>
-              {/* <Grid
-                h="200px"
-                templateRows="repeat(2, 1fr)"
-                templateColumns="repeat(1, 1fr)"
-                gap={5}
-                mt="5"
-                ml="10"
-                mr="10"
-                overflowX="scroll"
-              >
-                <GridItem
-                  rolSpan={1}
-                  colSpan={1}
-                  bg="#F1FFF4"
-                  border="1px solid #37B177"
-                  box-shadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(3, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={3} colSpan={1}>
-                      <Image src="Rectangle 47.png" w="162.4" h="88" ml="12" />
-                    </GridItem>
-                    <GridItem rowSpan={3} colSpan={3}>
-                      <Text fontSize="2xl">Planting trees in Palas Mall!</Text>
-                      <Text fontSize="xl">Endava</Text>
-                      <Text fontSize="xl" fontWeight="bold">
-                        Took place on: 29/09/22 Earned: 10 pts
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rolSpan={1}
-                  colSpan={1}
-                  bg="#F1FFF4"
-                  border="1px solid #37B177"
-                  box-shadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(3, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={3} colSpan={1}>
-                      <Image src="Rectangle 47.png" w="162.4" h="88" ml="12" />
-                    </GridItem>
-                    <GridItem rowSpan={3} colSpan={3}>
-                      <Text fontSize="2xl">Planting trees in Palas Mall!</Text>
-                      <Text fontSize="xl">Endava</Text>
-                      <Text fontSize="xl" fontWeight="bold">
-                        Took place on: 29/09/22 Earned: 10 pts
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-              </Grid> */}
             </GridItem>
           </Grid>
         </TabPanel>
