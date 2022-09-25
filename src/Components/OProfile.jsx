@@ -35,11 +35,7 @@ const OProfile = ({ feed }) => {
   return (
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
-        <Tab
-          w="100"
-          h="100 "
-          bgGradient="linear(90deg, #56D02B 0%, #47C244 100%)"
-        ></Tab>
+       
         <Tab
           w="236.5"
           h="100 "
@@ -66,7 +62,7 @@ const OProfile = ({ feed }) => {
         </Tab>
       </TabList>
       <TabPanels>
-        <TabPanel />
+       
         <TabPanel />
         <TabPanel />
         <TabPanel>
@@ -175,128 +171,7 @@ const OProfile = ({ feed }) => {
               <Box w="90%" h="50%" ml= "10" mr="100" bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)" boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)" borderRadius="5px">
               <input  size="md" type="file" name="cv" id="files" placeholder="document.PDF" accept="application/pdf" required />
               </Box>
-              {/* <Grid
-                h="200px"
-                templateRows="repeat(2, 1fr)"
-                templateColumns="repeat(2, 1fr)"
-                gap={8}
-                mt="5"
-                ml="10"
-                mr="10"
-                w="300"
-                overflowX="scroll"
-              >
-                <GridItem
-                  rolSpan={2}
-                  colSpan={1}
-                  bg="#FFCB30"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Leaf.png" w="50%" mt="5" ml="7" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading>Never Busy!</Heading>
-                      <Text fontSize="xl">Earned 2/07/22</Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rolSpan={2}
-                  colSpan={1}
-                  bg="#BD30FF"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(190, 1, 103, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Health Calendar.png" w="50%" mt="5" ml="7" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading>Never Busy!</Heading>
-                      <Text fontSize="xl">Earned 30/07/22</Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rolSpan={2}
-                  colSpan={1}
-                  bg="#64EA34"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(143, 255, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Trash.png" w="50%" mt="5" ml="7" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading>TrashCAN!</Heading>
-                      <Text fontSize="xl">Earned 5/07/22</Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rolSpan={2}
-                  colSpan={1}
-                  bg="#30FFF3"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Vectorda.png" w="50%" mt="5" ml="7" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading>Impactful!</Heading>
-                      <Text fontSize="xl">Earned 22/08/22</Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rolSpan={2}
-                  colSpan={1}
-                  bg="#30FFF3"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Vectorda.png" w="50%" mt="5" ml="7" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading>Impactful!</Heading>
-                      <Text fontSize="xl">Earned 22/08/22</Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-              </Grid> */}
+              
             </GridItem>
             <GridItem
               colSpan={1}
@@ -390,7 +265,7 @@ const OProfile = ({ feed }) => {
                   Activity:
                 </Text>
               </Box>
-              <Accordion allowToggle backgroundColor="#F1FFF4">
+              <Accordion allowToggle backgroundColor="#F1FFF4" style={{ overflowY: "scroll", height: "20vh" }}>
                 {feed.map((feed) => {
                   return (
                     <AccordionItem w="50vw">

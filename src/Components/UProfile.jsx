@@ -30,11 +30,6 @@ const UProfile=({ feed }) => {
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
         <Tab
-          w="100"
-          h="100 "
-          bgGradient="linear(90deg, #56D02B 0%, #47C244 100%)"
-        ></Tab>
-        <Tab
           w="236.5"
           h="100 "
           bgGradient="linear(90deg, #47C244 0%, #3AB758 100%)"
@@ -60,7 +55,6 @@ const UProfile=({ feed }) => {
         </Tab>
       </TabList>
       <TabPanels>
-        <TabPanel />
         <TabPanel />
         <TabPanel />
         <TabPanel>
@@ -364,7 +358,7 @@ const UProfile=({ feed }) => {
                   Activity:
                 </Text>
               </Box>
-              <Accordion allowToggle backgroundColor="#F1FFF4" >
+              <Accordion allowToggle backgroundColor="#F1FFF4" style={{ overflowY: "scroll", height: "20vh" }} >
                 {feed.map((feed) => {
                   return (
                     <AccordionItem w='50vw'>
