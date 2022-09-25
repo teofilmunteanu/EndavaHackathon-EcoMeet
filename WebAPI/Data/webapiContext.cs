@@ -179,9 +179,8 @@ namespace WebAPI.Data
                 entity.Property(e => e.Name).HasMaxLength(45);
 
                 entity.HasOne(d => d.CollaboratorEmailNavigation)
-                    .WithMany(p => p.Shop_items)
+                    .WithMany(p => p.ShopItems)
                     .HasForeignKey(d => d.CollaboratorEmail)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_shopitems_collaborators1");
             });
 

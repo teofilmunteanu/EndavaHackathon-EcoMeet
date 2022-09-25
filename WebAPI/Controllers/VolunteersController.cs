@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
         
-        [HttpGet("GetAllVolunteers")]
+        [HttpGet("GetVolunteers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public ActionResult<IEnumerable<Volunteer>> Get()
@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
             return list;
         }
  
-        [HttpGet("GetVolunteerByEmail")]
+        [HttpGet("GetVolunteer/{email}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public ActionResult<Volunteer> GetVolunteerByEmail(string email)
@@ -85,7 +85,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public ActionResult UpdateUser(Volunteer volunteer)
+        public ActionResult UpdateVolunteer(Volunteer volunteer)
         {
             var entity = _unitOfWork.Volunteers.GetById(volunteer.Email);
 
@@ -103,7 +103,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
-        [HttpDelete("DeleteVolunteer")]
+        [HttpDelete("DeleteVolunteer/{email}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         public ActionResult DeleteVolunteer(string email)
