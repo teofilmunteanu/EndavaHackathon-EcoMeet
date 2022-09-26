@@ -11,12 +11,10 @@ import Login from "./Components/Login";
 import NavBarProfile from "./Components/NavBarProfile";
 import CSignUp from "./Components/CSignUp";
 import UProfile from "./Components/UProfile";
-<<<<<<< HEAD
 import OProfile from "./Components/OProfile"
 import Shop from "./Components/Shop";
-=======
-import OProfile from "./Components/OProfile";
->>>>>>> main
+
+
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
