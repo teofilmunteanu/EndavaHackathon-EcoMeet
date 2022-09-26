@@ -187,7 +187,7 @@ const UProfile = ({ feed }) => {
               </Box>
               <Grid
                 h="200px"
-                templateRows="repeat(2, 1fr)"
+                templateRows="repeat(autofill)"
                 templateColumns="repeat(2, 1fr)"
                 gap={8}
                 mt="5"
@@ -204,7 +204,7 @@ const UProfile = ({ feed }) => {
                   boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
                   borderWidth={"1px"}
                   overflow="hidden"
-                  borderRadius={"2xl"}
+                  borderRadius={"15px"}
                 >
                   <Grid
                     h="100%"
