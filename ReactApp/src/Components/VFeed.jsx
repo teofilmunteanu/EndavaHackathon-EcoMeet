@@ -1,7 +1,8 @@
-import { Button, Grid, GridItem, Text, Select, Spacer, Flex, FormControl, Stack, Image, Box, Tabs, TabList, TabPanels, Tab, TabPanel, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Center } from '@chakra-ui/react';
-import { CalendarIcon, Search2Icon, DeleteIcon } from '@chakra-ui/icons'
+import { Button, Grid, GridItem, Text, Select, FormControl, Stack, Image, Box, Tabs, TabList, TabPanels, Tab, TabPanel, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Center } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons'
 import React from 'react';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 
 
@@ -10,9 +11,40 @@ const VFeed = ({ feed }) => {
     <div>
       <RemoveScrollBar />
       <Tabs isFitted variant='enclosed' colorScheme='green'>
-        <TabList mb='1em'>
-          <Tab><Search2Icon /> &nbsp;&nbsp; <span style={{ fontWeight: 'bold' }}>Events In Your Area</span></Tab>
-          <Tab> <CalendarIcon /> &nbsp;&nbsp; <span style={{ fontWeight: 'bold' }}>Your Events</span></Tab>
+      <TabList mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)">
+          <Tab
+            bgGradient="linear(270deg, #2CAA6E 0%, #56D02B 100%)"
+            _focus={{ textColor: "white" }}
+            _selected={{ textColor: "white" }}
+          >
+            <Image src="./Area.svg" w="4%" /> &nbsp;&nbsp;{" "}
+            <span
+              style={{
+                fontWeight: "400",
+                fontFamily: "inter",
+                textShadow: "0px 2px 2px rgba(0,0,0,0.5)",
+              }}
+            >
+              Events In Your Area
+            </span>
+          </Tab>
+          <Tab
+            bgGradient="linear(90deg, #2CAA6E 0%, yellow 100%)"
+            _focus={{ textColor: "white" }}
+            _selected={{ textColor: "white" }}
+          >
+            {" "}
+            <Image src="./Calendar.svg" w="4%" mr="0.5vw" />
+            <span
+              style={{
+                fontWeight: "400",
+                fontFamily: "inter",
+                textShadow: "0px 2px 2px rgba(0,0,0,0.5)",
+              }}
+            >
+              Your Events
+            </span>
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -67,12 +99,7 @@ const VFeed = ({ feed }) => {
               <GridItem rowSpan={1}>
                 <div position='sticky'>
                   <FormControl>
-                    <Select placeholder='Select Another City:'>
-                      <option>Iasi</option>
-                      <option>Botosani</option>
-                      <option>Galati</option>
-                      <option>Timisoara</option>
-                    </Select>
+                    <input placeholder='Select Another City:' type='text'></input>
                   </FormControl>
                 </div>
                 <iframe title="Maps"
@@ -88,11 +115,12 @@ const VFeed = ({ feed }) => {
 
 
         <TabPanel>
-          <Stack
-            direction={{ base: 'column', sm: 'row' }}
-            align={'center'}
-            justify={'space-between'}>
-            <div>
+        <Grid
+              h='250px'
+              templateColumns={'repeat(2, 1fr)'}
+              gap={'5'}
+            >
+              <GridItem rowSpan={1}>
               <Accordion allowToggle backgroundColor="#FFFDF1" style={{ overflowY: "scroll", height: "66vh" }}>
                 {feed.map((feed) => {
                   return (
@@ -146,8 +174,8 @@ const VFeed = ({ feed }) => {
                   );
                 })}
               </Accordion>
-            </div>
-            <div>
+              </GridItem>
+              <GridItem rowSpan={1}>
               <FormControl>
                 <Select placeholder='Select Another City:'>
                   <option>Iasi</option>
@@ -159,13 +187,13 @@ const VFeed = ({ feed }) => {
               </FormControl>
               <iframe title="Maps"
                 src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro'
-                width="670px"
-                height="370px" />
+                width="100%"
+                  height='80%' />
               <p align="center">Current City:<br></br>
                 <span style={{ fontWeight: 'bold', color: 'green' }}>Iasi, Romania</span>
               </p>
-            </div>
-          </Stack>
+              </GridItem>
+            </Grid>
         </TabPanel>
       </TabPanels>
     </Tabs>
