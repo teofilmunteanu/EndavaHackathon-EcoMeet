@@ -565,9 +565,6 @@ const UProfile = ({ feed }) => {
                                 fontFamily: "neuton",
                               }}
                             >
-                              <Button variant="auth" mr="1vw" align="center">
-                                {feed.join ? "Join" : "Joined"}
-                              </Button>
                               <Image src="./2people.svg" w="50%" h="auto" />
                               {feed.participanti}
                             </span>
@@ -578,7 +575,7 @@ const UProfile = ({ feed }) => {
                                 fontWeight: "700",
                               }}
                             >
-                              <Box mr="3vw">{feed.puncte} pts </Box>
+                              <Box mr="3vw">Earned: {feed.puncte} pts </Box>
                             </span>
                           </Flex>
                         </Flex>
