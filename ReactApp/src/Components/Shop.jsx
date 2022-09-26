@@ -35,13 +35,13 @@ const Shop = ({ feed }) => {
           return (
             <GridItem rowSpan={1} colSPan={1}>
               <Box borderWidth="1px" borderRadius="lg">
-                <Image src={shopitem.img} alt={property.imageAlt} />
+                <Image w="100%" src={shopitem.img} alt={property.imageAlt} />
 
                 <Box
                   p="6"
                   bg={shopitem.color}
-                  boxShadow={shopitem.boxShadow}
-                  borderRadius="30px"
+                  boxShadow='0px 4px 4px rgba(0, 0, 0, 0.25)'
+                  borderBottomRadius ="30px"
                   mt="-6"
                 >
                   <Box display="flex" alignItems="baseline">

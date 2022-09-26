@@ -94,7 +94,7 @@ function App() {
           path="/OProfile"
           element={
             <>
-              <OProfile feed={VFeedData} secondfeed={ProfileData}/>
+              <OProfile secondfeed={ProfileData} feed={VFeedData} />
             </>
           }
         />

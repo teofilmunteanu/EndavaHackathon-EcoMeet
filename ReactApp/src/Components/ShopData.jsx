@@ -12,7 +12,6 @@ export const ShopData = [
 
         color:'#FFF500',
         
-        boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
     },
     {
         coupon_title:'Sweaters Discount!',
@@ -27,7 +26,6 @@ export const ShopData = [
 
         color:'#A203ED',
 
-        boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
     },
     {
         coupon_title:'Free Expresso!',
@@ -42,7 +40,6 @@ export const ShopData = [
 
         color:'#FF0000',
         
-        boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
     }
     
 ];
