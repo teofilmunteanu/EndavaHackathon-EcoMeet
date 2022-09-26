@@ -10,7 +10,7 @@ function NavBar() {
         align="center"
         w="100%"
         h="128px"
-        bgGradient="linear(269.6deg, yellow -7.25%, green.100 48.24% ,  green.200 98.25%)"
+        bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)"
       >
         <Image
           src="./LeafLogo.svg"
