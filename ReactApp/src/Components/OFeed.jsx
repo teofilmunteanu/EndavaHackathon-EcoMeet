@@ -32,7 +32,7 @@ import {
   AccordionIcon,
   Heading,
 } from "@chakra-ui/react";
-import { CalendarIcon, AddIcon } from "@chakra-ui/icons";
+import { AddIcon } from "@chakra-ui/icons";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import React from "react";
 import "@fontsource/inter";
@@ -84,12 +84,12 @@ const OFeed = ({ ofeed }) => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Stack
-              direction={{ base: "column", sm: "row" }}
-              align={"center"}
-              justify={"space-between"}
+            <Grid
+              h='250px'
+              templateColumns={'repeat(2, 1fr)'}
+              gap={'5'}
             >
-              <div>
+              <GridItem rowSpan={1}>
                 <Accordion
                   allowToggle
                   style={{ overflowY: "scroll", height: "66vh" }}
@@ -449,8 +449,8 @@ const OFeed = ({ ofeed }) => {
                     );
                   })}
                 </Accordion>
-              </div>
-              <div>
+              </GridItem>
+              <GridItem rowSpan={1}>
                 <FormControl>
                   <Select
                     placeholder="Select Location"
@@ -469,8 +469,8 @@ const OFeed = ({ ofeed }) => {
                 <iframe
                   title="Maps"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro"
-                  width="670px"
-                  height="370px"
+                  width="100%"
+                  height='80%'
                 />
                 <Text
                   textColor="black"
@@ -493,16 +493,16 @@ const OFeed = ({ ofeed }) => {
                     Iasi, Romania
                   </span>
                 </Text>
-              </div>
-            </Stack>
+              </GridItem>
+            </Grid>
           </TabPanel>
           <TabPanel>
-            <Stack
-              direction={{ base: "column", sm: "row" }}
-              align={"center"}
-              justify={"space-between"}
+          <Grid
+              h='250px'
+              templateColumns={'repeat(2, 1fr)'}
+              gap={'5'}
             >
-              <div>
+              <GridItem rowSpan={1}>
                 <Accordion
                   allowToggle
                   backgroundColor="yellow.500"
@@ -620,8 +620,8 @@ const OFeed = ({ ofeed }) => {
                     );
                   })}
                 </Accordion>
-              </div>
-              <div>
+                </GridItem>
+                <GridItem rowSpan={1}>
                 <FormControl>
                   <Select
                     placeholder="Select Location"
@@ -640,8 +640,8 @@ const OFeed = ({ ofeed }) => {
                 <iframe
                   title="Maps"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro"
-                  width="670px"
-                  height="370px"
+                  width="100%"
+                  height='80%'
                 />
                 <Text
                   textColor="black"
@@ -664,8 +664,8 @@ const OFeed = ({ ofeed }) => {
                     Iasi, Romania
                   </span>
                 </Text>
-              </div>
-            </Stack>
+              </GridItem>
+              </Grid>
           </TabPanel>
         </TabPanels>
       </Tabs>
