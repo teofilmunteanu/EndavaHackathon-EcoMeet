@@ -1,15 +1,4 @@
-import {
-  Text,
-  Flex,
-  Image,
-  Grid,
-  GridItem,
-  Box,
-  Avatar,
-  VStack,
-  HStack,
-  Progress,
-} from "@chakra-ui/react";
+import {Text, Flex, Image, Grid, GridItem, Box, Avatar, HStack, Progress, Menu, MenuButton, MenuList, MenuItem, MenuDivider} from"@chakra-ui/react";
 import React from "react";
 import "@fontsource/inter";
 import "@fontsource/neuton";
@@ -113,12 +102,23 @@ function NavBarProfile() {
             </Grid>
           </GridItem>
           <GridItem colSpan={"3"}>
-            <TriangleDownIcon
+            <Menu>
+              <MenuButton>
+              <TriangleDownIcon
               boxSize={"3vw"}
               m={"1"}
-              color="green.100"
+              color="white"
               textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
             />
+              </MenuButton>
+              <MenuList bgGradient={'linear-gradient(180deg, rgba(255, 203, 48, 0.8) 0%, rgba(44, 170, 110, 0.8) 100%), #FFFFFF;'} opacity={'0.8'}>
+                <MenuItem justifyContent={'center'} _hover={{background: 'rgba(255,255,255,0.4)'}}>Your Profile</MenuItem>
+                <MenuDivider />
+                <MenuItem justifyContent={'center'} _hover={{background: 'rgba(255,255,255,0.4)'}}>Shop</MenuItem>
+                <MenuDivider />
+                <MenuItem justifyContent={'center'} _hover={{background: 'rgba(255,255,255,0.4)'}}>Log Out</MenuItem>
+              </MenuList>
+            </Menu>
           </GridItem>
         </Grid>
       </GridItem>
