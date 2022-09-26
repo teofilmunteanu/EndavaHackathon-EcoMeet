@@ -1,23 +1,22 @@
 import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 
-
-import { ChakraProvider } from "@chakra-ui/react";
-
-
 import Description from "./Components/description";
 import NavBar from "./Components/NavBar";
 import UpperHomePage from "./Components/UpperHomePage";
+
 import OSignUp from "./Components/OSignUp";
 import VSignUp from "./Components/VSignUp";
 import Login from "./Components/Login";
 import UProfile from "./Components/UProfile";
+<<<<<<< HEAD
 import OProfile from "./Components/OProfile"
 import Shop from "./Components/Shop";
+=======
+>>>>>>> main
 
 import { mainTheme } from "./styles/theme";
 import { VFeedData } from "./Components/VFeedData";
-
 
 function App() {
   return (
@@ -28,8 +27,6 @@ function App() {
           path="/"
           element={
             <>
-              <UpperHomePage/>
-              <Description/>
             </>
           }
         />

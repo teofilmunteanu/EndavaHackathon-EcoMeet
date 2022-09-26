@@ -10,6 +10,7 @@ import { Select } from "@chakra-ui/react";
 import {
   Button,
   Flex,
+  Avatar,
   FormControl,
   FormLabel,
   Heading,
@@ -21,46 +22,56 @@ import {
 } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
-import {  Spacer, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
-import { CalendarIcon, Search2Icon, DeleteIcon } from '@chakra-ui/icons'
+import {
+  Spacer,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from "@chakra-ui/react";
+import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
+import "@fontsource/inter";
+import "@fontsource/neuton";
 
-
-const UProfile=({ feed }) => {
+const UProfile = ({ feed }) => {
   return (
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
         <Tab
-          w="100"
-          h="100 "
-          bgGradient="linear(90deg, #56D02B 0%, #47C244 100%)"
-        ></Tab>
-        <Tab
           w="236.5"
-          h="100 "
           bgGradient="linear(90deg, #47C244 0%, #3AB758 100%)"
+          _focus={{ textColor: "white" }}
+          _selected={{ textColor: "white" }}
         >
-          <Image src="./Vector.png"></Image>
+          <Image src="./Area.svg" w="7%"></Image>
         </Tab>
         <Tab
           w="236.5"
-          h="100 "
           bgGradient="linear(90deg, #3AB758 0%, #32B064 100%)"
+          _focus={{ textColor: "white" }}
+          _selected={{ textColor: "white" }}
         >
-          <Image src="./Calendar.png"></Image>
+          <Image src="./Calendar.svg" w="7%"></Image>
         </Tab>
         <Tab
           w="2198.5"
           h="100"
-          bgGradient="linear(270deg,#FFCB30  0%,#32B064  98.27%)"
+          bgGradient="linear(270deg, yellow  0%,#32B064  98.27%)"
         >
-          <Image src="./profile.png" />
-          <Text color="white" fontSize="3xl">
+          <Image src="./Profile.svg" w="7%" mr="1vw" />
+          <Text
+            color="white"
+            fontSize="3xl"
+            fontWeight="400"
+            fontFamily="inter"
+            textShadow="0px 2px 2px rgba(0,0,0,0.5)"
+          >
             Your Profile
           </Text>
         </Tab>
       </TabList>
       <TabPanels>
-        <TabPanel />
         <TabPanel />
         <TabPanel />
         <TabPanel>
@@ -75,7 +86,7 @@ const UProfile=({ feed }) => {
           >
             <GridItem
               colSpan={1}
-              rolSpan={2}
+              rowSpan={1}
               bg="#D0FEBF"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
@@ -87,43 +98,74 @@ const UProfile=({ feed }) => {
                 gap={0}
               >
                 <GridItem rowSpan={2} colSpan={1}>
-                  <Image
+                  <Avatar
                     borderRadius="full"
                     boxSize="150px"
-                    src="https://bit.ly/dan-abramov"
+                    src="./Charles.jpg"
                     alt="Dan Abramov"
                     ml="50"
                     mt="10"
                   />
                 </GridItem>
-                <GridItem colSpan={2} rowspan={1} h="44">
-                  <Text
+                <GridItem colSpan={2} rowSpan={1} h="44">
+                  <Heading
                     textAlign={["left"]}
                     mt="10"
-                    fontSize="4xl"
-                    fontWeight="extrabold"
+                    variant="authEffect"
+                    fontWeight="1000"
+                    letterSpacing="0.05em"
                   >
-                    {" "}
                     Charles Ludwigsten
+                  </Heading>
+                  <Text
+                    textAlign={["left"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="inter"
+                    fontWeight="light"
+                    fontSize={"1vw"}
+                  >
+                    charles.ludwisgten2@gmail.com
                   </Text>
-                  <Text fontSize="2xl">charles.ludwisgten2@gmail.com</Text>
-                  <Text fontSize="xl" fontWeight="bold">
+                  <Text
+                    textAlign={["left"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontSize="1.2vw"
+                    fontWeight="500"
+                  >
                     Iasi, Romania
                   </Text>
-                  <Text fontSize="3xl" fontWeight="bold" mt="45">
+                  <Text
+                    textAlign={["left"]}
+                    color="#072C06"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontSize="1.6vw"
+                    fontWeight="500"
+                    mt="45"
+                  >
                     Level 10
                   </Text>
-                  <Text fontSize="2xl">20/50 EXP</Text>
+                  <Text
+                    textAlign={["left"]}
+                    color="#072C06"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontSize="1.7vw"
+                    fontWeight="600"
+                  >
+                    20/50 EXP
+                  </Text>
                 </GridItem>
               </Grid>
             </GridItem>
             <GridItem
-              colSpan={1}
-              rolSpan={2}
               bg="#EEFFE7"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
-              
+              alignItems={"center"}
             >
               <Box
                 w="910"
@@ -131,14 +173,21 @@ const UProfile=({ feed }) => {
                 bg="#D0FEBF"
                 boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
                 borderRadius="3xl"
+                alignItems="center"
               >
-                <Text fontWeight="bold" fontSize="4xl" ml="38">
+                <Heading
+                  variant="authEffect"
+                  textAlign={"left"}
+                  pt="1vw"
+                  pl="3vw"
+                  fontSize="2vw"
+                >
                   Achievements:
-                </Text>
+                </Heading>
               </Box>
               <Grid
                 h="200px"
-                templateRows="repeat(2, 1fr)"
+                templateRows="repeat(autofill)"
                 templateColumns="repeat(2, 1fr)"
                 gap={8}
                 mt="5"
@@ -148,29 +197,42 @@ const UProfile=({ feed }) => {
                 overflowX="scroll"
               >
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#FFCB30"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
                   boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+                  borderWidth={"1px"}
+                  overflow="hidden"
+                  borderRadius={"15px"}
                 >
                   <Grid
                     h="100%"
                     templateRows="repeat(1, 1fr)"
                     templateColumns="repeat(5, 1fr)"
                     gap={0}
+                    alignItems="center"
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Leaf.png" w="50%" mt="5" ml="7" />
+                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
-                      <Heading>Never Busy!</Heading>
-                      <Text fontSize="xl">Earned 2/07/22</Text>
+                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
+                        Tree-Boom!
+                      </Heading>
+                      <Text
+                        fontSize="1vw"
+                        fontFamily={"neuton"}
+                        letterSpacing="0.05em"
+                        fontWeight={"bold"}
+                      >
+                        Earned 2/07/22
+                      </Text>
                     </GridItem>
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#BD30FF"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(190, 1, 103, 0.304) 100%)"
@@ -183,7 +245,7 @@ const UProfile=({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Health Calendar.png" w="50%" mt="5" ml="7" />
+                      <Image src="NeverBusy.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>Never Busy!</Heading>
@@ -192,7 +254,7 @@ const UProfile=({ feed }) => {
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#64EA34"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(143, 255, 0, 0.304) 100%)"
@@ -205,7 +267,7 @@ const UProfile=({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Trash.png" w="50%" mt="5" ml="7" />
+                      <Image src="TrashCan.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>TrashCAN!</Heading>
@@ -214,7 +276,7 @@ const UProfile=({ feed }) => {
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#30FFF3"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
@@ -227,7 +289,7 @@ const UProfile=({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Vectorda.png" w="50%" mt="5" ml="7" />
+                      <Image src="./Impactful.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>Impactful!</Heading>
@@ -236,7 +298,7 @@ const UProfile=({ feed }) => {
                   </Grid>
                 </GridItem>
                 <GridItem
-                  rolSpan={2}
+                  rowSpan={2}
                   colSpan={1}
                   bg="#30FFF3"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
@@ -249,7 +311,7 @@ const UProfile=({ feed }) => {
                     gap={0}
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Vectorda.png" w="50%" mt="5" ml="7" />
+                      <Image src="Impactful.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading>Impactful!</Heading>
@@ -261,38 +323,75 @@ const UProfile=({ feed }) => {
             </GridItem>
             <GridItem
               colSpan={1}
-              rolSpan={2}
+              rowSpan={2}
               bg="#D0FEBF"
               boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
               borderRadius="3xl"
             >
               <Text
-                textAlign={["left", "center"]}
-                fontSize="3xl"
+                textAlign={["center"]}
+                color="black"
+                textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                fontFamily="neuton"
                 fontWeight="bold"
+                fontSize={"2vw"}
+                mb="1vw"
+                mt="1vw"
               >
                 Bio:
               </Text>
               <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                 <GridItem w="100%" h="10">
-                  <Text fontWeight="bold" fontSize="xl" ml="15">
+                  <Text
+                    ml="15"
+                    textAlign={["center"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontWeight="bold"
+                    fontSize={"1vw"}
+                  >
                     Gender: Male
                   </Text>
                 </GridItem>
                 <GridItem w="100%" h="10">
-                  <Text fontWeight="bold" fontSize="xl">
+                  <Text
+                    ml="15"
+                    textAlign={["center"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontWeight="bold"
+                    fontSize={"1vw"}
+                  >
                     Age:24
                   </Text>
                 </GridItem>
                 <GridItem w="100%" h="10">
-                  <Text fontWeight="bold" fontSize="xl">
+                  <Text
+                    ml="15"
+                    textAlign={["center"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontWeight="bold"
+                    fontSize={"1vw"}
+                  >
                     Joined: 5/06/22
                   </Text>
                 </GridItem>
               </Grid>
               <Grid templateColumns="repeat(5, 1fr)" gap={0}>
                 <GridItem colSpan={1} h="10" ml="15">
-                  <Text fontWeight="bold" fontSize="xl">
+                  <Text
+                    ml="15"
+                    textAlign={["center"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontWeight="bold"
+                    fontSize={"1vw"}
+                  >
                     Work:
                   </Text>
                 </GridItem>
@@ -310,7 +409,15 @@ const UProfile=({ feed }) => {
               </Grid>
               <Grid templateColumns="repeat(5, 1fr)" gap={0}>
                 <GridItem colSpan={1} h="10" ml="15">
-                  <Text fontWeight="bold" fontSize="xl">
+                  <Text
+                    ml="15"
+                    textAlign={["center"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontWeight="bold"
+                    fontSize={"1vw"}
+                  >
                     Activity:
                   </Text>
                 </GridItem>
@@ -328,13 +435,21 @@ const UProfile=({ feed }) => {
               </Grid>
               <Grid templateColumns="repeat(5, 1fr)" gap={0}>
                 <GridItem colSpan={1} h="10" ml="15">
-                  <Text fontWeight="bold" fontSize="xl" mt="9">
+                  <Text
+                    ml="15"
+                    textAlign={["center"]}
+                    color="black"
+                    textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                    fontFamily="neuton"
+                    fontWeight="bold"
+                    fontSize={"1vw"}
+                  >
                     Your description:
                   </Text>
                 </GridItem>
                 <GridItem colStart={7} colEnd={2} h="10">
                   <Editable
-                    defaultValue="type"
+                    defaultValue="Type here"
                     fontSize="xl"
                     fontWeight="bold"
                     mt="9"
@@ -348,7 +463,7 @@ const UProfile=({ feed }) => {
             </GridItem>
             <GridItem
               colSpan={1}
-              rolSpan={2}
+              rowSpan={2}
               bg="#EEFFE7"
               borderRadius="3xl"
               boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
@@ -360,41 +475,120 @@ const UProfile=({ feed }) => {
                 boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
                 borderRadius="3xl"
               >
-                <Text fontSize="4xl" ml="38" fontWeight="bold">
+                <Heading
+                  variant="authEffect"
+                  textAlign={"left"}
+                  pt="1vw"
+                  pl="3vw"
+                  fontSize="2vw"
+                >
                   Activity:
-                </Text>
+                </Heading>
               </Box>
-              <Accordion allowToggle backgroundColor="#F1FFF4" >
+              <Accordion
+                allowToggle
+                backgroundColor="#F1FFF4"
+                style={{ overflowY: "scrowl", height: "20vh" }}
+              >
                 {feed.map((feed) => {
                   return (
-                    <AccordionItem w='50vw' overflowX="auto">
-                      <Stack alignItems={"center"}
-                        direction={{ base: 'line', sm: 'row' }}
-                        align={'start'}
-                        justify={'space-between'}>
+                    <AccordionItem
+                      w="50vw"
+                      borderColor="green.600"
+                      bg="green.500"
+                      borderLeft="1px"
+                      borderLeftColor="green.600"
+                      borderRight="1px"
+                      borderRightColor="green.600"
+                      borderWidth="1px"
+                      borderRadius="lg"
+                      overflow="hidden"
+                      boxShadow={"0px 2px 2px rgba(0,0,0,0.25)"}
+                      mb="2vw"
+                    >
+                      <Stack
+                        alignItems={"center"}
+                        direction={{ base: "line", sm: "row" }}
+                        align={"start"}
+                        justify={"space-between"}
+                        m="1vw"
+                        mt="2vw"
+                      >
                         <Image
                           w="20%"
-                          boxSize='100px'
+                          boxSize="100px"
                           src={feed.image}
+                          overflow="hidden"
+                          borderWidth="3px"
+                          borderRadius="5px"
+                          boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+                          borderLeft="1px"
+                          borderLeftColor="green.600"
+                          borderRight="1px"
+                          borderRightColor="green.600"
+                          borderTop="1px"
+                          borderTopColor="green.600"
+                          borderBottom="1px"
+                          borderBottomColor="green.600"
                         />
                         <AccordionButton w="65%">
-
-                          <Box flex='1' textAlign='left' alignItems={"center"}>
-                            <span style={{ fontWeight: 'bold' }}>{feed.titlu_activitate}</span>
-                            <p>{feed.nume_firma}</p>
-                            <span style={{ fontWeight: 'bold' }}>Date: {feed.date}</span>
+                          <Box
+                            flex="1"
+                            textAlign="left"
+                            alignItems={"center"}
+                            variant="golden"
+                          >
+                            <Heading variant="golden">
+                              {feed.titlu_activitate}
+                            </Heading>
+                            <p variant="auth" fontWeight="400" fontSize="1.5vw">
+                              {feed.nume_firma}
+                            </p>
+                            <span
+                              style={{
+                                fontWeight: "1000",
+                                fontFamily: "neuton",
+                                fontSize: "1.2vw",
+                              }}
+                            >
+                              Date: {feed.date}
+                            </span>
                           </Box>
                           <AccordionIcon />
                         </AccordionButton>
-                        <Flex w="15%" direction={"column"}>
-                          <Flex>
-                            <span style={{ fontWeight: 'bold' }}>{feed.participanti}<DeleteIcon /> </span>
+                        <Flex w="20%">
+                          <Flex alignItems={"center"}>
+                            <span
+                              style={{
+                                fontWeight: "700",
+                                fontSize: "1.2vm",
+                                fontFamily: "neuton",
+                              }}
+                            >
+                              <Button variant="auth" mr="1vw" align="center">
+                                {feed.join ? "Join" : "Joined"}
+                              </Button>
+                              <Image src="./2people.svg" w="50%" h="auto" />
+                              {feed.participanti}
+                            </span>
                             <Spacer />
-                            <span>{feed.puncte} pts </span>
+                            <span
+                              style={{
+                                fontStyle: "inter",
+                                fontWeight: "700",
+                              }}
+                            >
+                              <Box mr="3vw">{feed.puncte} pts </Box>
+                            </span>
                           </Flex>
                         </Flex>
-                      </Stack><br></br>
-                      <AccordionPanel pb={4}>
+                      </Stack>
+                      <br></br>
+                      <AccordionPanel
+                        fontFamily={"inter"}
+                        fontSize="1.2vw"
+                        textColor={"#072C06"}
+                      >
                         {feed.descriere_activitate}
                       </AccordionPanel>
                     </AccordionItem>
@@ -407,6 +601,6 @@ const UProfile=({ feed }) => {
       </TabPanels>
     </Tabs>
   );
-}
+};
 
 export default UProfile;

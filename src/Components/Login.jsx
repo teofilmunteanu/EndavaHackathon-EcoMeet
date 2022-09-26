@@ -1,18 +1,17 @@
 import {
-    Button,
-    Flex,
-    FormControl,
-    FormLabel,
-    Heading,
-    Input,
-    Stack,
-    Image,
-    Divider,
-    Link
-  } from '@chakra-ui/react';
-  import {ArrowBackIcon} from '@chakra-ui/icons'
-  
-  
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Stack,
+  Image,
+  Divider,
+} from "@chakra-ui/react";
+
+import { ArrowBackIcon } from "@chakra-ui/icons";
+
   function Login() {
     return (
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
@@ -28,28 +27,38 @@ import {
             <FormLabel>Password:</FormLabel>
             <Input type="password" />
           </FormControl>
-            <Stack
-                direction={{ base: 'line', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>  
-              <Button colorScheme={'green'} variant={'solid'}>
-              <ArrowBackIcon/>
-                Back
-              </Button>
-              <Button colorScheme={'blue'} variant={'solid'}>
-                Log In
-              </Button>
-            </Stack>
+          <Stack
+            direction={{ base: "line", sm: "row" }}
+            align={"start"}
+            justify={"space-between"}
+          >
+            <Button
+              variant="auth"
+              bg="white"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "http://localhost:3000/";
+              }}
+            >
+              <ArrowBackIcon />
+              Back
+            </Button>
+            <Button
+              variant="auth"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "#";
+              }}
+            >
+              Log In
+            </Button>
           </Stack>
-        </Flex>
-        <Flex flex={1}>
-          <Image
-            alt={'Login Image'}
-            objectFit={'cover'}
-            src={"./Loginb.png"}
-          />
-        </Flex>
-      </Stack>
-    );
-  }
-  export default Login;
+        </Stack>
+      </Flex>
+      <Flex flex={1}>
+        <Image alt={"Login Image"} objectFit={"cover"} src={"./Loginb.png"} />
+      </Flex>
+    </Stack>
+  );
+}
+export default Login;
