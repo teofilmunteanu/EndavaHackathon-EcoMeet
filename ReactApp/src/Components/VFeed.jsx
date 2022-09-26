@@ -2,7 +2,7 @@ import { Button, Grid, GridItem, Text, Select, FormControl, Stack, Image, Box, T
 import { DeleteIcon } from '@chakra-ui/icons'
 import React from 'react';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+//import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 
 

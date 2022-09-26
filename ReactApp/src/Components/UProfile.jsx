@@ -194,7 +194,7 @@ const UProfile = ({ feed }) => {
                 ml="10"
                 mr="10"
                 w="300"
-                overflowX="scroll"
+                overflowY="scroll"
               >
                 <GridItem
                   rowSpan={2}
@@ -202,8 +202,6 @@ const UProfile = ({ feed }) => {
                   bg="#FFCB30"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
                   boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                  borderWidth={"1px"}
-                  overflow="hidden"
                   borderRadius={"15px"}
                 >
                   <Grid
@@ -234,91 +232,136 @@ const UProfile = ({ feed }) => {
                 <GridItem
                   rowSpan={2}
                   colSpan={1}
-                  bg="#BD30FF"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(190, 1, 103, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="NeverBusy.svg" w="70%" ml="0.75vw" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading>Never Busy!</Heading>
-                      <Text fontSize="xl">Earned 30/07/22</Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rowSpan={2}
-                  colSpan={1}
-                  bg="#64EA34"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(143, 255, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="TrashCan.svg" w="70%" ml="0.75vw" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading>TrashCAN!</Heading>
-                      <Text fontSize="xl">Earned 5/07/22</Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rowSpan={2}
-                  colSpan={1}
-                  bg="#30FFF3"
+                  bg="#FFCB30"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
                   boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+                  borderRadius={"15px"}
                 >
                   <Grid
                     h="100%"
                     templateRows="repeat(1, 1fr)"
                     templateColumns="repeat(5, 1fr)"
                     gap={0}
+                    alignItems="center"
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="./Impactful.svg" w="70%" ml="0.75vw" />
+                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
-                      <Heading>Impactful!</Heading>
-                      <Text fontSize="xl">Earned 22/08/22</Text>
+                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
+                        Tree-Boom!
+                      </Heading>
+                      <Text
+                        fontSize="1vw"
+                        fontFamily={"neuton"}
+                        letterSpacing="0.05em"
+                        fontWeight={"bold"}
+                      >
+                        Earned 2/07/22
+                      </Text>
                     </GridItem>
                   </Grid>
                 </GridItem>
                 <GridItem
                   rowSpan={2}
                   colSpan={1}
-                  bg="#30FFF3"
+                  bg="#FFCB30"
                   bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
                   boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+                  borderRadius={"15px"}
                 >
                   <Grid
                     h="100%"
                     templateRows="repeat(1, 1fr)"
                     templateColumns="repeat(5, 1fr)"
                     gap={0}
+                    alignItems="center"
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Impactful.svg" w="70%" ml="0.75vw" />
+                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
-                      <Heading>Impactful!</Heading>
-                      <Text fontSize="xl">Earned 22/08/22</Text>
+                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
+                        Tree-Boom!
+                      </Heading>
+                      <Text
+                        fontSize="1vw"
+                        fontFamily={"neuton"}
+                        letterSpacing="0.05em"
+                        fontWeight={"bold"}
+                      >
+                        Earned 2/07/22
+                      </Text>
                     </GridItem>
                   </Grid>
                 </GridItem>
+                <GridItem
+                  rowSpan={2}
+                  colSpan={1}
+                  bg="#FFCB30"
+                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
+                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+                  borderRadius={"15px"}
+                >
+                  <Grid
+                    h="100%"
+                    templateRows="repeat(1, 1fr)"
+                    templateColumns="repeat(5, 1fr)"
+                    gap={0}
+                    alignItems="center"
+                  >
+                    <GridItem rowSpan={1} colSpan={1}>
+                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
+                    </GridItem>
+                    <GridItem colSpan={4}>
+                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
+                        Tree-Boom!
+                      </Heading>
+                      <Text
+                        fontSize="1vw"
+                        fontFamily={"neuton"}
+                        letterSpacing="0.05em"
+                        fontWeight={"bold"}
+                      >
+                        Earned 2/07/22
+                      </Text>
+                    </GridItem>
+                  </Grid>
+                </GridItem>
+                <GridItem
+                  rowSpan={2}
+                  colSpan={1}
+                  bg="#FFCB30"
+                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
+                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+                  borderRadius={"15px"}
+                >
+                  <Grid
+                    h="100%"
+                    templateRows="repeat(1, 1fr)"
+                    templateColumns="repeat(5, 1fr)"
+                    gap={0}
+                    alignItems="center"
+                  >
+                    <GridItem rowSpan={1} colSpan={1}>
+                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
+                    </GridItem>
+                    <GridItem colSpan={4}>
+                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
+                        Tree-Boom!
+                      </Heading>
+                      <Text
+                        fontSize="1vw"
+                        fontFamily={"neuton"}
+                        letterSpacing="0.05em"
+                        fontWeight={"bold"}
+                      >
+                        Earned 2/07/22
+                      </Text>
+                    </GridItem>
+                  </Grid>
+                </GridItem>
+                
               </Grid>
             </GridItem>
             <GridItem
