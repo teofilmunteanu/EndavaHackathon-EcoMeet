@@ -34,16 +34,9 @@ const Shop = ({ feed }) => {
         {feed.map((shopitem) => {
           return (
             <GridItem rowSpan={1} colSPan={1}>
-              <Box borderWidth="1px" borderRadius="lg">
-                <Image w="100%" src={shopitem.img} alt={property.imageAlt} />
-
-                <Box
-                  p="6"
-                  bg={shopitem.color}
-                  boxShadow='0px 4px 4px rgba(0, 0, 0, 0.25)'
-                  borderBottomRadius ="30px"
-                  mt="-6"
-                >
+              <Box borderWidth="1px" borderRadius="3xl" bg={shopitem.color} boxShadow='0px 4px 4px rgba(0, 0, 0, 0.25)'>
+                <Image pt="5px" src={shopitem.img} alt={property.imageAlt} />
+                <Box p="6" mt="-6">
                   <Box display="flex" alignItems="baseline">
                     <Badge borderRadius="full" px="2" colorScheme="teal">
                       New
@@ -120,8 +113,8 @@ const Shop = ({ feed }) => {
           <Text mt="4" ml="-3" justifyContent="center">Your XP:</Text>
           <Text mt="10" ml="-12" fontWeight="extrabold" fontSize="2xl">420</Text>
         </Flex>
-        
-  
+
+
       </Grid>
     </Center>
   );
