@@ -24,6 +24,7 @@ import VFeed from "./Components/VFeed";
 import OFeed from "./Components/OFeed";
 import { VFeedData } from "./Components/VFeedData";
 import { OFeedData } from "./Components/OFeedData";
+import { ShopData } from "./Components/ShopData";
 
 function App() {
   return (
@@ -96,15 +97,15 @@ function App() {
             </>
           }
         />
-        <Route
+      <Route
           path="/Shop"
           element={
             <>
-              <Shop/>
+              <Shop feed={ShopData} />
             </>
           }
         />
-      </Routes>
+        </Routes>
     </ChakraProvider>
   );
 }
