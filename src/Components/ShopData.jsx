@@ -1,6 +1,6 @@
 export const ShopData = [
     {
-        coupon_title:'Subway Coupon',
+        coupon_title:'Subway Coupon!',
         
         sponsor:"Subway",
         
@@ -11,31 +11,38 @@ export const ShopData = [
         img:'./Rectangle 64.png',
 
         color:'#FFF500',
+        
+        boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
     },
     {
-        coupon_title:'Subway Coupon',
+        coupon_title:'Sweaters Discount!',
         
-        sponsor:"Subway",
+        sponsor:"Sinsay",
         
-        price:'100XP',
+        price:'250XP',
 
-        pieces_left:'5 LEFT',
+        pieces_left:'1 LEFT',
         
-        img:'./Rectangle 64.png',
+        img:'./Rectangle 64a.png',
 
-        color:'#FFF500',
+        color:'#A203ED',
+
+        boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
     },
     {
-        coupon_title:'Subway Coupon',
+        coupon_title:'Free Expresso!',
         
-        sponsor:"Subway",
+        sponsor:"Zireto (B-1870 Caffe)",
         
         price:'100XP',
 
-        pieces_left:'5 LEFT',
+        pieces_left:'10 LEFT',
         
-        img:'./Rectangle 64.png',
+        img:'./Rectangle 64b.png',
 
-        color:'#FFF500',
+        color:'#FF0000',
+        
+        boxShadow:'0px 4px 4px rgba(0, 0, 0, 0.25)'
     }
+    
 ];

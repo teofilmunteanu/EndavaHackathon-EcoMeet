@@ -488,7 +488,7 @@ const UProfile = ({ feed }) => {
               <Accordion
                 allowToggle
                 backgroundColor="#F1FFF4"
-                style={{ overflowY: "scrowl", height: "20vh" }}
+                style={{ overflowY: "scroll", height: "20vh" }}
               >
                 {feed.map((feed) => {
                   return (

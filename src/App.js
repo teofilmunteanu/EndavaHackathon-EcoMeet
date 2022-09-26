@@ -25,6 +25,7 @@ import OFeed from "./Components/OFeed";
 import { VFeedData } from "./Components/VFeedData";
 import { OFeedData } from "./Components/OFeedData";
 import { ShopData } from "./Components/ShopData";
+import {ProfileData} from "./Components/ProfileData"
 
 function App() {
   return (
@@ -93,7 +94,7 @@ function App() {
           path="/OProfile"
           element={
             <>
-              <OProfile feed={VFeedData} />
+              <OProfile feed={VFeedData} secondfeed={ProfileData}/>
             </>
           }
         />
@@ -105,6 +106,7 @@ function App() {
             </>
           }
         />
+
         </Routes>
     </ChakraProvider>
   );
