@@ -12,6 +12,8 @@ import {
   Center,
   Text,
   Flex,
+  Stack,
+  Spacer,
 } from "@chakra-ui/react";
 
 const Shop = ({ feed }) => {
@@ -29,13 +31,22 @@ const Shop = ({ feed }) => {
         templateRows="repeat(autofill)"
         templateColumns="repeat(3,1fr)"
         gap={20}
-        mt="20"
+        m="10vw"
+        mt="5vw"
       >
         {feed.map((shopitem) => {
           return (
-            <GridItem rowSpan={1} colSPan={1}>
-              <Box borderWidth="1px" borderRadius="lg">
-                <Image src={shopitem.img} alt={property.imageAlt} />
+            <GridItem rowSpan={1} colSPan={1} fontFamily="neuton">
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                borderColor={"rgba(0,0,0,0)"}
+              >
+                <Image
+                  src={shopitem.img}
+                  alt={property.imageAlt}
+                  overflow="hidden"
+                />
 
                 <Box
                   p="6"
@@ -70,6 +81,7 @@ const Shop = ({ feed }) => {
                     as="h4"
                     lineHeight="tight"
                     noOfLines={1}
+                    fontSize="3xl"
                   >
                     {shopitem.coupon_title}
                   </Box>
@@ -78,7 +90,9 @@ const Shop = ({ feed }) => {
                       Sponsor:
                     </Box>
 
-                    <Box>{shopitem.sponsor}</Box>
+                    <Box fontFamily={"inter"} fontSize="1vw" ml="0.5vw">
+                      {shopitem.sponsor}
+                    </Box>
                   </Box>
                   <Box display="flex" mt="2" alignItems="center">
                     <Badge
@@ -98,6 +112,7 @@ const Shop = ({ feed }) => {
                       borderRadius="10px"
                       size="md"
                       ml="44"
+                      fontFamily={"inter"}
                     >
                       Buy
                     </Button>
@@ -107,24 +122,31 @@ const Shop = ({ feed }) => {
             </GridItem>
           );
         })}
-        <Flex
-          position="sticky"
+        <Stack
+          alignItems={"center"}
+          alignContent="center"
+          position="fixed"
           bgGradient="linear(270deg, rgba(50, 176, 100, 0.65) 0%, rgba(255, 203, 48, 0.65) 98.27%)"
           boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
           borderRadius="10px"
           w="24"
           h="20"
           justifyContent="center"
-          justify="right"
-          opacity="0.8"
+          left="90%"
+          top="80%"
         >
-          <Text mt="4" ml="-3" justifyContent="center">
+          <Text justifyContent="center" fontFamily={"neuton"}>
             Your XP:
           </Text>
-          <Text mt="10" ml="-12" fontWeight="extrabold" fontSize="2xl">
+          <Text
+            fontWeight="extrabold"
+            fontSize="2xl"
+            fontFamily={"neuton"}
+            mb="2vw"
+          >
             420
           </Text>
-        </Flex>
+        </Stack>
       </Grid>
     </Center>
   );
