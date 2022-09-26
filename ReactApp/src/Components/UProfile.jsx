@@ -34,7 +34,7 @@ import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
 import "@fontsource/inter";
 import "@fontsource/neuton";
 
-const UProfile = ({ feed }) => {
+const UProfile = ({ secondfeed }) => {
   return (
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
@@ -196,6 +196,8 @@ const UProfile = ({ feed }) => {
                 w="300"
                 overflowY="scroll"
               >
+                {secondfeed.map((secondfeed) => {
+                  return (
                 <GridItem
                   rowSpan={2}
                   colSpan={1}
@@ -212,11 +214,11 @@ const UProfile = ({ feed }) => {
                     alignItems="center"
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
+                      <Image src={secondfeed.image} w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
-                        Tree-Boom!
+                        {secondfeed.titlu_activitate}
                       </Heading>
                       <Text
                         fontSize="1vw"
@@ -224,144 +226,13 @@ const UProfile = ({ feed }) => {
                         letterSpacing="0.05em"
                         fontWeight={"bold"}
                       >
-                        Earned 2/07/22
+                        {secondfeed.date_earned}
                       </Text>
                     </GridItem>
                   </Grid>
                 </GridItem>
-                <GridItem
-                  rowSpan={2}
-                  colSpan={1}
-                  bg="#FFCB30"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                  borderRadius={"15px"}
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                    alignItems="center"
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
-                        Tree-Boom!
-                      </Heading>
-                      <Text
-                        fontSize="1vw"
-                        fontFamily={"neuton"}
-                        letterSpacing="0.05em"
-                        fontWeight={"bold"}
-                      >
-                        Earned 2/07/22
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rowSpan={2}
-                  colSpan={1}
-                  bg="#FFCB30"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                  borderRadius={"15px"}
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                    alignItems="center"
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
-                        Tree-Boom!
-                      </Heading>
-                      <Text
-                        fontSize="1vw"
-                        fontFamily={"neuton"}
-                        letterSpacing="0.05em"
-                        fontWeight={"bold"}
-                      >
-                        Earned 2/07/22
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rowSpan={2}
-                  colSpan={1}
-                  bg="#FFCB30"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                  borderRadius={"15px"}
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                    alignItems="center"
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
-                        Tree-Boom!
-                      </Heading>
-                      <Text
-                        fontSize="1vw"
-                        fontFamily={"neuton"}
-                        letterSpacing="0.05em"
-                        fontWeight={"bold"}
-                      >
-                        Earned 2/07/22
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                <GridItem
-                  rowSpan={2}
-                  colSpan={1}
-                  bg="#FFCB30"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-                  boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-                  borderRadius={"15px"}
-                >
-                  <Grid
-                    h="100%"
-                    templateRows="repeat(1, 1fr)"
-                    templateColumns="repeat(5, 1fr)"
-                    gap={0}
-                    alignItems="center"
-                  >
-                    <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
-                    </GridItem>
-                    <GridItem colSpan={4}>
-                      <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
-                        Tree-Boom!
-                      </Heading>
-                      <Text
-                        fontSize="1vw"
-                        fontFamily={"neuton"}
-                        letterSpacing="0.05em"
-                        fontWeight={"bold"}
-                      >
-                        Earned 2/07/22
-                      </Text>
-                    </GridItem>
-                  </Grid>
-                </GridItem>
-                
+                );
+              })}
               </Grid>
             </GridItem>
             <GridItem
@@ -533,7 +404,7 @@ const UProfile = ({ feed }) => {
                 backgroundColor="#F1FFF4"
                 style={{ overflowY: "scroll", height: "20vh" }}
               >
-                {feed.map((feed) => {
+                {secondfeed.map((feed) => {
                   return (
                     <AccordionItem
                       w="50vw"
