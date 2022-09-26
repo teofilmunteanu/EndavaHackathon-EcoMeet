@@ -52,7 +52,7 @@ export const mainTheme = extendTheme({
     Button: {
       variants: {
         auth: {
-          px:"8",
+          px: "8",
           textShadow: "0px 1px 1px rgba(0, 0, 0, 0.25)",
           fontFamily: "neuton",
           fontWeight: "normal",
@@ -148,10 +148,6 @@ export const mainTheme = extendTheme({
           color: "#2C2806",
           textShadow: "0px 2px 2px rgba(0,0,0,0.25)",
         },
-      },
-    },
-    Form: {
-      variants: {
         floating: {
           container: {
             _focusWithin: {

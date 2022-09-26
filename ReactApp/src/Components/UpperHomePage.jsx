@@ -14,7 +14,7 @@ function UpperHomePage() {
         <Text
           fontSize={["12vw", "8vw", "6vw"]}
           position="absolute"
-          top={["64vw", "55vw", "40vw"]}
+          top={["64vw", "55vw", "35vw"]}
           left="8vw"
           color="white"
           textShadow="0px 4px 4px rgba(0, 0, 0, 0.5)"
@@ -26,7 +26,7 @@ function UpperHomePage() {
         <Text
           fontSize={["12vw", "8vw", "6vw"]}
           position="absolute"
-          top={["73vw", "62vw", "46vw"]}
+          top={["73vw", "62vw", "41vw"]}
           left="8vw"
           color="white"
           bgGradient="linear(266.01deg, yellow.200 18.2%, yellow.300 58.72%, yellow.400 65.82%, green.300 98.4%)"
@@ -42,7 +42,7 @@ function UpperHomePage() {
           as="p"
           fontSize={["12vw", "8vw", "6vw"]}
           position="absolute"
-          top={["73vw", "62vw", "46vw"]}
+          top={["73vw", "62vw", "41vw"]}
           left={["26vw", "13vw", "6vw"]}
           color="white"
           ml="22vw"

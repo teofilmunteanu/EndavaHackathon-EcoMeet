@@ -42,6 +42,7 @@ const Shop = ({ feed }) => {
                   bg={shopitem.color}
                   boxShadow={shopitem.boxShadow}
                   borderRadius="30px"
+                  overflow={"hidden"}
                   mt="-6"
                 >
                   <Box display="flex" alignItems="baseline">
@@ -117,11 +118,13 @@ const Shop = ({ feed }) => {
           justify="right"
           opacity="0.8"
         >
-          <Text mt="4" ml="-3" justifyContent="center">Your XP:</Text>
-          <Text mt="10" ml="-12" fontWeight="extrabold" fontSize="2xl">420</Text>
+          <Text mt="4" ml="-3" justifyContent="center">
+            Your XP:
+          </Text>
+          <Text mt="10" ml="-12" fontWeight="extrabold" fontSize="2xl">
+            420
+          </Text>
         </Flex>
-        
-  
       </Grid>
     </Center>
   );

@@ -84,11 +84,7 @@ const OFeed = ({ ofeed }) => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Grid
-              h='250px'
-              templateColumns={'repeat(2, 1fr)'}
-              gap={'5'}
-            >
+            <Grid h="250px" templateColumns={"repeat(2, 1fr)"} gap={"5"}>
               <GridItem rowSpan={1}>
                 <Accordion
                   allowToggle
@@ -470,7 +466,7 @@ const OFeed = ({ ofeed }) => {
                   title="Maps"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro"
                   width="100%"
-                  height='80%'
+                  height="80%"
                 />
                 <Text
                   textColor="black"
@@ -486,7 +482,6 @@ const OFeed = ({ ofeed }) => {
                       color: "#2CAA6E",
                       textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
                       fontFamily: "inter",
-                      fontWeight: "400",
                       fontSize: "1.5vw",
                     }}
                   >
@@ -497,11 +492,7 @@ const OFeed = ({ ofeed }) => {
             </Grid>
           </TabPanel>
           <TabPanel>
-          <Grid
-              h='250px'
-              templateColumns={'repeat(2, 1fr)'}
-              gap={'5'}
-            >
+            <Grid h="250px" templateColumns={"repeat(2, 1fr)"} gap={"5"}>
               <GridItem rowSpan={1}>
                 <Accordion
                   allowToggle
@@ -620,8 +611,8 @@ const OFeed = ({ ofeed }) => {
                     );
                   })}
                 </Accordion>
-                </GridItem>
-                <GridItem rowSpan={1}>
+              </GridItem>
+              <GridItem rowSpan={1}>
                 <FormControl>
                   <Select
                     placeholder="Select Location"
@@ -641,7 +632,7 @@ const OFeed = ({ ofeed }) => {
                   title="Maps"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86818.84040659259!2d27.516930545568552!3d47.15611595595363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cafb7cf639ddbb%3A0x7ccb80da5426f53c!2zSWHImWk!5e0!3m2!1sro!2sro!4v1663429441856!5m2!1sro!2sro"
                   width="100%"
-                  height='80%'
+                  height="80%"
                 />
                 <Text
                   textColor="black"
@@ -665,7 +656,7 @@ const OFeed = ({ ofeed }) => {
                   </span>
                 </Text>
               </GridItem>
-              </Grid>
+            </Grid>
           </TabPanel>
         </TabPanels>
       </Tabs>
