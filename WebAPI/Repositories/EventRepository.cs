@@ -8,5 +8,10 @@ namespace WebAPI.Repositories
         public EventRepository(webapiContext context) : base(context)
         {
         }
+
+        public IEnumerable<Event> GetPastEventsByVolunteer(Volunteer volunteer)
+        {
+            return DBContext.Events.Where(v => v.VolunteersEmails.Contains(volunteer) && v.DateEnd.CompareTo(DateTime.Now)<0);
+        }
     }
 }

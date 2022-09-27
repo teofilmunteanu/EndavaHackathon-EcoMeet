@@ -14,10 +14,10 @@ namespace WebAPI.Models
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
         public string OrganizationName { get; set; } = null!;
-        public int? AdministratorId { get; set; }
         [Required]
-        public virtual Administrator? Administrator { get; set; }
+        public int? AdministratorId { get; set; }
 
+        public virtual Administrator? Administrator { get; set; }
         public virtual ICollection<Shop_item> ShopItems { get; set; }
     }
 }

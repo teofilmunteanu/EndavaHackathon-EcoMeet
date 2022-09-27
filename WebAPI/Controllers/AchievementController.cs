@@ -47,6 +47,22 @@ namespace WebAPI.Controllers
             return entity;
         }
 
+        // GET <AchievementController>/GetAchievementsOfVolunteer/ex@email.com
+        [HttpGet("GetAchievementsOfVolunteer/{email}/")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)] 
+        public ActionResult<IEnumerable<Achievement>> GetAchievementsByVolunteerEmail(string email)
+        {
+            var list = _unitOfWork.Achievements.GetByVolunteeerEmail(email).ToList();
+
+            if (list.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return list;
+        }
+
         // POST <AchievementController>/CreateAchievement
         [HttpPost("CreateAchievement")]
         [ProducesResponseType(201)]
@@ -74,6 +90,32 @@ namespace WebAPI.Controllers
 
             //In this code path, the Volunteer object is provided in the response body. A Location response header containing the newly created product's URL is provided.
             return CreatedAtAction(nameof(GetAchievementById), new { Id = entity.Id }, entity);
+        }
+
+
+        // PUT <AchievementController>/UpdateAchievement
+        [HttpPut("UpdateAchievement")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public ActionResult UpdateAchievement(Achievement achievement)
+        {
+            Achievement entity = _unitOfWork.Achievements.GetById(achievement.Id);
+
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            entity.Title = achievement.Title;
+            entity.Date = achievement.Date;
+            entity.Description = achievement.Description;
+            entity.VolunteerEmail = achievement.VolunteerEmail;
+
+            _unitOfWork.Achievements.Update(entity);
+            _unitOfWork.Save();
+
+            return Ok(entity);
         }
 
         // DELETE <EventController>/DeleteAchievement/5
