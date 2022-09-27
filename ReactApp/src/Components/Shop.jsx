@@ -25,26 +25,36 @@ const Shop = ({ feed }) => {
   };
 
   return (
-    <Box w="100%">
-      <Stack spacing={0} direction="row" align="center">
+    <Box w="100%" >
+      <Stack spacing={0} direction="row" align="center" bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)">
         <Button
-          colorScheme="teal"
+        variant="ghost"
+          borderRadius="none"
           size="lg"
           w="50%"
+          borderWidth="1px"
+          borderColor="blackAlpha.400"
+          _focus={{ textColor: "white" }}
+          _selected={{ textColor: "white" }}
           onClick={(e) => {
             e.preventDefault();
             window.location.href = "http://localhost:3000/VFeed";
           }}
-          mb="" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, green.100 0% ,  green.200 100%)"
+          mb=""
+          boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
         >
           <Image src="./Home_Page (1).svg" w="4%" mr="0.5vw" />
           Home
         </Button>
         <Button
-          colorScheme="teal"
+          bgColor="blackAlpha.300"
+          borderRadius="none"
           size="lg"
           w="50%"
-          mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 0%, green.100 100% )"
+          mb="1em"
+          boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+          borderWidth="1px"
+          borderColor="blackAlpha.400"          
         >
           <Image src="./Cart.svg" w="4%" mr="0.5vw" />
           Shop
