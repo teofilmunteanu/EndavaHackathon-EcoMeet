@@ -48,10 +48,10 @@ namespace WebAPI.Controllers
         }
 
         // GET <AchievementController>/GetAchievementsOfVolunteer/ex@email.com
-        [HttpGet("GeAchievementsOfVolunteer/{email}/")]
+        [HttpGet("GetAchievementsOfVolunteer/{email}/")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)] 
-        public ActionResult<IEnumerable<Achievement>> GeAchievementsByVolunteerEmail(string email)
+        public ActionResult<IEnumerable<Achievement>> GetAchievementsByVolunteerEmail(string email)
         {
             var list = _unitOfWork.Achievements.GetByVolunteeerEmail(email).ToList();
 

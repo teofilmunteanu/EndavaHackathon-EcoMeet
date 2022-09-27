@@ -48,6 +48,23 @@ namespace WebAPI.Controllers
             return entity;
         }
 
+        // GET <EventController>/GetEvent/ex@email.com
+        [HttpGet("GetEventsByVolunteerEmail/{email}/")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public ActionResult<IEnumerable<Event>> GetEventsByVolunteerEmail(string email)
+        {
+            Volunteer volunteer = _unitOfWork.Volunteers.GetById(email);
+            var list = _unitOfWork.Events.GetPastEventsByVolunteer(volunteer).ToList();
+
+            if (list.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return list;
+        }
+
         //If points given isn't given(for use in the API only), calculate amount
         // POST <EventController>/CreateEvent
         [HttpPost("CreateEvent")]

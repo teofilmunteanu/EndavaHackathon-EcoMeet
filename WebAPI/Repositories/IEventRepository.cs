@@ -4,5 +4,6 @@ namespace WebAPI.Repositories
 {
     public interface IEventRepository : IGenericRepository<Event>
     {
+        public IEnumerable<Event> GetPastEventsByVolunteer(Volunteer volunteer);
     }
 }
