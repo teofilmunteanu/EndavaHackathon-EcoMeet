@@ -46,10 +46,11 @@ const OFeed = ({ ofeed }) => {
   return (
     <div>
       <RemoveScrollBar />
-      <Tabs isFitted variant="enclosed">
-        <TabList mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)">
+      <Tabs isFitted variant="unstyled">
+        <TabList mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)">
           <Tab
-            bgGradient="linear(270deg, #2CAA6E 0%, #56D02B 100%)"
+            borderWidth="1px"
+            borderColor="blackAlpha.400"
             _focus={{ textColor: "white" }}
             _selected={{ textColor: "white" }}
           >
@@ -65,7 +66,8 @@ const OFeed = ({ ofeed }) => {
             </span>
           </Tab>
           <Tab
-            bgGradient="linear(90deg, #2CAA6E 0%, yellow 100%)"
+            borderWidth="1px"
+            borderColor="blackAlpha.400"
             _focus={{ textColor: "white" }}
             _selected={{ textColor: "white" }}
           >
