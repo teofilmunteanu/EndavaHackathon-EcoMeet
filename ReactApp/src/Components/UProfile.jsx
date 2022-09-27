@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import {
 	Editable,
@@ -34,7 +34,21 @@ import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
 import "@fontsource/inter";
 import "@fontsource/neuton";
 
-const UProfile = ({ feed }) => {
+const UProfile = () => {
+	const [achievements, setAchievements] = useState(null);
+	useEffect(() => {
+		fetch("https://localhost:7256/api/Achievement/GetAchievements", {
+			method: "GET",
+			mode: "cors",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => setAchievements(data.body));
+	}, []);
+
 	return (
 		<Tabs isFitted variant="enclosed">
 			<TabList mb="1em">
@@ -196,7 +210,46 @@ const UProfile = ({ feed }) => {
 								w="300"
 								overflowY="scroll"
 							>
-								<GridItem
+								{achievements &&
+									achievements.map((feed, index) => {
+										return (
+											<GridItem
+												rowSpan={2}
+												colSpan={1}
+												bg="#FFCB30"
+												bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
+												boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+												borderRadius={"15px"}
+											>
+												<Grid
+													h="100%"
+													templateRows="repeat(1, 1fr)"
+													templateColumns="repeat(5, 1fr)"
+													gap={0}
+													alignItems="center"
+												>
+													<GridItem rowSpan={1} colSpan={1}>
+														<Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
+													</GridItem>
+													<GridItem colSpan={4}>
+														<Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
+															{feed.title}
+														</Heading>
+														<Text
+															fontSize="1vw"
+															fontFamily={"neuton"}
+															letterSpacing="0.05em"
+															fontWeight={"bold"}
+														>
+															Earned 2/07/22
+														</Text>
+													</GridItem>
+												</Grid>
+											</GridItem>
+										);
+									})}
+
+								{/*<GridItem
 									rowSpan={2}
 									colSpan={1}
 									bg="#FFCB30"
@@ -327,40 +380,7 @@ const UProfile = ({ feed }) => {
 											</Text>
 										</GridItem>
 									</Grid>
-								</GridItem>
-								<GridItem
-									rowSpan={2}
-									colSpan={1}
-									bg="#FFCB30"
-									bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
-									boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
-									borderRadius={"15px"}
-								>
-									<Grid
-										h="100%"
-										templateRows="repeat(1, 1fr)"
-										templateColumns="repeat(5, 1fr)"
-										gap={0}
-										alignItems="center"
-									>
-										<GridItem rowSpan={1} colSpan={1}>
-											<Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
-										</GridItem>
-										<GridItem colSpan={4}>
-											<Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
-												Tree-Boom!
-											</Heading>
-											<Text
-												fontSize="1vw"
-												fontFamily={"neuton"}
-												letterSpacing="0.05em"
-												fontWeight={"bold"}
-											>
-												Earned 2/07/22
-											</Text>
-										</GridItem>
-									</Grid>
-								</GridItem>
+								</GridItem>*/}
 							</Grid>
 						</GridItem>
 						<GridItem
@@ -527,111 +547,114 @@ const UProfile = ({ feed }) => {
 									Activity:
 								</Heading>
 							</Box>
-							<Accordion
+
+							{/*<Accordion
 								allowToggle
 								backgroundColor="#F1FFF4"
 								style={{ overflowY: "scroll", height: "20vh" }}
 							>
-								{feed.map((feed) => {
-									return (
-										<AccordionItem
-											w="50vw"
-											borderColor="green.600"
-											bg="green.500"
-											borderLeft="1px"
-											borderLeftColor="green.600"
-											borderRight="1px"
-											borderRightColor="green.600"
-											borderWidth="1px"
-											borderRadius="lg"
-											overflow="hidden"
-											boxShadow={"0px 2px 2px rgba(0,0,0,0.25)"}
-											mb="2vw"
-										>
-											<Stack
-												alignItems={"center"}
-												direction={{ base: "line", sm: "row" }}
-												align={"start"}
-												justify={"space-between"}
-												m="1vw"
-												mt="2vw"
+								{achievements &&
+									achievements.map((feed, index) => {
+										return (
+											<AccordionItem
+												key={index}
+												w="50vw"
+												borderColor="green.600"
+												bg="green.500"
+												borderLeft="1px"
+												borderLeftColor="green.600"
+												borderRight="1px"
+												borderRightColor="green.600"
+												borderWidth="1px"
+												borderRadius="lg"
+												overflow="hidden"
+												boxShadow={"0px 2px 2px rgba(0,0,0,0.25)"}
+												mb="2vw"
 											>
-												<Image
-													w="20%"
-													boxSize="100px"
-													src={feed.image}
-													overflow="hidden"
-													borderWidth="3px"
-													borderRadius="5px"
-													boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
-													borderLeft="1px"
-													borderLeftColor="green.600"
-													borderRight="1px"
-													borderRightColor="green.600"
-													borderTop="1px"
-													borderTopColor="green.600"
-													borderBottom="1px"
-													borderBottomColor="green.600"
-												/>
-												<AccordionButton w="65%">
-													<Box
-														flex="1"
-														textAlign="left"
-														alignItems={"center"}
-														variant="golden"
-													>
-														<Heading variant="golden">{feed.titlu_activitate}</Heading>
-														<p variant="auth" fontWeight="400" fontSize="1.5vw">
-															{feed.nume_firma}
-														</p>
-														<span
-															style={{
-																fontWeight: "1000",
-																fontFamily: "neuton",
-																fontSize: "1.2vw",
-															}}
+												<Stack
+													alignItems={"center"}
+													direction={{ base: "line", sm: "row" }}
+													align={"start"}
+													justify={"space-between"}
+													m="1vw"
+													mt="2vw"
+												>
+													<Image
+														w="20%"
+														boxSize="100px"
+														src={feed.image}
+														overflow="hidden"
+														borderWidth="3px"
+														borderRadius="5px"
+														boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+														borderLeft="1px"
+														borderLeftColor="green.600"
+														borderRight="1px"
+														borderRightColor="green.600"
+														borderTop="1px"
+														borderTopColor="green.600"
+														borderBottom="1px"
+														borderBottomColor="green.600"
+													/>
+													<AccordionButton w="65%">
+														<Box
+															flex="1"
+															textAlign="left"
+															alignItems={"center"}
+															variant="golden"
 														>
-															Date: {feed.date}
-														</span>
-													</Box>
-													<AccordionIcon />
-												</AccordionButton>
-												<Flex w="20%">
-													<Flex alignItems={"center"}>
-														<span
-															style={{
-																fontWeight: "700",
-																fontSize: "1.2vm",
-																fontFamily: "neuton",
-															}}
-														>
-															<Image src="./2people.svg" w="50%" h="auto" />
-															{feed.participanti}
-														</span>
-														<Spacer />
-														<span
-															style={{
-																fontStyle: "inter",
-																fontWeight: "700",
-															}}
-														>
-															<Box mr="3vw">Earned: {feed.puncte} pts </Box>
-														</span>
+															<Heading variant="golden">{feed.titlu_activitate}</Heading>
+															<p variant="auth" fontWeight="400" fontSize="1.5vw">
+																{feed.nume_firma}
+															</p>
+															<span
+																style={{
+																	fontWeight: "1000",
+																	fontFamily: "neuton",
+																	fontSize: "1.2vw",
+																}}
+															>
+																Date: {feed.date}
+															</span>
+														</Box>
+														<AccordionIcon />
+													</AccordionButton>
+													<Flex w="20%">
+														<Flex alignItems={"center"}>
+															<span
+																style={{
+																	fontWeight: "700",
+																	fontSize: "1.2vm",
+																	fontFamily: "neuton",
+																}}
+															>
+																<Image src="./2people.svg" w="50%" h="auto" />
+																{feed.participanti}
+															</span>
+															<Spacer />
+															<span
+																style={{
+																	fontStyle: "inter",
+																	fontWeight: "700",
+																}}
+															>
+																<Box mr="3vw">Earned: {feed.puncte} pts </Box>
+															</span>
+														</Flex>
 													</Flex>
-												</Flex>
-											</Stack>
-											<br></br>
-											<AccordionPanel
-												fontFamily={"inter"}
-												fontSize="1.2vw"
-												textColor={"#072C06"}
-											>
-												{feed.descriere_activitate}
-											</AccordionPanel>
-										</AccordionItem>
-									);
-								})}
-							</Accordion>
+												</Stack>
+												<br></br>
+												<AccordionPanel
+													fontFamily={"inter"}
+													fontSize="1.2vw"
+													textColor={"#072C06"}
+												>
+													{feed.descriere_activitate}
+												</AccordionPanel>
+											</AccordionItem>
+										);
+									})}
+								</Accordion>*/}
 						</GridItem>
 					</Grid>
 				</TabPanel>
