@@ -36,45 +36,31 @@ import "@fontsource/neuton";
 
 const OProfile = ({ feed }) => {
   return (
-    <Tabs isFitted variant="enclosed">
-      <TabList mb="1em">
-        <Tab
-          w="236.5"
-          bgGradient="linear(90deg, #47C244 0%, #3AB758 100%)"
-          _focus={{ textColor: "white" }}
-          _selected={{ textColor: "white" }}
+    <Box>
+            <Button
+          colorScheme="teal"
+          size="lg"
+          w="50%"
+          variant="auth"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "http://localhost:3000/OFeed";
+          }}
+          mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, green.100 0% ,  green.200 100%)"
         >
-          <Image src="./Area.svg" w="7%"></Image>
-        </Tab>
-        <Tab
-          w="236.5"
-          bgGradient="linear(90deg, #3AB758 0%, #32B064 100%)"
-          _focus={{ textColor: "white" }}
-          _selected={{ textColor: "white" }}
+          <Image src="./Home_Page (1).svg" w="4%" mr="0.5vw" />
+          Home
+        </Button>
+        <Button
+          colorScheme="teal"
+          size="lg"
+          w="50%"
+          variant="auth"
+          mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 0%, green.100 100% )"
         >
-          <Image src="./Calendar.svg" w="7%"></Image>
-        </Tab>
-        <Tab
-          w="2198.5"
-          h="100"
-          bgGradient="linear(270deg, yellow  0%,#32B064  98.27%)"
-        >
-          <Image src="./Profile.svg" w="7%" mr="1vw" />
-          <Text
-            color="white"
-            fontSize="3xl"
-            fontWeight="400"
-            fontFamily="inter"
-            textShadow="0px 2px 2px rgba(0,0,0,0.5)"
-          >
-            Your Profile
-          </Text>
-        </Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel />
-        <TabPanel />
-        <TabPanel>
+          <Image src="./Profile.svg" w="4%" mr="0.5vw" />
+          Your Profile
+        </Button>
           <Grid
             h="700px"
             templateRows="repeat(2, 1fr)"
@@ -451,9 +437,7 @@ const OProfile = ({ feed }) => {
               </Accordion>
             </GridItem>
           </Grid>
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
+     </Box>
   );
 };
 
