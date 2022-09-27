@@ -37,40 +37,45 @@ import "@fontsource/neuton";
 const OProfile = ({ feed }) => {
   return (
     <Box>
+      <Stack spacing={0} direction="row" align="center" bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)">
             <Button
-          colorScheme="teal"
+          variant="ghost"
+          borderRadius="none"
           size="lg"
           w="50%"
-          variant="auth"
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = "http://localhost:3000/OFeed";
-          }}
-          mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, green.100 0% ,  green.200 100%)"
-          borderRadius="none"
           borderWidth="1px"
           borderColor="blackAlpha.400"
-          _focus={{ textColor: "white" }}
-          _selected={{ textColor: "white" }}
+          _focus={{ bgColor:"blackAlpha.300", color: "white" }}
+          _selected={{bgColor:"blackAlpha.300", color: "white" }}
+          _hover={{ bgColor:"blackAlpha.300", color: "white"}} 
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "http://localhost:3000/VFeed";
+          }}
+          mb=""
+          boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
         >
           <Image src="./Home_Page (1).svg" w="4%" mr="0.5vw" />
           Home
         </Button>
         <Button
-          colorScheme="teal"
+          bgColor="blackAlpha.300"
+          borderRadius="none"
           size="lg"
           w="50%"
-          variant="auth"
-          mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 0%, green.100 100% )"
-          borderRadius="none"
+          mb="1em"
+          boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
           borderWidth="1px"
           borderColor="blackAlpha.400"
-          _focus={{ textColor: "white" }}
-          _selected={{ textColor: "white" }}
+          textColor="white"
+          _selected={{bgColor:"blackAlpha.300"}}
+          _focus={{ bgColor:"blackAlpha.300"}}  
+          _hover={{ bgColor:"blackAlpha.300"}}
         >
           <Image src="./Profile.svg" w="4%" mr="0.5vw" />
           Your Profile
         </Button>
+        </Stack>
           <Grid
             h="700px"
             templateRows="repeat(2, 1fr)"
