@@ -99,19 +99,19 @@ namespace WebAPI.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public ActionResult UpdateAdministrator(Administrator Administrator)
+        public ActionResult UpdateAdministrator(Administrator administrator)
         {
-            Administrator entity = _unitOfWork.Administrators.GetById(Administrator.Id);
+            Administrator entity = _unitOfWork.Administrators.GetById(administrator.Id);
 
             if(entity == null)
             {
                 return NotFound();
             }
 
-            entity.Email = Administrator.Email;
-            entity.FirstName = Administrator.FirstName;
-            entity.LastName = Administrator.LastName;
-            entity.PhoneNumber = Administrator.PhoneNumber;
+            entity.Email = administrator.Email;
+            entity.FirstName = administrator.FirstName;
+            entity.LastName = administrator.LastName;
+            entity.PhoneNumber = administrator.PhoneNumber;
 
             _unitOfWork.Administrators.Update(entity);
             _unitOfWork.Save();

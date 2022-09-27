@@ -48,19 +48,24 @@ namespace WebAPI.Controllers
             return entity;
         }
 
+        //If points given isn't given(for use in the API only), calculate amount
         // POST <EventController>/CreateEvent
         [HttpPost("CreateEvent")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         public ActionResult CreateEvent([FromBody] Event _event)
         {
+            int generatedPointsGiven = _event.PointsGiven != null ? 
+                (int)_event.PointsGiven : 
+                (_event.DateEnd - _event.DateStart).Hours *(_event.ScheduleEnd-_event.ScheduleStart).Hours;
+
             var entity = new Event()
             {
                 Id = _event.Id,
                 Title = _event.Title,
                 Location = _event.Location,
                 Description = _event.Description,
-                PointsGiven = _event.PointsGiven,
+                PointsGiven = generatedPointsGiven,
                 Type = _event.Type,
                 MaxParticipants = _event.MaxParticipants,
                 DateStart = _event.DateStart,
@@ -93,12 +98,16 @@ namespace WebAPI.Controllers
         [ProducesResponseType(404)]
         public ActionResult UpdateEvent([FromBody] Event _event)
         {
+            int generatedPointsGiven = _event.PointsGiven != null ?
+               (int)_event.PointsGiven :
+               (_event.DateEnd - _event.DateStart).Hours * (_event.ScheduleEnd - _event.ScheduleStart).Hours;
+
             var entity = _unitOfWork.Events.GetById(_event.Id);
 
             entity.Title = _event.Title;
             entity.Location = _event.Location;
             entity.Description = _event.Description;
-            entity.PointsGiven = _event.PointsGiven;
+            entity.PointsGiven = generatedPointsGiven;
             entity.Type = _event.Type;
             entity.MaxParticipants = _event.MaxParticipants;
             entity.DateStart = _event.DateStart;

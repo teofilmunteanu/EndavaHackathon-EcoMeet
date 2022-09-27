@@ -8,7 +8,12 @@ namespace WebAPI.Repositories
     {
         public AchievementRepository(webapiContext DBContext) : base(DBContext)
         {
+            
+        }
 
+        public IEnumerable<Achievement> GetByVolunteeerEmail(string email)
+        {
+            return DBContext.Achievements.Where(a => a.VolunteerEmail == email);
         }
     }
 }

@@ -8,18 +8,17 @@ namespace WebAPI.Models
     {
         public Organizer()
         {
-            EventsNavigation = new HashSet<Event>();
+            Events = new HashSet<Event>();
         }
 
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
         public string OrganizationName { get; set; } = null!;
         public string City { get; set; } = null!;
-        public string? Events { get; set; }
         [Required]
         public int? AdministratorId { get; set; }
 
         public virtual Administrator? Administrator { get; set; }
-        public virtual ICollection<Event> EventsNavigation { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }
