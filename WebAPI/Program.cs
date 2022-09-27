@@ -15,6 +15,7 @@ namespace WebAPI
 
             // Add services to the container.
 
+            /*
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -22,6 +23,17 @@ namespace WebAPI
                                   {
                                       policy.WithOrigins("localhost:3000/OSignUp");
                                   });
+            });*/
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AllowOrigin",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:3000")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
             });
 
             builder.Services.AddControllers();
@@ -46,12 +58,20 @@ namespace WebAPI
 
             app.UseHttpsRedirection();
 
-            app.UseCors(MyAllowSpecificOrigins);
+            //app.UseCors("AllowOrigin");
 
+            /*
             app.UseCors(builder => builder
              .AllowAnyOrigin()
              .AllowAnyMethod()
-             .AllowAnyHeader());
+             .AllowAnyHeader());*/
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             app.UseAuthorization();
 
