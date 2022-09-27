@@ -5,6 +5,13 @@ import {RemoveScrollBar} from 'react-remove-scroll-bar';
 
 
 function OSignUp() {
+  var jsonData = {
+      "email": "43343string444554",
+      "password": "string",
+      "organizationName": "string",
+      "city": "string"
+  }
+
   return (
     <div>
       
@@ -30,7 +37,7 @@ function OSignUp() {
               <FormLabel variant="authEffect">Set Password:</FormLabel>
               <Input type="password" />
             </FormControl>
-            <FormControl id="password">
+            <FormControl id="cpassword">
               <FormLabel variant="authEffect">Confirm Password:</FormLabel>
               <Input type="password" />
             </FormControl>
@@ -77,8 +84,11 @@ function OSignUp() {
             <Button
               variant="auth"
               onClick={(e) => {
+                fetch('https://localhost:7256/api/Organizer/CreateOrganizer', {
+                method: 'POST', 
+                mode: 'cors', 
+                body: JSON.stringify(jsonData)})
                 e.preventDefault();
-                window.location.href = "#";
               }}
             >
               Sign up
