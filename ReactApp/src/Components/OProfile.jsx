@@ -47,6 +47,11 @@ const OProfile = ({ feed }) => {
             window.location.href = "http://localhost:3000/OFeed";
           }}
           mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, green.100 0% ,  green.200 100%)"
+          borderRadius="none"
+          borderWidth="1px"
+          borderColor="blackAlpha.400"
+          _focus={{ textColor: "white" }}
+          _selected={{ textColor: "white" }}
         >
           <Image src="./Home_Page (1).svg" w="4%" mr="0.5vw" />
           Home
@@ -57,6 +62,11 @@ const OProfile = ({ feed }) => {
           w="50%"
           variant="auth"
           mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 0%, green.100 100% )"
+          borderRadius="none"
+          borderWidth="1px"
+          borderColor="blackAlpha.400"
+          _focus={{ textColor: "white" }}
+          _selected={{ textColor: "white" }}
         >
           <Image src="./Profile.svg" w="4%" mr="0.5vw" />
           Your Profile
