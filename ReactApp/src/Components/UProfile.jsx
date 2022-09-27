@@ -36,45 +36,32 @@ import "@fontsource/neuton";
 
 const UProfile = ({ feed }) => {
   return (
-    <Tabs isFitted variant="enclosed">
-      <TabList mb="1em">
-        <Tab
-          w="236.5"
-          bgGradient="linear(90deg, #47C244 0%, #3AB758 100%)"
-          _focus={{ textColor: "white" }}
-          _selected={{ textColor: "white" }}
+          <Box>
+            <Button
+          colorScheme="teal"
+          size="lg"
+          w="50%"
+          variant="auth"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "http://localhost:3000/VFeed";
+          }}
+          mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, green.100 0% ,  green.200 100%)"
         >
-          <Image src="./Area.svg" w="7%"></Image>
-        </Tab>
-        <Tab
-          w="236.5"
-          bgGradient="linear(90deg, #3AB758 0%, #32B064 100%)"
-          _focus={{ textColor: "white" }}
-          _selected={{ textColor: "white" }}
+          <Image src="./Home_Page (1).svg" w="4%" mr="0.5vw" />
+          Home
+        </Button>
+        <Button
+          colorScheme="teal"
+          size="lg"
+          w="50%"
+          variant="auth"
+          
+          mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 0%, green.100 100% )"
         >
-          <Image src="./Calendar.svg" w="7%"></Image>
-        </Tab>
-        <Tab
-          w="2198.5"
-          h="100"
-          bgGradient="linear(270deg, yellow  0%,#32B064  98.27%)"
-        >
-          <Image src="./Profile.svg" w="7%" mr="1vw" />
-          <Text
-            color="white"
-            fontSize="3xl"
-            fontWeight="400"
-            fontFamily="inter"
-            textShadow="0px 2px 2px rgba(0,0,0,0.5)"
-          >
-            Your Profile
-          </Text>
-        </Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel />
-        <TabPanel />
-        <TabPanel>
+          <Image src="./Profile.svg" w="4%" mr="0.5vw" />
+          Your Profile
+        </Button>
           <Grid
             h="700px"
             templateRows="repeat(2, 1fr)"
@@ -232,8 +219,8 @@ const UProfile = ({ feed }) => {
                 <GridItem
                   rowSpan={2}
                   colSpan={1}
-                  bg="#FFCB30"
-                  bgGradient="linear(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(255, 245, 0, 0.304) 100%)"
+                  bg="#A203ED"
+                  bgGradient="linear-gradient(180deg, rgba(255, 254, 254, 0.38) 0%, rgba(190, 1, 103, 0.304) 100%)"
                   boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
                   borderRadius={"15px"}
                 >
@@ -245,11 +232,11 @@ const UProfile = ({ feed }) => {
                     alignItems="center"
                   >
                     <GridItem rowSpan={1} colSpan={1}>
-                      <Image src="Tree-Boom.svg" w="70%" ml="0.75vw" />
+                      <Image src="Calendar.svg" w="70%" ml="0.75vw" />
                     </GridItem>
                     <GridItem colSpan={4}>
                       <Heading fontFamily={"neuton"} fontSize="2vw" mb="-0.2vw">
-                        Tree-Boom!
+                        Never Busy!
                       </Heading>
                       <Text
                         fontSize="1vw"
@@ -257,7 +244,7 @@ const UProfile = ({ feed }) => {
                         letterSpacing="0.05em"
                         fontWeight={"bold"}
                       >
-                        Earned 2/07/22
+                        Earned 30/07/22
                       </Text>
                     </GridItem>
                   </Grid>
@@ -637,9 +624,7 @@ const UProfile = ({ feed }) => {
               </Accordion>
             </GridItem>
           </Grid>
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
+        </Box>
   );
 };
 
