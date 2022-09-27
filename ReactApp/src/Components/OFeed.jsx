@@ -167,7 +167,9 @@ const OFeed = ({ ofeed }) => {
                           </ModalHeader>
                           <ModalCloseButton />
                           <ModalBody pb={6}>
+                            
                             <FormControl
+                              
                               variant="floating"
                               boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                               isRequired
@@ -179,6 +181,25 @@ const OFeed = ({ ofeed }) => {
                               </FormLabel>
                             </FormControl>
                             <Stack
+                              mt={4} direction={{ base: "column", sm: "row" }}
+                            >
+                              <FormLabel mt={2} ml={4} w="40%">
+                                Event Type:
+                              </FormLabel>
+                              <FormControl
+                                variant="floating"
+                                boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+                                isRequired
+                                isInvalid
+                              >
+                                <Select placeholder=" ">
+                                  <option value='Recycling'>Recycling</option>
+                                  <option value='Tree Planting'>Tree Planting</option>
+                                  <option value='Miscellaneous'>Miscellaneous</option>
+                                </Select>
+                              </FormControl>
+                            </Stack>
+                            <Stack
                               direction={{ base: "column", sm: "row" }}
                               align={"center"}
                               justify={"space-between"}
@@ -187,6 +208,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -201,6 +223,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -220,7 +243,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  id="first-name"
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -235,7 +258,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  id="first-name"
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -246,43 +269,10 @@ const OFeed = ({ ofeed }) => {
                                 </FormControl>
                               </div>
                             </Stack>
-                            <Stack
-                              direction={{ base: "column", sm: "row" }}
-                              justify={"space-between"}
-                            >
-                              <div>
-                                <FormControl
-                                  mt={4}
-                                  variant="floating"
-                                  id="first-name"
-                                  isRequired
-                                  isInvalid
-                                >
-                                  <Input placeholder=" " />
-                                  <FormLabel variant="golden">
-                                    Points:
-                                  </FormLabel>
-                                </FormControl>
-                              </div>
-                              <div>
-                                <FormControl
-                                  mt={4}
-                                  variant="floating"
-                                  id="first-name"
-                                  isRequired
-                                  isInvalid
-                                >
-                                  <Input placeholder=" " />
-                                  <FormLabel variant="golden">
-                                    Event Type:
-                                  </FormLabel>
-                                </FormControl>
-                              </div>
-                            </Stack>
                             <FormControl
                               mt={4}
                               variant="floating"
-                              id="first-name"
+                              boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                               isRequired
                               isInvalid
                             >
@@ -300,8 +290,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  id="first-name"
-                                  isRequired
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isInvalid
                                 >
                                   <Input placeholder=" " />
@@ -314,8 +303,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  id="first-name"
-                                  isRequired
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isInvalid
                                 >
                                   <Input
@@ -499,7 +487,7 @@ const OFeed = ({ ofeed }) => {
             </Grid>
           </TabPanel>
           <TabPanel>
-          <Grid
+            <Grid
               h='250px'
               templateColumns={'repeat(2, 1fr)'}
               gap={'5'}
@@ -622,8 +610,8 @@ const OFeed = ({ ofeed }) => {
                     );
                   })}
                 </Accordion>
-                </GridItem>
-                <GridItem rowSpan={1}>
+              </GridItem>
+              <GridItem rowSpan={1}>
                 <FormControl>
                   <Select
                     placeholder="Select Location"
@@ -667,7 +655,7 @@ const OFeed = ({ ofeed }) => {
                   </span>
                 </Text>
               </GridItem>
-              </Grid>
+            </Grid>
           </TabPanel>
         </TabPanels>
       </Tabs>
