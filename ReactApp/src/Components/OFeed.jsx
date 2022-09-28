@@ -34,43 +34,14 @@ import {
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "@fontsource/inter";
 import "@fontsource/neuton";
-import Moment from 'moment';
 
-const OFeed = () => {
+const OFeed = ({ ofeed }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
-
-  const [eventsInArea, setEventsInArea] = useState([]);
-  useEffect(() => {
-    fetch("https://localhost:7256/api/Event/GetEvents", {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setEventsInArea(data));
-  }, []);
-
-  const [yourEvents, setYourEvents] = useState([]);
-  useEffect(() => {
-    fetch("https://localhost:7256/api/Event/GetEventsByVolunteerEmail/test@email.com", {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setYourEvents(data));
-  }, []);
 
   return (
     <div>
@@ -78,10 +49,14 @@ const OFeed = () => {
       <Tabs isFitted variant="unstyled">
         <TabList mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)">
           <Tab
-            borderWidth="1px"
-            borderColor="blackAlpha.400"
-            _focus={{ textColor: "white" }}
-            _selected={{ textColor: "white" }}
+              borderRadius="none"
+              size="lg"
+              w="50%"
+              borderWidth="1px"
+              borderColor="blackAlpha.400"
+              _focus={{ bgColor:"blackAlpha.300", color: "white" }}
+              _selected={{bgColor:"blackAlpha.300", color: "white" }}
+              _hover={{ bgColor:"blackAlpha.300", color: "white"}} 
           >
             <Image src="./Area.svg" w="4%" /> &nbsp;&nbsp;{" "}
             <span
@@ -95,10 +70,14 @@ const OFeed = () => {
             </span>
           </Tab>
           <Tab
-            borderWidth="1px"
-            borderColor="blackAlpha.400"
-            _focus={{ textColor: "white" }}
-            _selected={{ textColor: "white" }}
+              borderRadius="none"
+              size="lg"
+              w="50%"
+              borderWidth="1px"
+              borderColor="blackAlpha.400"
+              _focus={{ bgColor:"blackAlpha.300", color: "white" }}
+              _selected={{bgColor:"blackAlpha.300", color: "white" }}
+              _hover={{ bgColor:"blackAlpha.300", color: "white"}} 
           >
             {" "}
             <Image src="./Calendar.svg" w="4%" mr="0.5vw" />
@@ -196,9 +175,7 @@ const OFeed = () => {
                           </ModalHeader>
                           <ModalCloseButton />
                           <ModalBody pb={6}>
-                            
                             <FormControl
-                              
                               variant="floating"
                               boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                               isRequired
@@ -210,25 +187,6 @@ const OFeed = () => {
                               </FormLabel>
                             </FormControl>
                             <Stack
-                              mt={4} direction={{ base: "column", sm: "row" }}
-                            >
-                              <FormLabel mt={2} ml={4} w="40%">
-                                Event Type:
-                              </FormLabel>
-                              <FormControl
-                                variant="floating"
-                                boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
-                                isRequired
-                                isInvalid
-                              >
-                                <Select placeholder=" ">
-                                  <option value='rec'>Recycling</option>
-                                  <option value='tree'>Tree Planting</option>
-                                  <option value='misc'>Miscellaneous</option>
-                                </Select>
-                              </FormControl>
-                            </Stack>
-                            <Stack
                               direction={{ base: "column", sm: "row" }}
                               align={"center"}
                               justify={"space-between"}
@@ -237,7 +195,6 @@ const OFeed = () => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -252,7 +209,6 @@ const OFeed = () => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -263,22 +219,78 @@ const OFeed = () => {
                                 </FormControl>
                               </div>
                             </Stack>
-                            <FormControl
-                              mt={4}
-                              variant="floating"
-                              boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
-                              isRequired
-                              isInvalid
+                            <Stack
+                              direction={{ base: "column", sm: "row" }}
+                              align={"center"}
+                              justify={"space-between"}
                             >
-                              <Input placeholder=" " />
-                              <FormLabel variant="golden">
-                                Hours/Day:
-                              </FormLabel>
-                            </FormControl>
+                              <div>
+                                <FormControl
+                                  mt={4}
+                                  variant="floating"
+                                  id="first-name"
+                                  isRequired
+                                  isInvalid
+                                >
+                                  <Input placeholder=" " />
+                                  <FormLabel variant="golden">
+                                    Start Hour:
+                                  </FormLabel>
+                                </FormControl>
+                              </div>
+                              <span style={{ fontWeight: "bold" }}>_</span>
+                              <div>
+                                <FormControl
+                                  mt={4}
+                                  variant="floating"
+                                  id="first-name"
+                                  isRequired
+                                  isInvalid
+                                >
+                                  <Input placeholder=" " />
+                                  <FormLabel variant="golden">
+                                    End Hour:
+                                  </FormLabel>
+                                </FormControl>
+                              </div>
+                            </Stack>
+                            <Stack
+                              direction={{ base: "column", sm: "row" }}
+                              justify={"space-between"}
+                            >
+                              <div>
+                                <FormControl
+                                  mt={4}
+                                  variant="floating"
+                                  id="first-name"
+                                  isRequired
+                                  isInvalid
+                                >
+                                  <Input placeholder=" " />
+                                  <FormLabel variant="golden">
+                                    Points:
+                                  </FormLabel>
+                                </FormControl>
+                              </div>
+                              <div>
+                                <FormControl
+                                  mt={4}
+                                  variant="floating"
+                                  id="first-name"
+                                  isRequired
+                                  isInvalid
+                                >
+                                  <Input placeholder=" " />
+                                  <FormLabel variant="golden">
+                                    Event Type:
+                                  </FormLabel>
+                                </FormControl>
+                              </div>
+                            </Stack>
                             <FormControl
                               mt={4}
                               variant="floating"
-                              boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+                              id="first-name"
                               isRequired
                               isInvalid
                             >
@@ -296,7 +308,8 @@ const OFeed = () => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+                                  id="first-name"
+                                  isRequired
                                   isInvalid
                                 >
                                   <Input placeholder=" " />
@@ -309,7 +322,8 @@ const OFeed = () => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+                                  id="first-name"
+                                  isRequired
                                   isInvalid
                                 >
                                   <Input
@@ -334,7 +348,7 @@ const OFeed = () => {
                     </AccordionButton>
                   </AccordionItem>
                   <br></br>
-                  {eventsInArea.map((ofeed) => {
+                  {ofeed.map((ofeed) => {
                     return (
                       <AccordionItem
                         w="50vw"
@@ -361,10 +375,7 @@ const OFeed = () => {
                           <Image
                             w="20%"
                             boxSize="100px"
-                            src={
-                              ofeed.type === "tree" ? "./icon1.png"
-                              : ofeed.type === "rec" ? "./icon2.png" 
-                              :  "./icon3.png" }
+                            src={ofeed.image}
                             overflow="hidden"
                             borderWidth="3px"
                             borderRadius="5px"
@@ -386,14 +397,14 @@ const OFeed = () => {
                               variant="golden"
                             >
                               <Heading variant="golden">
-                                {ofeed.title}
+                                {ofeed.titlu_activitate}
                               </Heading>
                               <p
                                 variant="auth"
                                 fontWeight="400"
                                 fontSize="1.5vw"
                               >
-                                {ofeed.organizationName}
+                                {ofeed.nume_firma}
                               </p>
                               <span
                                 style={{
@@ -402,7 +413,7 @@ const OFeed = () => {
                                   fontSize: "1.2vw",
                                 }}
                               >
-                                Date: {Moment(ofeed.dateStart).format('DD-MM-YYYY')}
+                                Date: {ofeed.date}
                               </span>
                             </Box>
                             <AccordionIcon />
@@ -422,7 +433,7 @@ const OFeed = () => {
                                   h="auto"
                                   ml="0.6vw"
                                 />
-                                {ofeed.currentNumberOfParticipants}
+                                {ofeed.participanti}
                               </span>
                               <Spacer />
                               <span
@@ -431,7 +442,7 @@ const OFeed = () => {
                                   fontWeight: "700",
                                 }}
                               >
-                                {ofeed.pointsGiven} pts{" "}
+                                {ofeed.puncte} pts{" "}
                               </span>
                             </Flex>
                           </Flex>
@@ -442,7 +453,7 @@ const OFeed = () => {
                           fontSize="1.2vw"
                           textColor={"#072C06"}
                         >
-                          {ofeed.description}
+                          {ofeed.descriere_activitate}
                         </AccordionPanel>
                       </AccordionItem>
                     );
@@ -496,7 +507,7 @@ const OFeed = () => {
             </Grid>
           </TabPanel>
           <TabPanel>
-            <Grid
+          <Grid
               h='250px'
               templateColumns={'repeat(2, 1fr)'}
               gap={'5'}
@@ -508,7 +519,7 @@ const OFeed = () => {
                   borderColor="yellow.600"
                   style={{ overflowY: "scroll", height: "66vh" }}
                 >
-                  {yourEvents.map((ofeed) => {
+                  {ofeed.map((ofeed) => {
                     return (
                       <AccordionItem
                         w="50vw"
@@ -535,10 +546,7 @@ const OFeed = () => {
                           <Image
                             w="20%"
                             boxSize="100px"
-                            src={
-                              ofeed.type === "tree" ? "./icon1.png"
-                              : ofeed.type === "rec" ? "./icon2.png" 
-                              :  "./icon3.png" }
+                            src={ofeed.image}
                             overflow="hidden"
                             borderWidth="3px"
                             borderRadius="5px"
@@ -560,14 +568,14 @@ const OFeed = () => {
                               variant="golden"
                             >
                               <Heading variant="golden">
-                                {ofeed.title}
+                                {ofeed.titlu_activitate}
                               </Heading>
                               <p
                                 variant="auth"
                                 fontWeight="400"
                                 fontSize="1.5vw"
                               >
-                                {ofeed.organizationName}
+                                {ofeed.nume_firma}
                               </p>
                               <span
                                 style={{
@@ -596,7 +604,7 @@ const OFeed = () => {
                                   h="auto"
                                   ml="0.6vw"
                                 />
-                                {ofeed.currentNumberOfParticipants}
+                                {ofeed.participanti}
                               </span>
                               <Spacer />
                               <span
@@ -605,7 +613,7 @@ const OFeed = () => {
                                   fontWeight: "700",
                                 }}
                               >
-                                {ofeed.pointsGiven} pts{" "}
+                                {ofeed.puncte} pts{" "}
                               </span>
                             </Flex>
                           </Flex>
@@ -616,14 +624,14 @@ const OFeed = () => {
                           fontSize="1.2vw"
                           textColor={"#592222"}
                         >
-                          {ofeed.description}
+                          {ofeed.descriere_activitate}
                         </AccordionPanel>
                       </AccordionItem>
                     );
                   })}
                 </Accordion>
-              </GridItem>
-              <GridItem rowSpan={1}>
+                </GridItem>
+                <GridItem rowSpan={1}>
                 <FormControl>
                   <Select
                     placeholder="Select Location"
@@ -667,7 +675,7 @@ const OFeed = () => {
                   </span>
                 </Text>
               </GridItem>
-            </Grid>
+              </Grid>
           </TabPanel>
         </TabPanels>
       </Tabs>

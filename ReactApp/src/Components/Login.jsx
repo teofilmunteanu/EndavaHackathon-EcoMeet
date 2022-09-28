@@ -12,21 +12,19 @@ import {
 
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
-function Login() {
-  return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-      <Flex p={8} flex={1} align={"center"} justify={"center"}>
-        <Stack spacing={4} w={"full"} maxW={"md"}>
-          <Heading fontSize={"2xl"} variant="authEffect">
-            Welcome back!
-          </Heading>
-          <Divider orientation="horizontal" />
-          <FormControl id="Username">
-            <FormLabel variant="authEffect">Username:</FormLabel>
-            <Input type="text" />
-          </FormControl>
-          <FormControl id="password">
-            <FormLabel variant="authEffect">Password:</FormLabel>
+  function Login() {
+    return (
+      <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+        <Flex p={8} flex={1} align={'center'} justify={'center'}>
+          <Stack spacing={4} w={'full'} maxW={'md'}>
+            <Heading fontSize={'2xl'}>Welcome back!</Heading>
+            <Divider orientation='horizontal'/>
+            <FormControl  id="Username">
+              <FormLabel>Username:</FormLabel>
+              <Input type="text" />
+            </FormControl>
+            <FormControl id="password">
+            <FormLabel>Password:</FormLabel>
             <Input type="password" />
           </FormControl>
           <Stack
