@@ -22,7 +22,7 @@ import { TriangleDownIcon } from "@chakra-ui/icons";
 function NavBarProfile() {
   return (
     <Grid
-      h="128px"
+      h="100%"
       templateColumns="repeat(10,1fr)"
       gap="0"
       boxShadow="0px 4px 4px rgba(0,0,0,0.5)"
@@ -56,7 +56,7 @@ function NavBarProfile() {
         bgGradient="linear(180deg, rgba(255, 254, 254, 0.5) -20%, #FFCB30 100%)"
       >
         <Grid
-          h="128px"
+          h="100%"
           templateColumns="repeat(17,1fr)"
           gap="0"
           alignItems="center"

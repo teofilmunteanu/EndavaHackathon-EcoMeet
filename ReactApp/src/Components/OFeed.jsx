@@ -36,14 +36,43 @@ import {
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@fontsource/inter";
 import "@fontsource/neuton";
+import Moment from 'moment';
 
-const OFeed = ({ ofeed }) => {
+const OFeed = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
+
+  const [eventsInArea, setEventsInArea] = useState([]);
+  useEffect(() => {
+    fetch("https://localhost:7256/api/Event/GetEvents", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setEventsInArea(data));
+  }, []);
+
+  const [yourEvents, setYourEvents] = useState([]);
+  useEffect(() => {
+    fetch("https://localhost:7256/api/Event/GetEventsByVolunteerEmail/test@email.com", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setYourEvents(data));
+  }, []);
 
   return (
     <div>
@@ -179,7 +208,9 @@ const OFeed = ({ ofeed }) => {
                           </ModalHeader>
                           <ModalCloseButton />
                           <ModalBody pb={6}>
+                            
                             <FormControl
+                              
                               variant="floating"
                               boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                               isRequired
@@ -232,7 +263,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  id="first-name"
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -247,7 +278,7 @@ const OFeed = ({ ofeed }) => {
                                 <FormControl
                                   mt={4}
                                   variant="floating"
-                                  id="first-name"
+                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                                   isRequired
                                   isInvalid
                                 >
@@ -352,7 +383,7 @@ const OFeed = ({ ofeed }) => {
                     </AccordionButton>
                   </AccordionItem>
                   <br></br>
-                  {ofeed.map((ofeed) => {
+                  {eventsInArea.map((ofeed) => {
                     return (
                       <AccordionItem
                         w="50vw"
@@ -381,6 +412,10 @@ const OFeed = ({ ofeed }) => {
                             src={ofeed.image}
                             borderWidth="1px"
                             borderRadius="15px"
+                            src={
+                              ofeed.type === "tree" ? "./icon1.png"
+                              : ofeed.type === "rec" ? "./icon2.png" 
+                              :  "./icon3.png" }
                             overflow="hidden"
                             boxShadow="0px 2px 2px rgba(0,0,0,0.5)"
                           />
@@ -390,6 +425,16 @@ const OFeed = ({ ofeed }) => {
                               textAlign="left"
                               alignItems={"center"}
                             >
+                              <Heading variant="golden">
+                                {ofeed.title}
+                              </Heading>
+                              <p
+                                variant="auth"
+                                fontWeight="400"
+                                fontSize="1.5vw"
+                              >
+                                {ofeed.organizationName}
+                              </p>
                               <span
                                 style={{
                                   fontWeight: "bold",
@@ -406,7 +451,7 @@ const OFeed = ({ ofeed }) => {
                                   fontFamily: "neuton",
                                 }}
                               >
-                                Date: {ofeed.date}
+                                Date: {Moment(ofeed.dateStart).format('DD-MM-YYYY')}
                               </span>
                             </Box>
                             <AccordionIcon />
@@ -448,6 +493,22 @@ const OFeed = ({ ofeed }) => {
                                 }}
                               >
                                 {ofeed.puncte} pts{" "}
+                                <Image
+                                  src="./2people.svg"
+                                  w="50%"
+                                  h="auto"
+                                  ml="0.6vw"
+                                />
+                                {ofeed.currentNumberOfParticipants}
+                              </span>
+                              <Spacer />
+                              <span
+                                style={{
+                                  fontStyle: "inter",
+                                  fontWeight: "700",
+                                }}
+                              >
+                                {ofeed.pointsGiven} pts{" "}
                               </span>
                             </GridItem>
                           </Grid>
@@ -543,6 +604,12 @@ const OFeed = ({ ofeed }) => {
                           <Text fontFamily="inter">
                             {ofeed.descriere_activitate}
                           </Text>
+                        <AccordionPanel
+                          fontFamily={"inter"}
+                          fontSize="1.2vw"
+                          textColor={"#072C06"}
+                        >
+                          {ofeed.description}
                         </AccordionPanel>
                       </AccordionItem>
                     );
@@ -583,6 +650,11 @@ const OFeed = ({ ofeed }) => {
           </TabPanel>
           <TabPanel>
             <Grid h="250px" templateColumns={"repeat(2, 1fr)"} gap={"5"}>
+            <Grid
+              h='250px'
+              templateColumns={'repeat(2, 1fr)'}
+              gap={'5'}
+            >
               <GridItem rowSpan={1}>
                 <Accordion
                   allowToggle
@@ -590,7 +662,7 @@ const OFeed = ({ ofeed }) => {
                   borderColor="yellow.600"
                   style={{ overflowY: "scroll", height: "66vh" }}
                 >
-                  {ofeed.map((ofeed) => {
+                  {yourEvents.map((ofeed) => {
                     return (
                       <AccordionItem
                         w="50vw"
@@ -619,6 +691,10 @@ const OFeed = ({ ofeed }) => {
                             src={ofeed.image}
                             borderWidth="1px"
                             borderRadius="15px"
+                            src={
+                              ofeed.type === "tree" ? "./icon1.png"
+                              : ofeed.type === "rec" ? "./icon2.png" 
+                              :  "./icon3.png" }
                             overflow="hidden"
                             boxShadow="0px 2px 2px rgba(0,0,0,0.5)"
                           />
@@ -628,6 +704,16 @@ const OFeed = ({ ofeed }) => {
                               textAlign="left"
                               alignItems={"center"}
                             >
+                              <Heading variant="golden">
+                                {ofeed.title}
+                              </Heading>
+                              <p
+                                variant="auth"
+                                fontWeight="400"
+                                fontSize="1.5vw"
+                              >
+                                {ofeed.organizationName}
+                              </p>
                               <span
                                 style={{
                                   fontWeight: "bold",
@@ -671,6 +757,13 @@ const OFeed = ({ ofeed }) => {
                               >
                                 {ofeed.participanti}
                                 <Image src="./2people.svg" w="50%" />{" "}
+                                <Image
+                                  src="./2people.svg"
+                                  w="50%"
+                                  h="auto"
+                                  ml="0.6vw"
+                                />
+                                {ofeed.currentNumberOfParticipants}
                               </span>
                             </GridItem>
                             <GridItem rowSpan={1} colSpan={1}>
@@ -681,7 +774,7 @@ const OFeed = ({ ofeed }) => {
                                   fontFamily: "neuton",
                                 }}
                               >
-                                {ofeed.puncte} pts{" "}
+                                {ofeed.pointsGiven} pts{" "}
                               </span>
                             </GridItem>
                           </Grid>
@@ -788,6 +881,12 @@ const OFeed = ({ ofeed }) => {
                           <Text p={4} fontFamily="inter">
                             {ofeed.descriere_activitate}
                           </Text>
+                        <AccordionPanel
+                          fontFamily={"inter"}
+                          fontSize="1.2vw"
+                          textColor={"#592222"}
+                        >
+                          {ofeed.description}
                         </AccordionPanel>
                       </AccordionItem>
                     );

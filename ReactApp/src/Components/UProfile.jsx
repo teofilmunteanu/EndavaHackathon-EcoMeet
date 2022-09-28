@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import {
   Editable,
@@ -33,8 +33,40 @@ import {
 import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
 import "@fontsource/inter";
 import "@fontsource/neuton";
+import Moment from "react-moment";
 
-const UProfile = ({ feed }) => {
+const UProfile = () => {
+  const [achievements, setAchievements] = useState([]);
+  useEffect(() => {
+    fetch("https://localhost:7256/api/Achievement/GetAchievements", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setAchievements(data));
+  }, []);
+
+  const [activities, setActivities] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://localhost:7256/api/Event/GetPastEventsByVolunteerEmail/test@email.com",
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setActivities(data));
+  }, []);
+
   return (
           <Box>
              <Stack spacing={0} direction="row" align="center" bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)">
@@ -362,7 +394,6 @@ const UProfile = ({ feed }) => {
                     </GridItem>
                   </Grid>
                 </GridItem>
-                
               </Grid>
             </GridItem>
             <GridItem
@@ -534,12 +565,159 @@ const UProfile = ({ feed }) => {
                 backgroundColor="#F1FFF4"
                 style={{ overflowY: "scroll", height: "20vh" }}
               >
-                {feed.map((feed) => {
-                  return (
-                    <AccordionItem
-                      w="50vw"
-                      borderColor="green.600"
-                      bg="green.500"
+                Joined: 5/06/22
+              </Text>
+            </GridItem>
+          </Grid>
+          <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+            <GridItem colSpan={1} h="10" ml="15">
+              <Text
+                ml="15"
+                textAlign={["center"]}
+                color="black"
+                textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                fontFamily="neuton"
+                fontWeight="bold"
+                fontSize={"1vw"}
+              >
+                Work:
+              </Text>
+            </GridItem>
+            <GridItem colStart={4} colEnd={2} h="10">
+              <Editable
+                defaultValue="Type here:"
+                fontSize="xl"
+                fontWeight="bold"
+                mt="-1"
+              >
+                <EditablePreview />
+                <EditableInput />
+              </Editable>
+            </GridItem>
+          </Grid>
+          <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+            <GridItem colSpan={1} h="10" ml="15">
+              <Text
+                ml="15"
+                textAlign={["center"]}
+                color="black"
+                textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                fontFamily="neuton"
+                fontWeight="bold"
+                fontSize={"1vw"}
+              >
+                Activity:
+              </Text>
+            </GridItem>
+            <GridItem colStart={7} colEnd={2} h="10">
+              <Editable
+                defaultValue="Type here:"
+                fontSize="xl"
+                fontWeight="bold"
+                mt="-1"
+              >
+                <EditablePreview />
+                <EditableInput />
+              </Editable>
+            </GridItem>
+          </Grid>
+          <Grid templateColumns="repeat(5, 1fr)" gap={0}>
+            <GridItem colSpan={1} h="10" ml="15">
+              <Text
+                ml="15"
+                textAlign={["center"]}
+                color="black"
+                textShadow="0px 2px 2px rgba(0, 0, 0, 0.25)"
+                fontFamily="neuton"
+                fontWeight="bold"
+                fontSize={"1vw"}
+              >
+                Your description:
+              </Text>
+            </GridItem>
+            <GridItem colStart={7} colEnd={2} h="10">
+              <Editable
+                defaultValue="Type here"
+                fontSize="xl"
+                fontWeight="bold"
+                mt="9"
+                ml="15"
+              >
+                <EditablePreview />
+                <EditableInput />
+              </Editable>
+            </GridItem>
+          </Grid>
+        </GridItem>
+        <GridItem
+          colSpan={1}
+          rowSpan={2}
+          bg="#EEFFE7"
+          borderRadius="3xl"
+          boxShadow=" 0px 4px 4px rgba(0, 0, 0, 0.25)"
+        >
+          <Box
+            w="910"
+            h="92"
+            bg="#D0FEBF"
+            boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+            borderRadius="3xl"
+          >
+            <Heading
+              variant="authEffect"
+              textAlign={"left"}
+              pt="1vw"
+              pl="3vw"
+              fontSize="2vw"
+            >
+              Activity:
+            </Heading>
+          </Box>
+          <Accordion
+            allowToggle
+            backgroundColor="#F1FFF4"
+            h="70%"
+            overflowY="scroll"
+            ml="3"
+          >
+            {activities.map((item, index) => {
+              return (
+                <AccordionItem
+                  w="50vw"
+                  borderColor="green.600"
+                  bg="green.500"
+                  borderLeft="1px"
+                  borderLeftColor="green.600"
+                  borderRight="1px"
+                  borderRightColor="green.600"
+                  borderWidth="1px"
+                  borderRadius="lg"
+                  overflow="hidden"
+                  boxShadow={"0px 2px 2px rgba(0,0,0,0.25)"}
+                  mb="2vw"
+                >
+                  <Stack
+                    alignItems={"center"}
+                    direction={{ base: "line", sm: "row" }}
+                    align={"start"}
+                    justify={"space-between"}
+                    m="1vw"
+                    mt="2vw"
+                  >
+                    <Image
+                      src={
+                        item.type === "tree"
+                          ? "./icon1.png"
+                          : item.type === "rec"
+                          ? "./icon2.png"
+                          : "./icon3.png"
+                      }
+                      w="20%"
+                      boxSize="100px"
+                      overflow="hidden"
+                      borderWidth="3px"
+                      borderRadius="5px"
+                      boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                       borderLeft="1px"
                       borderLeftColor="green.600"
                       borderRight="1px"
@@ -552,93 +730,64 @@ const UProfile = ({ feed }) => {
                     >
                       <Stack
                         alignItems={"center"}
-                        direction={{ base: "line", sm: "row" }}
-                        align={"start"}
-                        justify={"space-between"}
-                        m="1vw"
-                        mt="2vw"
+                        variant="golden"
                       >
-                        <Image
-                          w="20%"
-                          boxSize="100px"
-                          src={feed.image}
-                          overflow="hidden"
-                          borderWidth="3px"
-                          borderRadius="5px"
-                          boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
-                          borderLeft="1px"
-                          borderLeftColor="green.600"
-                          borderRight="1px"
-                          borderRightColor="green.600"
-                          borderTop="1px"
-                          borderTopColor="green.600"
-                          borderBottom="1px"
-                          borderBottomColor="green.600"
-                        />
-                        <AccordionButton w="65%">
-                          <Box
-                            flex="1"
-                            textAlign="left"
-                            alignItems={"center"}
-                            variant="golden"
-                          >
-                            <Heading variant="golden">
-                              {feed.titlu_activitate}
-                            </Heading>
-                            <p variant="auth" fontWeight="400" fontSize="1.5vw">
-                              {feed.nume_firma}
-                            </p>
-                            <span
-                              style={{
-                                fontWeight: "1000",
-                                fontFamily: "neuton",
-                                fontSize: "1.2vw",
-                              }}
-                            >
-                              Date: {feed.date}
-                            </span>
-                          </Box>
-                          <AccordionIcon />
-                        </AccordionButton>
-                        <Flex w="20%">
-                          <Flex alignItems={"center"}>
-                            <span
-                              style={{
-                                fontWeight: "700",
-                                fontSize: "1.2vm",
-                                fontFamily: "neuton",
-                              }}
-                            >
-                              <Image src="./2people.svg" w="50%" h="auto" />
-                              {feed.participanti}
-                            </span>
-                            <Spacer />
-                            <span
-                              style={{
-                                fontStyle: "inter",
-                                fontWeight: "700",
-                              }}
-                            >
-                              <Box mr="3vw">Earned: {feed.puncte} pts </Box>
-                            </span>
-                          </Flex>
-                        </Flex>
-                      </Stack>
-                      <br></br>
-                      <AccordionPanel
-                        fontFamily={"inter"}
-                        fontSize="1.2vw"
-                        textColor={"#072C06"}
-                      >
-                        {feed.descriere_activitate}
-                      </AccordionPanel>
-                    </AccordionItem>
-                  );
-                })}
-              </Accordion>
-            </GridItem>
-          </Grid>
-        </Box>
+                        <Heading variant="golden">{item.title}</Heading>
+                        <p variant="auth" fontWeight="400" fontSize="1.5vw">
+                          {item.organizationName}
+                        </p>
+                        <span
+                          style={{
+                            fontWeight: "1000",
+                            fontFamily: "neuton",
+                            fontSize: "1.2vw",
+                          }}
+                        >
+                          Date:
+                          {Moment(item.dateEnd).format("DD-MM-YYYY")}
+                        </span>
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                    <Flex w="20%">
+                      <Flex alignItems={"center"}>
+                        <span
+                          style={{
+                            fontWeight: "700",
+                            fontSize: "1.2vm",
+                            fontFamily: "neuton",
+                          }}
+                        >
+                          <Image src="./2people.svg" w="50%" h="auto" />
+                          {item.maxParticipants}
+                        </span>
+                        <Spacer />
+                        <span
+                          style={{
+                            fontStyle: "inter",
+                            fontWeight: "700",
+                          }}
+                        >
+                          <Box mr="3vw">Earned: {item.pointsGiven} pts </Box>
+                        </span>
+                      </Flex>
+                    </Flex>
+                  </Stack>
+                  <br></br>
+                  <AccordionPanel
+                    fontFamily={"inter"}
+                    fontSize="1.2vw"
+                    textColor={"#072C06"}
+                  >
+                    {item.description}
+                  </AccordionPanel>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
+        </GridItem>
+      </Grid>
+    </Box>
   );
 };
 
