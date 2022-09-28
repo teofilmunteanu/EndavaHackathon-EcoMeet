@@ -49,10 +49,14 @@ const OFeed = ({ ofeed }) => {
       <Tabs isFitted variant="unstyled">
         <TabList mb="1em" boxShadow="0px 2px 2px rgba(0,0,0,0.25)" bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)">
           <Tab
-            borderWidth="1px"
-            borderColor="blackAlpha.400"
-            _focus={{ textColor: "white" }}
-            _selected={{ textColor: "white" }}
+              borderRadius="none"
+              size="lg"
+              w="50%"
+              borderWidth="1px"
+              borderColor="blackAlpha.400"
+              _focus={{ bgColor:"blackAlpha.300", color: "white" }}
+              _selected={{bgColor:"blackAlpha.300", color: "white" }}
+              _hover={{ bgColor:"blackAlpha.300", color: "white"}} 
           >
             <Image src="./Area.svg" w="4%" /> &nbsp;&nbsp;{" "}
             <span
@@ -66,10 +70,14 @@ const OFeed = ({ ofeed }) => {
             </span>
           </Tab>
           <Tab
-            borderWidth="1px"
-            borderColor="blackAlpha.400"
-            _focus={{ textColor: "white" }}
-            _selected={{ textColor: "white" }}
+              borderRadius="none"
+              size="lg"
+              w="50%"
+              borderWidth="1px"
+              borderColor="blackAlpha.400"
+              _focus={{ bgColor:"blackAlpha.300", color: "white" }}
+              _selected={{bgColor:"blackAlpha.300", color: "white" }}
+              _hover={{ bgColor:"blackAlpha.300", color: "white"}} 
           >
             {" "}
             <Image src="./Calendar.svg" w="4%" mr="0.5vw" />

@@ -106,6 +106,14 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/CollaboratorShop"
+          element={
+            <>
+              <Shop feed={ShopData} />
+            </>
+          }
+        />
 
         </Routes>
     </ChakraProvider>
