@@ -49,10 +49,10 @@ namespace WebAPI.Controllers
         }
 
         // GET <EventController>/GetEvent/ex@email.com
-        [HttpGet("GetEventsByVolunteerEmail/{email}/")]
+        [HttpGet("GetPastEventsByVolunteerEmail/{email}/")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
-        public ActionResult<IEnumerable<Event>> GetEventsByVolunteerEmail(string email)
+        public ActionResult<IEnumerable<Event>> GetPastEventsByVolunteerEmail(string email)
         {
             Volunteer volunteer = _unitOfWork.Volunteers.GetById(email);
             var list = _unitOfWork.Events.GetPastEventsByVolunteer(volunteer).ToList();
@@ -72,9 +72,19 @@ namespace WebAPI.Controllers
         [ProducesResponseType(400)]
         public ActionResult CreateEvent([FromBody] Event _event)
         {
-            int generatedPointsGiven = _event.PointsGiven != null ? 
-                (int)_event.PointsGiven : 
-                (_event.DateEnd - _event.DateStart).Hours *(_event.ScheduleEnd-_event.ScheduleStart).Hours;
+            int generatedPointsGiven = _event.PointsGiven != null ?
+               (int)_event.PointsGiven : (int)(_event.DateEnd - _event.DateStart).TotalDays * _event.HoursPerDay;
+
+            string organizationName;
+
+            if(_unitOfWork.Organizers.GetById(_event.OrganizerEmail) != null)
+            {
+                organizationName = _unitOfWork.Organizers.GetById(_event.OrganizerEmail).OrganizationName;
+            }
+            else
+            {
+                return BadRequest();
+            }
 
             var entity = new Event()
             {
@@ -87,10 +97,10 @@ namespace WebAPI.Controllers
                 MaxParticipants = _event.MaxParticipants,
                 DateStart = _event.DateStart,
                 DateEnd = _event.DateEnd,
-                ScheduleStart = _event.ScheduleStart,
-                ScheduleEnd = _event.ScheduleEnd,
+                HoursPerDay = _event.HoursPerDay,
                 Sponsors = _event.Sponsors,
-                OrganizerEmail = _event.OrganizerEmail
+                OrganizerEmail = _event.OrganizerEmail,
+                OrganizationName = organizationName
             };
 
             try
@@ -116,8 +126,9 @@ namespace WebAPI.Controllers
         public ActionResult UpdateEvent([FromBody] Event _event)
         {
             int generatedPointsGiven = _event.PointsGiven != null ?
-               (int)_event.PointsGiven :
-               (_event.DateEnd - _event.DateStart).Hours * (_event.ScheduleEnd - _event.ScheduleStart).Hours;
+               (int)_event.PointsGiven : (int)(_event.DateEnd - _event.DateStart).TotalDays * _event.HoursPerDay;
+
+            string organizationName = _unitOfWork.Organizers.GetById(_event.OrganizerEmail).OrganizationName;
 
             var entity = _unitOfWork.Events.GetById(_event.Id);
 
@@ -129,10 +140,10 @@ namespace WebAPI.Controllers
             entity.MaxParticipants = _event.MaxParticipants;
             entity.DateStart = _event.DateStart;
             entity.DateEnd = _event.DateEnd;
-            entity.ScheduleStart = _event.ScheduleStart;
-            entity.ScheduleEnd = _event.ScheduleEnd;
+            entity.HoursPerDay = _event.HoursPerDay;
             entity.Sponsors = _event.Sponsors;//can be null
             entity.OrganizerEmail = _event.OrganizerEmail;
+            entity.OrganizationName = organizationName;
 
             _unitOfWork.Events.Update(entity);
             _unitOfWork.Save();

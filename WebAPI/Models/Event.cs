@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models
 {
@@ -9,7 +8,6 @@ namespace WebAPI.Models
         public Event()
         {
             VolunteersEmails = new HashSet<Volunteer>();
-            CurrentNumberOfParticipants = 0;
         }
 
         public int Id { get; set; }
@@ -22,10 +20,9 @@ namespace WebAPI.Models
         public int CurrentNumberOfParticipants { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
-        public TimeSpan ScheduleStart { get; set; }
-        public TimeSpan ScheduleEnd { get; set; }
         public string? Sponsors { get; set; }
-        [Required]
+        public int HoursPerDay { get; set; }
+        public string? OrganizationName { get; set; }
         public string? OrganizerEmail { get; set; }
 
         public virtual Organizer? OrganizerEmailNavigation { get; set; }

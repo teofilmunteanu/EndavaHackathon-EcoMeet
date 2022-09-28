@@ -27,7 +27,11 @@ namespace WebAPI.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=357159;database=webapi");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,7 +44,7 @@ namespace WebAPI.Data
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Date).HasMaxLength(45);
+                entity.Property(e => e.Date).HasColumnType("date");
 
                 entity.Property(e => e.Description).HasMaxLength(300);
 
@@ -94,9 +98,15 @@ namespace WebAPI.Data
 
                 entity.HasIndex(e => e.OrganizerEmail, "fk_events_organizers1_idx");
 
+                entity.Property(e => e.DateEnd).HasColumnType("date");
+
+                entity.Property(e => e.DateStart).HasColumnType("date");
+
                 entity.Property(e => e.Description).HasMaxLength(200);
 
                 entity.Property(e => e.Location).HasMaxLength(45);
+
+                entity.Property(e => e.OrganizationName).HasMaxLength(45);
 
                 entity.Property(e => e.OrganizerEmail).HasMaxLength(45);
 

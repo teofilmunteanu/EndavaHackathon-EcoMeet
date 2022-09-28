@@ -8,7 +8,7 @@ namespace WebAPI.Models
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
-        public string Date { get; set; } = null!;
+        public DateTime Date { get; set; }
         public string Description { get; set; } = null!;
         [Required]
         public string? VolunteerEmail { get; set; }
