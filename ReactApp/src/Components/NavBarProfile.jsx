@@ -41,7 +41,7 @@ function NavBarProfile() {
         bgGradient="linear(180deg, rgba(255, 254, 254, 0.5) -20%, #FFCB30 100%)"
       >
         <Grid
-          h="128px"
+          h="80px"
           templateColumns="repeat(17,1fr)"
           gap="0"
           alignItems="center"

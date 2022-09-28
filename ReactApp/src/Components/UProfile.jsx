@@ -33,6 +33,7 @@ import {
 import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
 import "@fontsource/inter";
 import "@fontsource/neuton";
+import Moment from 'moment';
 
 const UProfile = () => {
 
@@ -592,8 +593,8 @@ const UProfile = () => {
                   >
                     <Image
                       src={
-                        item.type == "tree" ? "./icon1.png"
-                        : item.type == "rec" ? "./icon2.png" 
+                        item.type === "tree" ? "./icon1.png"
+                        : item.type === "rec" ? "./icon2.png" 
                         :  "./icon3.png" }
                       w="20%"
                       boxSize="100px"
@@ -630,7 +631,7 @@ const UProfile = () => {
                             fontSize: "1.2vw",
                           }}
                         >
-                          Date: {item.dateEnd}
+                          Date: {Moment(item.dateEnd).format('DD-MM-YYYY')}
                         </span>
                       </Box>
                       <AccordionIcon />

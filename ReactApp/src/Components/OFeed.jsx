@@ -34,14 +34,43 @@ import {
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@fontsource/inter";
 import "@fontsource/neuton";
+import Moment from 'moment';
 
-const OFeed = ({ ofeed }) => {
+const OFeed = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
+
+  const [eventsInArea, setEventsInArea] = useState([]);
+  useEffect(() => {
+    fetch("https://localhost:7256/api/Event/GetEvents", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setEventsInArea(data));
+  }, []);
+
+  const [yourEvents, setYourEvents] = useState([]);
+  useEffect(() => {
+    fetch("https://localhost:7256/api/Event/GetEventsByVolunteerEmail/test@email.com", {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setYourEvents(data));
+  }, []);
 
   return (
     <div>
@@ -305,7 +334,7 @@ const OFeed = ({ ofeed }) => {
                     </AccordionButton>
                   </AccordionItem>
                   <br></br>
-                  {ofeed.map((ofeed) => {
+                  {eventsInArea.map((ofeed) => {
                     return (
                       <AccordionItem
                         w="50vw"
@@ -332,7 +361,10 @@ const OFeed = ({ ofeed }) => {
                           <Image
                             w="20%"
                             boxSize="100px"
-                            src={ofeed.image}
+                            src={
+                              ofeed.type === "tree" ? "./icon1.png"
+                              : ofeed.type === "rec" ? "./icon2.png" 
+                              :  "./icon3.png" }
                             overflow="hidden"
                             borderWidth="3px"
                             borderRadius="5px"
@@ -354,14 +386,14 @@ const OFeed = ({ ofeed }) => {
                               variant="golden"
                             >
                               <Heading variant="golden">
-                                {ofeed.titlu_activitate}
+                                {ofeed.title}
                               </Heading>
                               <p
                                 variant="auth"
                                 fontWeight="400"
                                 fontSize="1.5vw"
                               >
-                                {ofeed.nume_firma}
+                                {ofeed.organizationName}
                               </p>
                               <span
                                 style={{
@@ -370,7 +402,7 @@ const OFeed = ({ ofeed }) => {
                                   fontSize: "1.2vw",
                                 }}
                               >
-                                Date: {ofeed.date}
+                                Date: {Moment(ofeed.dateStart).format('DD-MM-YYYY')}
                               </span>
                             </Box>
                             <AccordionIcon />
@@ -390,7 +422,7 @@ const OFeed = ({ ofeed }) => {
                                   h="auto"
                                   ml="0.6vw"
                                 />
-                                {ofeed.participanti}
+                                {ofeed.currentNumberOfParticipants}
                               </span>
                               <Spacer />
                               <span
@@ -399,7 +431,7 @@ const OFeed = ({ ofeed }) => {
                                   fontWeight: "700",
                                 }}
                               >
-                                {ofeed.puncte} pts{" "}
+                                {ofeed.pointsGiven} pts{" "}
                               </span>
                             </Flex>
                           </Flex>
@@ -410,7 +442,7 @@ const OFeed = ({ ofeed }) => {
                           fontSize="1.2vw"
                           textColor={"#072C06"}
                         >
-                          {ofeed.descriere_activitate}
+                          {ofeed.description}
                         </AccordionPanel>
                       </AccordionItem>
                     );
@@ -476,7 +508,7 @@ const OFeed = ({ ofeed }) => {
                   borderColor="yellow.600"
                   style={{ overflowY: "scroll", height: "66vh" }}
                 >
-                  {ofeed.map((ofeed) => {
+                  {yourEvents.map((ofeed) => {
                     return (
                       <AccordionItem
                         w="50vw"
@@ -503,7 +535,10 @@ const OFeed = ({ ofeed }) => {
                           <Image
                             w="20%"
                             boxSize="100px"
-                            src={ofeed.image}
+                            src={
+                              ofeed.type === "tree" ? "./icon1.png"
+                              : ofeed.type === "rec" ? "./icon2.png" 
+                              :  "./icon3.png" }
                             overflow="hidden"
                             borderWidth="3px"
                             borderRadius="5px"
@@ -525,14 +560,14 @@ const OFeed = ({ ofeed }) => {
                               variant="golden"
                             >
                               <Heading variant="golden">
-                                {ofeed.titlu_activitate}
+                                {ofeed.title}
                               </Heading>
                               <p
                                 variant="auth"
                                 fontWeight="400"
                                 fontSize="1.5vw"
                               >
-                                {ofeed.nume_firma}
+                                {ofeed.organizationName}
                               </p>
                               <span
                                 style={{
@@ -561,7 +596,7 @@ const OFeed = ({ ofeed }) => {
                                   h="auto"
                                   ml="0.6vw"
                                 />
-                                {ofeed.participanti}
+                                {ofeed.currentNumberOfParticipants}
                               </span>
                               <Spacer />
                               <span
@@ -570,7 +605,7 @@ const OFeed = ({ ofeed }) => {
                                   fontWeight: "700",
                                 }}
                               >
-                                {ofeed.puncte} pts{" "}
+                                {ofeed.pointsGiven} pts{" "}
                               </span>
                             </Flex>
                           </Flex>
@@ -581,7 +616,7 @@ const OFeed = ({ ofeed }) => {
                           fontSize="1.2vw"
                           textColor={"#592222"}
                         >
-                          {ofeed.descriere_activitate}
+                          {ofeed.description}
                         </AccordionPanel>
                       </AccordionItem>
                     );

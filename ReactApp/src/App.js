@@ -30,7 +30,7 @@ import {ProfileData} from "./Components/ProfileData"
 function App() {
   return (
     <ChakraProvider resetCSS theme={mainTheme}>
-      <NavBar />
+      <NavBarProfile />
       <Routes>
         <Route
           path="/"
@@ -81,7 +81,7 @@ function App() {
             </>
           }
         />
-        <Route path="/OFeed" element={<OFeed ofeed={OFeedData} />} />
+        <Route path="/OFeed" element={<OFeed/>} />
         <Route
           path="/UProfile"
           element={
