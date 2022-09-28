@@ -86,7 +86,7 @@ function App() {
           path="/UProfile"
           element={
             <>
-              <UProfile feed={VFeedData} />
+              <UProfile/>
             </>
           }
         />

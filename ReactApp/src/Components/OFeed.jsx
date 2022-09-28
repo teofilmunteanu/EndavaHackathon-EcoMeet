@@ -193,9 +193,9 @@ const OFeed = ({ ofeed }) => {
                                 isInvalid
                               >
                                 <Select placeholder=" ">
-                                  <option value='Recycling'>Recycling</option>
-                                  <option value='Tree Planting'>Tree Planting</option>
-                                  <option value='Miscellaneous'>Miscellaneous</option>
+                                  <option value='rec'>Recycling</option>
+                                  <option value='tree'>Tree Planting</option>
+                                  <option value='misc'>Miscellaneous</option>
                                 </Select>
                               </FormControl>
                             </Stack>
@@ -234,41 +234,18 @@ const OFeed = ({ ofeed }) => {
                                 </FormControl>
                               </div>
                             </Stack>
-                            <Stack
-                              direction={{ base: "column", sm: "row" }}
-                              align={"center"}
-                              justify={"space-between"}
+                            <FormControl
+                              mt={4}
+                              variant="floating"
+                              boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
+                              isRequired
+                              isInvalid
                             >
-                              <div>
-                                <FormControl
-                                  mt={4}
-                                  variant="floating"
-                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
-                                  isRequired
-                                  isInvalid
-                                >
-                                  <Input placeholder=" " />
-                                  <FormLabel variant="golden">
-                                    Start Hour:
-                                  </FormLabel>
-                                </FormControl>
-                              </div>
-                              <span style={{ fontWeight: "bold" }}>_</span>
-                              <div>
-                                <FormControl
-                                  mt={4}
-                                  variant="floating"
-                                  boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
-                                  isRequired
-                                  isInvalid
-                                >
-                                  <Input placeholder=" " />
-                                  <FormLabel variant="golden">
-                                    End Hour:
-                                  </FormLabel>
-                                </FormControl>
-                              </div>
-                            </Stack>
+                              <Input placeholder=" " />
+                              <FormLabel variant="golden">
+                                Hours/Day:
+                              </FormLabel>
+                            </FormControl>
                             <FormControl
                               mt={4}
                               variant="floating"
