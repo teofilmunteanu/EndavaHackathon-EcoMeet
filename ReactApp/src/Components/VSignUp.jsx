@@ -1,62 +1,93 @@
-import {Button, Flex, FormControl, FormLabel, Heading, Input, Stack, Image, Divider} from '@chakra-ui/react';
+import { FormErrorMessage, Button, Flex, FormControl, FormLabel, Heading, Input, Stack, Image, Divider } from '@chakra-ui/react';
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import { Formik, Field } from "formik";
+import { useState } from "react";
+import { Form } from "formik";
+import { MultipleValidators } from "../utils/validators/MultipleValidators";
+import { isEmail, MinLenght, NotEmpty, IsEqual } from "../utils";
+
 
 function VSignUp() {
+  const [password, setPasswoard] = useState('');
+
   return (
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-      <Flex p={8} flex={1} align={"center"} justify={"center"}>
-        <Stack spacing={4} w={"full"} maxW={"md"}>
+      <Formik onSubmit={data => console.log(data)} initialValues={{ city: "Iasi" }} >
+        <Flex p={8} flex={1} align={"center"} justify={"center"}>
+          <Form>
           <Heading fontSize={["6vw", "4vw", "2.5vw"]} variant="authEffect">
-            Hello, Volunteer!
-          </Heading>
-          <Divider orientation="horizontal" />
-          <FormControl id="username">
-            <FormLabel variant="authEffect">Username:</FormLabel>
-            <Input type="text" />
-          </FormControl>
-          <FormControl id="email">
-            <FormLabel variant="authEffect">Email:</FormLabel>
-            <Input type="email" />
-          </FormControl>
-          <Stack
-            direction={{ base: "column", sm: "row" }}
-            align={"start"}
-            justify={"space-between"}
-          >
-            <FormControl id="password">
-              <FormLabel variant="authEffect">Set Password:</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel variant="authEffect">Confirm Password:</FormLabel>
-              <Input type="password" />
-            </FormControl>
-          </Stack>
-          <FormControl id="town">
-            <FormLabel variant="authEffect">Town/City:</FormLabel>
-            <Input type="text" />
-          </FormControl>
-          <Stack
-            direction={{ base: "line", sm: "row" }}
-            align={"start"}
-            justify={"space-between"}
-          >
-            <Button variant="auth" bg="white"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = "http://localhost:3000/";
-            }}>
-              <ArrowBackIcon />
-              Back
-            </Button>
-            <Button variant="auth"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = "#";
-            }}>Sign up</Button>
-          </Stack>
-        </Stack>
-      </Flex>
+									Hello, Volunteer!
+								</Heading>
+								<Divider orientation="horizontal" />
+								<Field name="username" validate={value=>NotEmpty(value)}>
+								{({field, form}) => (
+									<FormControl isInvalid={form.errors.username && form.touched.username}>
+									<FormLabel>Username</FormLabel>
+									<Input {...field} placeholder='Username...' />
+									<FormErrorMessage>{form.errors.username}</FormErrorMessage>
+								  </FormControl>
+								)}
+								</Field>
+								<Field name="email" validate={value=>MultipleValidators(value, [NotEmpty, isEmail])}>
+								{({field, form}) => (
+									<FormControl isInvalid={form.errors.email && form.touched.email}>
+									<FormLabel>Email</FormLabel>
+									<Input {...field} placeholder='Email...' />
+									<FormErrorMessage>{form.errors.email}</FormErrorMessage>
+								  </FormControl>
+								)}
+								</Field>
+								<Stack
+									direction={{ base: "column", sm: "row" }}
+									align={"start"}
+									justify={"space-between"}
+								>
+								<Field name="password" validate={value=>MultipleValidators(value, [()=>(NotEmpty(password)), (value)=>MinLenght(value, 6)])}>
+								{({field, form}) => {
+									setPasswoard(field.value)
+									return(
+									<FormControl isInvalid={form.errors.password && form.touched.password}>
+									<FormLabel>Password</FormLabel>
+									<Input type="password" {...field} placeholder='Password...'/>
+									<FormErrorMessage>{form.errors.password}</FormErrorMessage> 		
+								  </FormControl>
+								)}}
+								</Field>
+								<Field name="passwordCheck" validate={value=>MultipleValidators(value, [NotEmpty, value=> IsEqual(value, password)])}>
+								{({field, form}) => (
+									<FormControl isInvalid={form.errors.passwordCheck && form.touched.passwordCheck}>
+									<FormLabel>Confirm Password</FormLabel>
+									<Input type="password" {...field} placeholder='Password...' />
+									<FormErrorMessage>{form.errors.passwordCheck}</FormErrorMessage> 		
+								  </FormControl>
+								)}
+								</Field>
+								</Stack>
+								<Field name="city" validate={value=>MultipleValidators(value, [NotEmpty])}>
+								{({field, form}) => (
+									<FormControl isInvalid={form.errors.city && form.touched.city}>
+									<FormLabel>City</FormLabel>
+									<Input {...field} placeholder='Oras...' />
+									<FormErrorMessage>{form.errors.city}</FormErrorMessage> 		
+								  </FormControl>
+								)}
+								</Field>
+								<Stack
+									direction={{ base: "line", sm: "row" }}
+									align={"start"}
+									justify={"space-between"}
+								>
+									<Button variant="auth" bg="white">
+										<ArrowBackIcon />
+										Back
+									</Button>
+									<Button variant="auth" type="submit">
+										Sign up
+									</Button>
+								</Stack>
+          </Form>
+        </Flex>
+      </Formik>
       <Flex flex={1}>
         <Image alt={"Login Image"} objectFit={"cover"} src={"./SignUp1.png"} />
       </Flex>
