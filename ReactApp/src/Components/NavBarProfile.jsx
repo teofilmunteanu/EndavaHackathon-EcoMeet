@@ -86,7 +86,7 @@ function NavBarProfile() {
                       fontSize={"1.5vw"}
                       letterSpacing="0.005em"
                     >
-                      Charles Ludwigen
+                      Teofil Munteanu
                     </Text>
                   </Box>
                   <Avatar
@@ -135,6 +135,10 @@ function NavBarProfile() {
                 <MenuItem
                   justifyContent={"center"}
                   _hover={{ background: "rgba(255,255,255,0.4)" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "http://localhost:3000/UProfile";
+                  }}
                 >
                   Your Profile
                 </MenuItem>
@@ -142,7 +146,12 @@ function NavBarProfile() {
                 <MenuItem
                   justifyContent={"center"}
                   _hover={{ background: "rgba(255,255,255,0.4)" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = "http://localhost:3000/Shop";
+                  }}
                 >
+                  
                   Shop
                 </MenuItem>
                 <MenuDivider />

@@ -31,7 +31,6 @@ import {
   AccordionPanel,
   AccordionIcon,
   Heading,
-  Feed,
   Center,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
@@ -84,7 +83,6 @@ const OFeed = () => {
           bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)"
         >
           <Tab
-
             borderRadius="none"
             size="lg"
             w="50%"
@@ -107,7 +105,6 @@ const OFeed = () => {
             </span>
           </Tab>
           <Tab
-
             borderRadius="none"
             size="lg"
             w="50%"
@@ -116,7 +113,6 @@ const OFeed = () => {
             _focus={{ bgColor: "blackAlpha.300", color: "white" }}
             _selected={{ bgColor: "blackAlpha.300", color: "white" }}
             _hover={{ bgColor: "blackAlpha.300", color: "white" }}
-
           >
             {" "}
             <Image src="./Calendar.svg" w="4%" mr="0.5vw" />
@@ -212,9 +208,7 @@ const OFeed = () => {
                           </ModalHeader>
                           <ModalCloseButton />
                           <ModalBody pb={6}>
-
                             <FormControl
-
                               variant="floating"
                               boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
                               isRequired
@@ -226,7 +220,10 @@ const OFeed = () => {
                               </FormLabel>
                             </FormControl>
                             <Stack
-                              mt={4} direction={{ base: "column", sm: "row" }}
+                              direction={{ base: "column", sm: "row" }}
+                              align={"center"}
+                              justify={"space-between"}
+                              mt={4}
                             >
                               <FormLabel mt={2} ml={4} w="40%">
                                 Event Type:
@@ -279,18 +276,16 @@ const OFeed = () => {
                                 </FormControl>
                               </div>
                             </Stack>
-                            <FormControl
-                              mt={4}
-                              variant="floating"
-                              boxShadow="0px 2px 2px rgba(0,0,0,0.25)"
-                              isRequired
-                              isInvalid
+                            <Stack
+                            mt={4}
+                              direction={{ base: "column", sm: "row" }}
+                              justify={"space-between"}
                             >
                               <Input placeholder=" " />
                               <FormLabel variant="golden">
-                                Hours/Day:
+                                Hours/Day
                               </FormLabel>
-                            </FormControl>
+                            </Stack>
                             <FormControl
                               mt={4}
                               variant="floating"
@@ -373,7 +368,6 @@ const OFeed = () => {
                           <Image
                             w="20%"
                             boxSize="100px"
-
                             src={
                               ofeed.type === "tree" ? "./icon1.png"
                                 : ofeed.type === "rec" ? "./icon2.png"
@@ -477,13 +471,11 @@ const OFeed = () => {
                                 }}
                               >
                                 {ofeed.pointsGiven} pts{" "}
-
                               </span>
                             </GridItem>
                           </Grid>
                         </Stack>
                         <br></br>
-
                         <AccordionPanel pb={4} fontFamily="inter">
                           <Grid
                             h="200px"
@@ -574,7 +566,6 @@ const OFeed = () => {
                           <Text fontFamily="inter">
                             {ofeed.description}
                           </Text>
-
                         </AccordionPanel>
                       </AccordionItem>
                     );
@@ -615,7 +606,7 @@ const OFeed = () => {
           </TabPanel>
           <TabPanel>
 
-            <Grid
+          <Grid
               h='250px'
               templateColumns={'repeat(2, 1fr)'}
               gap={'5'}
@@ -728,7 +719,6 @@ const OFeed = () => {
                                   ml="0.6vw"
                                 />
                                 {ofeed.currentNumberOfParticipants}
-
                               </span>
                             </GridItem>
                             <GridItem rowSpan={1} colSpan={1}>
@@ -745,7 +735,6 @@ const OFeed = () => {
                           </Grid>
                         </Stack>
                         <br></br>
-
                         <AccordionPanel pb={4}>
                           <Grid
                             h="200px"
@@ -852,11 +841,13 @@ const OFeed = () => {
                     );
                   })}
                 </Accordion>
+
               </GridItem>
               <GridItem rowSpan={1}>
 
                 <FormControl fontFamily="neuton" fontSize="1.5vw">
-                  <input placeholder="Select Another City:" type="text"></input>
+                  <input placeholder="Select Location:" type="text"></input>
+
                 </FormControl>
                 <iframe
                   title="Maps"
@@ -879,7 +870,7 @@ const OFeed = () => {
                   </span>
                 </Text>
               </GridItem>
-            </Grid>
+              </Grid>
           </TabPanel>
         </TabPanels>
       </Tabs>

@@ -11,8 +11,10 @@ import Login from "./Components/Login";
 import NavBarProfile from "./Components/NavBarProfile";
 import CSignUp from "./Components/CSignUp";
 import UProfile from "./Components/UProfile";
-import OProfile from "./Components/OProfile";
+import OProfile from "./Components/OProfile"
 import Shop from "./Components/Shop";
+import CollaboratorShop from "./Components/CollaboratorShop";
+
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { mainTheme } from "./styles/theme";
@@ -23,11 +25,12 @@ import OFeed from "./Components/OFeed";
 import { VFeedData } from "./Components/VFeedData";
 import { OFeedData } from "./Components/OFeedData";
 import { ShopData } from "./Components/ShopData";
-import { ProfileData } from "./Components/ProfileData";
+import {ProfileData} from "./Components/ProfileData"
 
 function App() {
   return (
     <ChakraProvider resetCSS theme={mainTheme}>
+      
       <Routes>
         <Route
           path="/"
@@ -43,7 +46,7 @@ function App() {
           path="/OSignUp"
           element={
             <>
-              <NavBar />
+              <NavBar/>
               <OSignUp />
             </>
           }
@@ -52,7 +55,7 @@ function App() {
           path="/VSignUp"
           element={
             <>
-              <NavBar />
+              <NavBar/>
               <VSignUp />
             </>
           }
@@ -70,7 +73,7 @@ function App() {
           path="/Login"
           element={
             <>
-              <NavBar />
+              <NavBar/>
               <Login />
             </>
           }
@@ -84,21 +87,14 @@ function App() {
             </>
           }
         />
+        <Route path="/OFeed" element={<><NavBarProfile /><OFeed/></>} />
         <Route
-          path="/OFeed"
-          element={
-            <>
-              <NavBarProfile />
-              <OFeed />
-            </>
-          }
-        />
-        <Route
+
           path="/UProfile"
           element={
             <>
               <NavBarProfile />
-              <UProfile />
+              <UProfile feed={VFeedData} />
             </>
           }
         />
@@ -107,11 +103,11 @@ function App() {
           element={
             <>
               <NavBarProfile />
-              <OProfile secondfeed={ProfileData} feed={VFeedData} />
+              <OProfile feed={VFeedData} />
             </>
           }
         />
-        <Route
+      <Route
           path="/Shop"
           element={
             <>
@@ -120,7 +116,17 @@ function App() {
             </>
           }
         />
-      </Routes>
+        <Route
+          path="/CollaboratorShop"
+          element={
+            <>
+              <NavBarProfile />
+              <CollaboratorShop feed={ShopData} />
+            </>
+          }
+        />
+
+        </Routes>
     </ChakraProvider>
   );
 }

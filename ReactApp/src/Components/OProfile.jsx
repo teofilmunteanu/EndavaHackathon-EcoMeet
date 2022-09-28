@@ -116,7 +116,7 @@ const OProfile = ({ feed }) => {
                     fontWeight="1000"
                     letterSpacing="0.05em"
                   >
-                    Charles Ludwigsten
+                    Teofil Munteanu
                   </Heading>
                   <Grid
                     h="40px"
@@ -130,7 +130,7 @@ const OProfile = ({ feed }) => {
                       </Text>
                     </GridItem>
                     <GridItem colSpan={4}>
-                      <Text fontSize="2xl">charles.ludwisgten2@gmail.com</Text>
+                      <Text fontSize="2xl">andreiteofil01@gmail.com</Text>
                     </GridItem>
                   </Grid>
                   <Grid

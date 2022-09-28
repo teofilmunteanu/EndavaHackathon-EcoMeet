@@ -122,11 +122,17 @@ function VSignUp() {
               align={"start"}
               justify={"space-between"}
             >
-              <Button variant="auth" bg="white">
+              <Button variant="auth" bg="white" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "http://localhost:3000/";
+              }}>
                 <ArrowBackIcon />
                 Back
               </Button>
-              <Button variant="auth" type="submit">
+              <Button variant="auth" type="submit" onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "http://localhost:3000/VFeed";
+              }}>
                 Sign up
               </Button>
             </Stack>
