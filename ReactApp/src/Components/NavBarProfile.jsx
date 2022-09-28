@@ -1,4 +1,19 @@
-import {Text, Flex, Image, Grid, GridItem, Box, Avatar, HStack, Progress, Menu, MenuButton, MenuList, MenuItem, MenuDivider} from"@chakra-ui/react";
+import {
+  Text,
+  Flex,
+  Image,
+  Grid,
+  GridItem,
+  Box,
+  Avatar,
+  HStack,
+  Progress,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+} from "@chakra-ui/react";
 import React from "react";
 import "@fontsource/inter";
 import "@fontsource/neuton";
@@ -17,7 +32,7 @@ function NavBarProfile() {
           align="center"
           w="100%"
           h="100%"
-          bgGradient="linear(269.6deg, yellow -7.25%, green.400 48.24% ,  green.200 98.25%)"
+          bgGradient="linear(269.6deg, yellow -100.25%, green.400 48.24% ,  green.200 98.25%)"
         >
           <Image
             src="./LeafLogo.svg"
@@ -104,19 +119,39 @@ function NavBarProfile() {
           <GridItem colSpan={"3"}>
             <Menu>
               <MenuButton>
-              <TriangleDownIcon
-              boxSize={"3vw"}
-              m={"1"}
-              color="white"
-              textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
-            />
+                <TriangleDownIcon
+                  boxSize={"3vw"}
+                  m={"1"}
+                  color="white"
+                  textShadow="0px 1px 1px rgba(0, 0, 0, 0.25)"
+                />
               </MenuButton>
-              <MenuList bgGradient={'linear-gradient(180deg, rgba(255, 203, 48, 0.8) 0%, rgba(44, 170, 110, 0.8) 100%), #FFFFFF;'} opacity={'0.8'}>
-                <MenuItem justifyContent={'center'} _hover={{background: 'rgba(255,255,255,0.4)'}}>Your Profile</MenuItem>
+              <MenuList
+                bgGradient={
+                  "linear-gradient(180deg, rgba(255, 203, 48, 0.8) 0%, rgba(44, 170, 110, 0.8) 100%), #FFFFFF;"
+                }
+                opacity={"0.8"}
+              >
+                <MenuItem
+                  justifyContent={"center"}
+                  _hover={{ background: "rgba(255,255,255,0.4)" }}
+                >
+                  Your Profile
+                </MenuItem>
                 <MenuDivider />
-                <MenuItem justifyContent={'center'} _hover={{background: 'rgba(255,255,255,0.4)'}}>Shop</MenuItem>
+                <MenuItem
+                  justifyContent={"center"}
+                  _hover={{ background: "rgba(255,255,255,0.4)" }}
+                >
+                  Shop
+                </MenuItem>
                 <MenuDivider />
-                <MenuItem justifyContent={'center'} _hover={{background: 'rgba(255,255,255,0.4)'}}>Log Out</MenuItem>
+                <MenuItem
+                  justifyContent={"center"}
+                  _hover={{ background: "rgba(255,255,255,0.4)" }}
+                >
+                  Log Out
+                </MenuItem>
               </MenuList>
             </Menu>
           </GridItem>
