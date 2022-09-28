@@ -116,7 +116,7 @@ export const mainTheme = extendTheme({
         },
       },
     },
-    P: {
+    Text: {
       variants: {
         authEffect: {
           color: "#072C06",
