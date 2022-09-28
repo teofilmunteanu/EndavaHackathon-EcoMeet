@@ -33,10 +33,9 @@ import {
 import { CalendarIcon, Search2Icon, DeleteIcon } from "@chakra-ui/icons";
 import "@fontsource/inter";
 import "@fontsource/neuton";
-import Moment from 'moment';
+import Moment from "react-moment";
 
 const UProfile = () => {
-
   const [achievements, setAchievements] = useState([]);
   useEffect(() => {
     fetch("https://localhost:7256/api/Achievement/GetAchievements", {
@@ -53,22 +52,29 @@ const UProfile = () => {
 
   const [activities, setActivities] = useState([]);
   useEffect(() => {
-    fetch("https://localhost:7256/api/Event/GetPastEventsByVolunteerEmail/test@email.com", {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "https://localhost:7256/api/Event/GetPastEventsByVolunteerEmail/test@email.com",
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setActivities(data));
   }, []);
 
   return (
-
     <Box>
-      <Stack spacing={0} direction="row" align="center" bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)">
+      <Stack
+        spacing={0}
+        direction="row"
+        align="center"
+        bgGradient="linear(269.6deg, yellow.100 -7.25%, green.100 48.24% ,  green.200 98.25%)"
+      >
         <Button
           variant="ghost"
           borderRadius="none"
@@ -393,7 +399,6 @@ const UProfile = () => {
                 </GridItem>
               </Grid>
             </GridItem>
-
           </Grid>
         </GridItem>
         <GridItem
@@ -565,7 +570,7 @@ const UProfile = () => {
             backgroundColor="#F1FFF4"
             h="70%"
             overflowY="scroll"
-            ml="3" 
+            ml="3"
           >
             {activities.map((item, index) => {
               return (
@@ -593,9 +598,12 @@ const UProfile = () => {
                   >
                     <Image
                       src={
-                        item.type === "tree" ? "./icon1.png"
-                        : item.type === "rec" ? "./icon2.png" 
-                        :  "./icon3.png" }
+                        item.type === "tree"
+                          ? "./icon1.png"
+                          : item.type === "rec"
+                          ? "./icon2.png"
+                          : "./icon3.png"
+                      }
                       w="20%"
                       boxSize="100px"
                       overflow="hidden"
@@ -618,9 +626,7 @@ const UProfile = () => {
                         alignItems={"center"}
                         variant="golden"
                       >
-                        <Heading variant="golden">
-                          {item.title}
-                        </Heading>
+                        <Heading variant="golden">{item.title}</Heading>
                         <p variant="auth" fontWeight="400" fontSize="1.5vw">
                           {item.organizationName}
                         </p>
@@ -631,7 +637,8 @@ const UProfile = () => {
                             fontSize: "1.2vw",
                           }}
                         >
-                          Date: {Moment(item.dateEnd).format('DD-MM-YYYY')}
+                          Date:
+                          {Moment(item.dateEnd).format("DD-MM-YYYY")}
                         </span>
                       </Box>
                       <AccordionIcon />
