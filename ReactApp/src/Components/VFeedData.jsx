@@ -30,7 +30,7 @@ export const VFeedData = [
     event_schedule: "Every day -> 10:00 - 14:00",
   },
   {
-    titlu_activitate: "Planting trees in Palas Mall!",
+    titlu_activitate: "Recycling!",
 
     date: "28/09/2022",
 
@@ -42,9 +42,8 @@ export const VFeedData = [
 
     participanti: "15/20",
 
-    descriere_activitate:
-      "În prezent, suprafața României este împădurită într-un procent de aproximativ 30%, conform datelor de la Romsilva, ceea ce o plasează sub media țărilor din Uniunea Europeană – 43%. Mai mult, țara noastră se confruntă cu scădere constantă a suprafeței regenerate în ultimii ani, de la 28.750 de hectare în 2015 la 24.459 de hectare în 2019. În cvasimajoritatea lor, lucrările de regenerare s-au făcut în fondul forestier național, mai puțin de 200 de hectare reprezentând împăduriri pe terenuri din afara fondului forestier terenuri degradate, perdele forestiere.",
-
+    descriere_activitate: "Reciclam plastic in parcul copou.",
+    
     join: true,
 
     // Activitatea ta/ Istoric Activitati
@@ -60,9 +59,9 @@ export const VFeedData = [
     event_schedule: "Every day -> 10:00 - 14:00",
   },
   {
-    titlu_activitate: "Planting trees in Palas Mall!",
+    titlu_activitate: "Ecologizare Platou Bacium",
 
-    date: "28/09/2022",
+    date: "30/09/2022",
 
     nume_firma: "Endava",
 
